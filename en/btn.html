@@ -1,0 +1,119 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>setup</title>
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<!--[if IE]><link rel="stylesheet" href="css/globalie.css" type="text/css" /><![endif]-->
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+
+<style type="text/css">
+
+.btn_left{width:24px; height:41px; position:relative; float:left;background:url(images/btn_l.png) no-repeat}
+.btn_right{width:24px; height:41px;  position:relative; float:left;background:url(images/btn_r.png) no-repeat}
+.btn_mid { position:relative; float:left; height:41px; background:url(images/btn_m.png) repeat-x}
+.btn_text { position:absolute;left:24px;font-size:18px; height:41px;line-height:41px; text-align:center;}
+.btns_left{width:17px; height:31px; position:relative; float:left;}
+.btns_right{width:17px; height:31px;  position:relative; float:left}
+.btns_mid { position:relative; float:left; height:31px;}
+.btns_text { position:absolute;left:17px;font-size:16px; height:31px;line-height:31px; text-align:center;}
+#btn_Skip {position:absolute;top:40px;}
+#btn_Open {position:absolute;top:80px;}
+
+#btn_Close {position:absolute;top:120px;}
+#btn_New {position:absolute;top:160px;}
+
+
+
+</style>
+
+</head>
+<script>
+$(function(){
+	buildButton("btn_Close","Close",{Width:300,Size:"small",Color:"g"});
+	buildButton("btn_Open","Open",{Width:300,Size:"small",Color:"w"});
+	buildButton("btn_Skip","Skip",{Width:300,Size:"small",Color:"y"});
+	buildButton("btn_New","New",{Width:300});
+});
+var btnColorList=new Array();
+btnColorList.push({sort:"g",color:"#66bd00"});
+btnColorList.push({sort:"w",color:"#bdbdbd"});
+btnColorList.push({sort:"y",color:"#ffc000"});
+function getColor(color){
+	
+	for(var i=0;i<btnColorList.length;i++){
+		if(btnColorList[i].sort==color){
+			return btnColorList[i].color;
+		}
+	}
+}
+function buildButton(containerName,label,type){
+	var obj=$('#'+containerName);
+	var buttonWidth,buttonSize,buttonSortColor,buttonColor;
+	buttonSize="normal";
+	buttonSortColor="g";
+	
+	if(type==undefined){
+		buttonWidth=obj.width();
+	}else{
+		if(type.Width !=undefined){
+			buttonWidth=type.Width;
+		}
+		if(type.Size !=undefined){
+			buttonSize=type.Size;
+		}
+		if(type.Color !=undefined){
+			buttonSortColor=type.Color;
+			
+		}
+	}
+	buttonColor=getColor(buttonSortColor);
+	
+	obj.attr("buttonColor",buttonColor);
+	obj.width(buttonWidth);
+	obj.text('');	
+	if(buttonSize=="normal"){
+		$('<div class="btn_left"><img src="images/btn_cover_l.png" width="24" height="41"  alt=""/></div>').appendTo(obj);
+		$('<div class="btn_mid"><img src="images/btn_cover_m.png" width="100%" height="41"  alt=""/></div>').appendTo(obj);
+		$('<div class="btn_text">'+label+'</div>').appendTo(obj);
+		$('<div class="btn_right"><img src="images/btn_cover_r.png" width="24" height="41"  alt=""/></div>').appendTo(obj);
+		$('#'+containerName+' div').eq(1).width(buttonWidth-48);
+		$('#'+containerName+' div').eq(2).width(buttonWidth-48);
+	}
+	if(buttonSize=="small"){
+		$('<div class="btns_left"><img src="images/btns_lr_'+buttonSortColor+'.png" width="17" height="31"  alt=""/></div>').appendTo(obj);
+		$('<div class="btns_mid"><img src="images/btns_mr_'+buttonSortColor+'.png" width="100%" height="31"  alt=""/></div>').appendTo(obj);
+		$('<div class="btns_text">'+label+'</div>').appendTo(obj);
+		$('<div class="btns_right"><img src="images/btns_rr_'+buttonSortColor+'.png" width="17" height="31"  alt=""/></div>').appendTo(obj);
+		$('#'+containerName+' div').eq(1).width(buttonWidth-34);
+		$('#'+containerName+' div').eq(2).width(buttonWidth-34);
+		$('#'+containerName+' div').eq(0).css("background",'url(images/btns_l_'+buttonSortColor+'.png) no-repeat');
+		$('#'+containerName+' div').eq(1).css("background",'url(images/btns_m_'+buttonSortColor+'.png) repeat-x');
+		$('#'+containerName+' div').eq(3).css("background",'url(images/btns_r_'+buttonSortColor+'.png) no-repeat');
+
+	}
+	$('#'+containerName+' div').eq(2).css("color","white");
+	obj.hover(function(){
+        	$('#'+containerName+' div img').each(function(){$(this).stop(false,true).fadeIn("fast");});
+			$('#'+containerName+' div').eq(2).css("color",$(this).attr("buttonColor"));
+			
+    	},function(){
+        	$('#'+containerName+' div img').each(function(){$(this).stop(false,true).fadeOut("fast");});	
+			$('#'+containerName+' div').eq(2).css("color","white");
+    });
+	$('#'+containerName+' div img').each(function(){$(this).hide();});	
+	$('#'+containerName+' div').each(function(){$(this).css("cursor","pointer");});	 
+
+}
+
+</script>
+<body>
+<div id="btn_Close"> </div>
+<div id="btn_Open"> </div>
+<div id="btn_Skip"> </div>
+<div id="btn_New"> </div>
+</body>
+</html>

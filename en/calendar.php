@@ -1,0 +1,270 @@
+<?php
+
+$lang="en";
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>calc</title>
+<link href="../css/global.css" type="text/css" rel="stylesheet" />
+<!--[if IE]><link rel="stylesheet" href="../css/globalie_<?php echo $lang; ?>.css" type="text/css" /><![endif]-->
+
+<script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.cookie.js"></script>
+<style type="text/css">
+body {
+	font-size:13px;
+	font-family:'Conv_KlavikaRegular-Plain',Arial, sans-serif;
+}
+.G_unselected{
+	-moz-user-select: none;  
+    -khtml-user-select: none;  
+    user-select: none; cursor:default;		
+
+}
+.main_box {
+	
+	width:210px;
+	height:216px;
+	left: 0px;
+	top: 0px;
+	background:url(../images/calc_back.png) no-repeat;
+	padding:4px;
+}
+.titleBar {
+	position:absolute;
+	height:33px;
+	width:210px;
+	background:url(../images/cal_back.jpg)
+	
+}
+.titleBar div{
+	color:white;
+	line-height:33px;
+	text-align:center;
+	text-shadow:1px 1px 1px #333333;
+	font-weight:bold;
+}
+.btn_left{
+	float:left;
+	position:relative;
+	width:40px;
+	cursor:pointer;
+
+}
+.btn_right{
+	float:right;
+	position:relative;
+	width:40px;
+	cursor:pointer;
+}
+.monthName{
+	float:left;
+	position:absolute;
+	left:40px;
+	width:130px;
+}
+.numberArea{
+	float:left;
+	position:absolute;
+	left:4px;
+	top:37px;
+	width:210px;
+	height:180px;
+}
+.numberArea div{
+	width:30px;
+	height:30px;
+	float:left;
+	line-height:30px;
+	text-align:center;
+	cursor:default;
+
+}
+.today {
+	/*background:url(../images/calc_today.jpg) no-repeat;*/
+	background-color:#66bd00;color:white;
+	
+}
+.clickday { background:url(../images/day_back.jpg) repeat-x; color:#ff8b00}
+.currentOver{
+	background-color:#ffa200;color:white;
+}
+</style>
+</head>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-7840951-15']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+var LANG="<?php echo $lang; ?>";
+</script>
+
+<body style="margin:0px">
+<div class="main_box">
+	
+  <div class="titleBar">
+		<div class="btn_left" onclick="changeMonth(-1)">&lt;&lt;</div>
+		<div class="monthName G_unselected" id="monthName">June</div><div class="btn_right" onclick="changeMonth(1)">&gt;&gt;</div>
+	</div>
+  
+  	<div class="numberArea" id="numberArea">
+    
+    </div>
+  	
+</div>
+<div id="info"> </div>
+<script>
+	var DaysInEachMonth=new Array(31,31,28,31,30,31,30,31,31,30,31,30,31);
+	var monthNameList=new Array("","Janeary","Feberay","March","April","May","June","July","August","September","October","Novenber","December");
+	var monthNameSortList=new Array("","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec");
+	function changeMonth(dir){
+		Nmonth+=dir;
+		window.location.href="calendar.php?year="+Nyear+"&month="+Nmonth+"&day="+Nday;
+	}
+
+	function request(paras){
+		var url = location.href;
+		var paraString = url.substring(url.indexOf("?")+1,url.length).split("&");
+		var paraObj = {};
+		for (i=0; j=paraString[i]; i++){
+			paraObj[j.substring(0,j.indexOf("=")).toLowerCase()] = j.substring(j.indexOf("=")+1,j.length);
+		}
+		var returnValue = paraObj[paras.toLowerCase()];
+		if(typeof(returnValue)=="undefined"){
+			return "";
+		}else{
+			return returnValue;
+		}
+	}
+
+	function jumpToDay(event){
+		
+		var nday=event.data.day;
+		$("#d"+nday).removeClass("currentOver");
+		window.parent.changeDate(Nyear,Nmonth,nday);
+	}
+	
+	function setupNewDay(nday){
+		//alert($('#numberArea').html());
+		$('#numberArea div').each(function(){
+			if(Number($(this).html())==nday && $(this).attr("mode")==1){
+				$(this).removeClass("currentOver");
+				$(this).addClass("today");
+			}else{
+				$(this).removeClass("today");
+			}
+			
+		});
+
+	}
+	//$('#info').html(strs);
+	var Nyear,Nmonth,Nday;
+	$(function(){
+		var back_ucode=$.cookie('back_ucode');
+		var back_scode=$.cookie('back_scode');
+		var back_ecode=$.cookie('back_ecode');
+		Nyear=request("year");
+		if(Nyear == ""){
+			Nyear=(new Date()).getFullYear();
+		}else{
+			Nyear=Number(Nyear);
+		}
+		Nmonth=request("month");
+		if(Nmonth == ""){
+			Nmonth=(new Date()).getMonth();
+		}else{
+			Nmonth=Number(Nmonth);
+			if(Nmonth==0){
+				Nmonth=12;
+				Nyear--;
+			}
+			if(Nmonth==13){
+				Nmonth=1;
+				Nyear++;
+			}
+		}
+		Nday=request("day");
+		if(Nday == ""){
+			Nday=(new Date()).getDate();
+		}else{
+			Nday=Number(Nday);
+		}
+		if(Nday>DaysInEachMonth[Nmonth]){Nday=DaysInEachMonth[Nmonth];}
+		//alert(Nday)
+		var day = new Date(Nyear+"/"+Nmonth+"/1"); //将日期值格式化
+		var firstDayofNewMonth=day.getDay();
+		var dayInList = new Array();
+		var calBackColor=new Array("#66bd00","#9c9c9c","#ffa200","#454545","#e0e0e0");
+		strs="";
+		for(i=0;i<firstDayofNewMonth;i++){
+			dayInList.push({day:DaysInEachMonth[Nmonth-1]-firstDayofNewMonth+1+i,color:4,clickMode:0});
+			strs+="i:"+i+" day:"+(DaysInEachMonth[Nmonth-1]-firstDayofNewMonth+1+i)+"<br>";
+		}
+		for(i=1;i<=DaysInEachMonth[Nmonth];i++){
+			fontColorID=Number(Math.random()*4);
+			dayInList.push({day:i,color:fontColorID,clickMode:1});
+			strs+="i:"+i+" day:"+i+"<br>";
+		}
+		for(i=1;i<=14;i++){
+			if(dayInList.length<42){
+				dayInList.push({day:i,color:4,clickMode:0});
+				strs+="i:"+i+" day:"+i+"<br>";
+			}else{
+				i=15;
+			}
+		}
+		for(i=0;i<42;i++){
+			childDiv=$('<div>'+dayInList[i].day+'</div>');
+			childDiv.id="day"+i;
+			childDiv.css("color",calBackColor[dayInList[i].color]);
+			if(Nday==dayInList[i].day && dayInList[i].clickMode==1){
+				childDiv.addClass("today");
+			}
+			if(dayInList[i].clickMode==1){
+				//childDiv.css("cursor","pointer")
+				childDiv.attr("id","d"+dayInList[i].day);
+				childDiv.attr("day",dayInList[i].day);
+				
+			}
+			childDiv.appendTo($('#numberArea'));
+		}
+		$("#monthName").html(monthNameList[Nmonth]+". "+Nyear) ;
+		var outData={ucode:back_ucode,scode:back_scode,dates:Nyear+"-"+Nmonth+"-"+Nday,ecode:back_ecode,source:"w"};
+		$.ajax({type: "POST",contentType: "application/json",dataType: "json",
+			url:'../res/getdatelist.php',
+			data:JSON.stringify(outData), 
+			success: function (msg) {
+				dealData(msg);
+			}
+		});	
+	});
+	function dealData(r){
+	
+		var dataList=r.data;
+		back_ecode=r.ecode;
+		$.cookie('back_ecode', back_ecode);
+		
+		for(i=0;i<dataList.length;i++){
+			var obj=$("#d"+dataList[i]);
+			obj.css("cursor","pointer");
+			obj.addClass("clickday");
+			obj.bind("click",{day:obj.attr("day")},jumpToDay);	
+			obj.bind({mouseenter:function(event){$(this).addClass("currentOver");}});
+			obj.bind({mouseleave:function(event){$(this).removeClass("currentOver");}});
+		}
+	}
+	
+</script>
+
+<img src="../images/calc.png" width="218" height="194" />
+</body>
+</html>

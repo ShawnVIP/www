@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>testing page</title>
+</head>
+<link href="css/main.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="js/ui-1.10.0/ui-lightness/jquery-ui-1.10.0.custom.min.css" type="text/css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.cookie.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript" src="js/testing.js"></script>
+
+<body>
+<table width="300"><tr><th colspan=2>sendding message</th></tr><tr><Td>fcode:</Td><td><input type="text" id="fcode" value=""></td></tr>
+<tr><Td>message:</Td><td><input type="text" id="message" value=""></td></tr>
+<tr><td colspan=2  align=center><div id="submitmessage">submit</div></td></tr>
+<tr><td colspan=2  ><div id="returnmessage"></div></td></tr>
+
+</table>
+<p>&nbsp;</p>
+<table width="300">
+  <tr>
+    <th colspan=2>get message</th>
+  </tr>
+  <tr>
+    <Td>items per page:</Td>
+    <td><input type="text" id="numberPerPage" value="10"></td>
+  </tr>
+  <tr>
+    <Td>page:</Td>
+    <td><input type="text" id="pageNumber" value="1"></td>
+  </tr>
+    <tr>
+    <Td>mode:</Td>
+    <td><p>
+      <label>
+        <input name="readMode" type="radio" id="readMode_0" value="1" >
+        read</label>
+      <br>
+      <label>
+        <input name="readMode" type="radio" id="readMode_1" value="0" checked>
+        unread</label>
+      <br>
+      <label>
+        <input type="radio" name="readMode" value="2" id="readMode_2">
+        total</label>
+      <br>
+    </p></td>
+  </tr>
+  <tr>
+    <td colspan=2  align=center><div id="getmessage">submit</div></td>
+  </tr>
+  <tr>
+    <td colspan=2 ><div id="returnget"></div></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>
