@@ -10,6 +10,8 @@ $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"CvYdlBkGHxgUfH3d","source":"w"}';
 $obj=json_decode($json_string); 
 
+$mode=$obj -> mode;
+$scode=$obj -> scode;
 $email=$obj -> email;
 
 
@@ -18,7 +20,12 @@ $email=$obj -> email;
 $conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
 mysql_select_db($mysql_database,$conn);
 $sensor=array();
-$sql="select a.userid,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.email='$email' and a.userid=c.userid  and b.id=c.sensorid";
+if($mode=="mail"){
+	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.email='$email' and a.userid=c.userid  and b.id=c.sensorid";
+}else{
+	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.userid=c.userid  and b.id=$scode and c.sensorid=$scode";	
+}
+
 //echo $sql;
 $result=mysql_query($sql,$conn); 
 if($row=mysql_fetch_array($result)){
@@ -30,7 +37,8 @@ if($row=mysql_fetch_array($result)){
 	array_push($value,$row['userid']);
 	array_push($vname,"sensorid");
 	array_push($value,$row['id']);
-
+	array_push($vname,"email");
+	array_push($value,$row['email']);
 	
 
 	array_push($vname,"power");

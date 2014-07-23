@@ -11,7 +11,7 @@ $ecode=$obj -> ecode;
 $source=$obj -> source;
 $action=$obj -> action;
 $reqcode=$obj -> reqcode;
-
+$now=date("Y-m-d H:i:s");
 checkuser($ucode,$scode,$ecode,$source);
 
 if($action=="accept"){$accept=1;}else{$accept=2;}
@@ -49,7 +49,7 @@ if($accept==1){
 	mysql_query("SET CHARACTER_SET_RESULTS=utf8");
 
 
-	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($reqcode,$scode,'$now','$reltome',0)";
+	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($reqcode,$scode,'$now','$reltome',1)";
 	$result=mysql_query($sql, $conn);
 	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($scode,$reqcode,'$now','$relforme',$guardian)";
 	$result=mysql_query($sql, $conn);

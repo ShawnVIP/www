@@ -2,22 +2,15 @@
 
 $(function(){
 	$('#search').button({icons:{primary:"ui-icon-plusthick"}});
+	$('#searchid').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#search" ).click(function() {searchByEmail()});
+	$( "#searchid" ).click(function() {searchByID()});
 	$('#changeTime').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#changeTime" ).click(function() {getDailyData()});
 });
-function searchByEmail(){
-	$('#alertinfo').html("search this email, please wait...");
-	$( "#dialog-modal" ).dialog({height: 140,modal: true});
+function searchByID(){
 	
-	//var outData={ucode:100,data:outList,sensorid:1};
-	/*
-	var newData=[];
-	for(i=0;i<20;i++){
-		newData.push(outList[i]);
-	}
-	*/
-	var outData={email:$('#email').val()};
+	var outData={mode:"id",scode:$('#scode').val()};
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
 		url:'res/admin_getinfo.php',
 		data:JSON.stringify(outData), 
@@ -27,6 +20,7 @@ function searchByEmail(){
 				return;
 			}
 			info=msg.sensorList[0]
+			$('#email').val(info.email)
 			$('#userid').text(info.userid);
 			$('#sensorid').text(info.sensorid);
 			$('#language').text(info.language);
@@ -62,6 +56,55 @@ function searchByEmail(){
     });	
 	
 }
+function searchByEmail(){
+	
+	var outData={mode:"mail",email:$('#email').val()};
+	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
+		url:'res/admin_getinfo.php',
+		data:JSON.stringify(outData), 
+        success: function (msg) {
+			if(msg.status != 200){
+				$('#alertinfo').html("Nothing found!");
+				return;
+			}
+			info=msg.sensorList[0]
+			$('#userid').text(info.userid);
+			$('#sensorid').text(info.sensorid);
+			$('#scode').val(info.sensorid)
+			$('#language').text(info.language);
+			$('#power').text(info.power);
+			$('#lastupdate').text(info.lastupdate);
+			$('#nickname').text(info.nickname);
+			$('#headimage').text(info.headimage);
+			$('#headpic').attr("src","upload/"+info.headimage);
+			$('#dob').text(info.dob);
+			$('#unit').text(info.unit);
+			$('#gender').text(info.gender);
+			$('#updated').text(info.updated);
+			$('#defaultgoal').text(info.defaultgoal);
+			$('#fallalert').text(info.fallalert);
+			$('#positionalert').text(info.positionalert);
+			$('#para0').text(info.para0);
+			$('#para1').text(info.para1);
+			$('#para2').text(info.para2);
+			$('#para3').text(info.para3);
+			$('#para4').text(info.para4);
+			$('#detailid').text(info.detailid);
+			$('#usertype').text(info.usertype);
+			$('#createdate').text(info.createdate);
+			$('#timezone').text(info.timezone);
+			$('#age').text(info.age);
+			
+			getMemberData();
+			
+        },
+ 		error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		$('#alertinfo').html("unknown error!");
+        }
+    });	
+	
+}
+
 function getMemberData(){
 	$('#alertinfo').html("get member info, please wait...");
 	$( "#dialog-modal" ).dialog({height: 140,modal: true});

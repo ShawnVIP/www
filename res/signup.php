@@ -79,7 +79,7 @@ $stmt->bind_param("sssssss", $email,$password,$now,$rip,$userid,$salt,$agreemail
 $stmt->execute();
 
 
-$sql = "insert into sensorinfo (unit,createdate,lastupdate,ip,userid,headimage,gender,seedkey,nickname) values ('Metric','$now','$now','$rip','$userid','avatar.gif','M','$kcode','')"; 
+$sql = "insert into sensorinfo (unit,createdate,lastupdate,ip,userid,headimage,gender,seedkey,nickname) values ('Metric','$now','$now','$rip','$userid','avatar.gif','M','$kcode','unnaming')"; 
 
 //echo $sql;
 $result=mysql_query($sql,$conn); 
