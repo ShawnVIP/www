@@ -5,7 +5,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-//$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-1","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
+//$json_string='{"type":"friend","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-3","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -59,17 +59,14 @@ $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_d
 */
 $memberList=array();
 
-$sql=" select headimage,nickname FROM sensorinfo where id=?";
+$sql=" select headimage,nickname FROM sensorinfo where id=$scode";
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->bind_result($headimage,$nickname);
-$stmt->fetch();
-if ($type=="family"){
-	array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'headimage'=>$headimage,'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
-}
+$result=mysql_query($sql,$conn); 
+$row=mysql_fetch_array($result);
+$headimage=$row['headimage'];
+$nickname=$row['nickname'];
+
+array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 
 if($type=="friend"){
 	$extInfo=" and a.relation =17";
@@ -93,7 +90,7 @@ while($row=mysql_fetch_array($result)){
 	while($stmt->fetch()){
 	*/
 	
-	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
 
@@ -115,7 +112,7 @@ $valueList=array();
 $tempdate=$fromdate;
 while($tempdate<=$enddate){
 	array_push($dateList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'dayid'=>date("d",strtotime($tempdate))));
-	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestoken'=>0,'distancetoken'=>0,'steptoken'=>0,'sleeptoken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0));
+	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0));
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
 }
 
@@ -178,7 +175,7 @@ while($row=mysql_fetch_array($result)){
 	$did=findDatefromList($row['date']);
 	for($k=0;$k<4;$k++){;
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=$row[$valueNameList[$k].'goal'];
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'token']=$row['total' .$valueNameList[$k]];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
 }
 
@@ -200,7 +197,7 @@ for($i=0;$i<count($memberList);$i++){
 
 //echo "for month:" .$startCurrentMonth. "   for week:" .$startCurrentWeek . "   for day:" .$startCurrentDay ;
 
-$valueNameValue=array('calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0, 'daynumber'=>0);
+$valueNameValue=array('calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0, 'caloriesgoal'=>0,'distancegoal'=>0,'stepgoal'=>0,'sleepgoal'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'daynumber'=>0);
 
 
 $summary=array('day'=> $valueNameValue,'week'=> $valueNameValue,'month'=> $valueNameValue);
@@ -217,7 +214,7 @@ for($i=0;$i<count($memberList);$i++){
 				$memberList[$i][goalList][0][$j][$valueNameList[$k]]=$memberList[$i][goalList][0][$j-1][$valueNameList[$k]];
 			}
 			//-------求和
-			$value=$memberList[$i][goalList][0][$j][$valueNameList[$k].'token'];
+			$value=$memberList[$i][goalList][0][$j][$valueNameList[$k].'taken'];
 			$goal=$memberList[$i][goalList][0][$j][$valueNameList[$k]];
 				
 			if($goal==0){$percent=0;}else{$percent=$value/$goal;}
@@ -226,21 +223,34 @@ for($i=0;$i<count($memberList);$i++){
 			$memberList[$i][goalList][0][$j][$valueNameList[$k].'per']=round($percent,5);	
 			
 			if($j>=$startCurrentMonth){
-
+				$memberList[$i][percentage][month][$valueNameList[$k].'goal']+=$goal;
+				$memberList[$i][percentage][month][$valueNameList[$k].'taken']+=$value;
+				
 				$memberList[$i][percentage][month][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][month][daynumber]++;}
 				
+				$summary[month][$valueNameList[$k].'goal']+=$goal;
+				$summary[month][$valueNameList[$k].'taken']+=$value;
+				
 			}
 			if($j>=$startCurrentWeek){
-
+				$memberList[$i][percentage][week][$valueNameList[$k].'goal']+=$goal;
+				$memberList[$i][percentage][week][$valueNameList[$k].'taken']+=$value;
 				$memberList[$i][percentage][week][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][week][daynumber]++;}
+				
+				$summary[week][$valueNameList[$k].'goal']+=$goal;
+				$summary[week][$valueNameList[$k].'taken']+=$value;
 			}
 			if($j>=$startCurrentDay){
 				
-
+				$memberList[$i][percentage][day][$valueNameList[$k].'goal']+=$goal;
+				$memberList[$i][percentage][day][$valueNameList[$k].'taken']+=$value;
 				$memberList[$i][percentage][day][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][day][daynumber]++;}
+				
+				$summary[day][$valueNameList[$k].'goal']+=$goal;
+				$summary[day][$valueNameList[$k].'taken']+=$value;
 				
 			}
 		}
@@ -260,7 +270,7 @@ for($i=0;$i<count($memberList);$i++){
 
 		}
 	}
-	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'headimage'=>$memberList[$i][headimage],'percentage'=>$memberList[$i][percentage]));
+	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage]));
 	
 }
 

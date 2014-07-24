@@ -2,19 +2,22 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-//$now=date("Y-m-d H:i:s");
-//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"640S9VQGT5x80rsE","source":"w","stamp":"2013-8-20 17:55:52","alertlist":[{"stamp":"'.$now.'","type":129}]}';
+$now=date("Y-m-d H:i:s");
+//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"616","ecode":"640S9VQGT5x80rsE","source":"w","stamp":"2013-8-20 17:55:52","alertlist":[{"stamp":"'.$now.'","type":129}]}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
 $scode=$obj -> scode;
 $ecode=$obj -> ecode;
 $source=$obj -> source;
+$lang=$obj -> lang;
 
 
 $alertlist=$obj -> alertlist;
 
-
+if($lang==""){
+	$lang="cn";
+}
 checkuser($ucode,$scode,$ecode,$source);
 
 
@@ -33,76 +36,65 @@ for($i=0;$i<count($alertlist);$i++){
 }
 $stmt->close();
 
-$sql="select nickname from sensorinfo where id=$scode";
-		//echo $sql;
-$result=mysql_query($sql,$conn); 
-$row=mysql_fetch_array($result);
-$nickname=$row['nickname'];
-		
-		
-//$sql="SELECT  devicetoken  FROM devicelist where sensorid=?";
-//$sql="SELECT  sensorid,devicetoken  FROM devicelist where sensorid in (select sensorid from familylist where guardian=1 and friendid=? and delmark=0)";
-//$sql="SELECT  a.nickname,b.sensorid,b.devicetoken  FROM sensorinfo as a, devicelist as b where b.sensorid in (select sensorid from familylist where guardian=1 and friendid=? and delmark=0) and a.id=b.sensorid";
-$sql="SELECT  b.sensorid,b.devicetoken,c.relation  FROM sensorinfo as a, devicelist as b, familylist as c where b.sensorid in (select sensorid from familylist where guardian=1 and friendid=? and delmark=0) and a.id=b.sensorid and c.friendid=? and b.delmark=0 and c.delmark=0 and c.sensorid=a.id";
-
-//echo "SELECT  a.nickname,b.sensorid,b.devicetoken,c.relation  FROM sensorinfo as a, devicelist as b, familylist as c where b.sensorid in (select sensorid from familylist where guardian=1 and friendid=$scode and delmark=0) and a.id=b.sensorid and c.friendid=$scode and b.delmark=0 and c.delmark=0 and c.sensorid=a.id";
-
-
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("ss", $scode,$scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($sensorid,$devicetoken,$relation);
-
+$sendlist=array();
 $datalist=array();
-$popinfo="";
-$pmode=200;
-while($stmt->fetch()){
+$myname="";
+//--------------------------
+$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian=1) or id=$scode)  and devicetoken <> ''";
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+	$sqla="select b." . $row['language'] . "_name as relation from familylist as a, relation as b where sensorid=" . $row['id']. " and friendid=$scode and b.id=a.relation";
+	$resulta=mysql_query($sqla,$conn); 
+	if($rowa=mysql_fetch_array($resulta)){
+		$relation=$rowa['relation'];
+	}else{
+		$relation="";
+		$sendername=$row['nickname'];
+	}
+	array_push($sendlist,array('receiverid'=> $row['id'],'nickname'=>$row['nickname'],'devicetoken'=>str_replace(" ","",$row['devicetoken']),'language'=>$row['language'],'relation'=>$relation));
+}
+
+//echo json_encode($sendlist);
+
+
+for($j=0;$j<count($sendlist);$j++){
 	for($i=0;$i<count($alertlist);$i++){
-		$devicetoken=str_replace(" ","",$devicetoken);
+		
 		$typeid=$alertlist[$i] -> type;
 		$falltime=$alertlist[$i] -> stamp;
 		$message="";
 		
-		$sql="select nickname,language from sensorinfo where id=$sensorid";
-		//echo $sql;
-		$result=mysql_query($sql,$conn); 
-		$row=mysql_fetch_array($result);
-		$lang=$row['language'];
-		$rname=$row['nickname'];
 		
-		
-		
-		
-		$sql="select " . $lang . "_name as rname, relation from relation where id=$relation";
-		//echo $sql;
-		$result=mysql_query($sql,$conn); 
-		$row=mysql_fetch_array($result);
-		$rname=$row["rname"];
-		$rtype=$row["relation"];
-		
-		
-		if($lang=="EN"){
+		if($sendlist[$j][language]=="EN"){
+			if($sendlist[$j][relation]==""){
+				$startmsg=$sendlist[$j][nickname] . ", you";
+			}else{
+				$startmsg=$sendlist[$j][nickname]. ", your ".$sendlist[$j][relation]." " .$sendername;
+			}
 			if($typeid==1){
-				$message="Your $rname $nickname fall down at $falltime.";
+				$message=$startmsg . "fall down at $falltime.";
 			}
 			if($typeid==129){
-				$message="Your $rname $nickname fall down at $falltime and then press button to cancel the alert.";
+				$message=$startmsg ." fall down at $falltime and then press button to cancel the alert.";
 			}
 		}else{
+			if($sendlist[$j][relation]==""){
+				$startmsg=$sendlist[$j][nickname]. ",您";
+			}else{
+				$startmsg=$sendlist[$j][nickname]. ",您的 ".$sendlist[$j][relation]." " .$sendername;
+			}
 			if($typeid==1){
-				$message="您的 $rname $nickname 在 $falltime 跌倒了.";
+				$message=$startmsg ."在 $falltime 跌倒了.";
 			}
 			if($typeid==129){
-				$message="您的 $rname $nickname 在 $falltime 跌倒了，并随后按键取消了跌倒警告.";
+				$message=$startmsg."在 $falltime 跌倒了，并随后按键取消了跌倒警告.";
 			}
 		
 		}
 		//echo $message;
 		if($message !=""){
-			popmessage($devicetoken,$message);
-			array_push($datalist,array('senderid'=>$scode,'receivername'=>$rname,'receiverid'=>$sensorid,'devicetoken'=> $devicetoken,'status'=>$pmode, 'extinfo'=>$popinfo, 'message' => $message));
+			//popmessage($sendlist[$j][devicetoken],$message);
+			array_push($datalist,array('senderid'=>$scode,'receivername'=>$sendlist[$j][nickname],'receiverid'=>$sendlist[$j][receiverid],'devicetoken'=> $sendlist[$j][devicetoken],'status'=>$pmode, 'extinfo'=>$popinfo, 'message' => $message));
 		}
 	}
 }

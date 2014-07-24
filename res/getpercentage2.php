@@ -5,7 +5,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"type":"friend","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-3","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
+$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-3","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -179,7 +179,6 @@ while($row=mysql_fetch_array($result)){
 	}
 }
 
-
 //-----------如果第一个值为0，需要从数据库中调取最近一次不为0的值赋值给第一个--------
 for($i=0;$i<count($memberList);$i++){
 	for($k=0;$k<4;$k++){
@@ -194,9 +193,6 @@ for($i=0;$i<count($memberList);$i++){
 		}
 	}
 }
-
-
-
 //--------------从第一个开始顺序赋值-------
 
 //echo "for month:" .$startCurrentMonth. "   for week:" .$startCurrentWeek . "   for day:" .$startCurrentDay ;
@@ -208,7 +204,6 @@ $summary=array('day'=> $valueNameValue,'week'=> $valueNameValue,'month'=> $value
 
 $periodNameList=array('day','week','month');
 
-//-----------将空白的goal值赋值为上一个goal值--------------------
 for($i=0;$i<count($memberList);$i++){
 	
 	$memberList[$i][percentage]=array("day"=>$valueNameValue,"week"=>$valueNameValue,"month"=>$valueNameValue);
@@ -230,40 +225,38 @@ for($i=0;$i<count($memberList);$i++){
 			if($j>=$startCurrentMonth){
 				$memberList[$i][percentage][month][$valueNameList[$k].'goal']+=$goal;
 				$memberList[$i][percentage][month][$valueNameList[$k].'taken']+=$value;
-				//$summary[month][$valueNameList[$k].'goal']+=$goal;
-				//$summary[month][$valueNameList[$k].'taken']+=$value;
 				
 				$memberList[$i][percentage][month][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][month][daynumber]++;}
 				
+				$summary[month][$valueNameList[$k].'goal']+=$goal;
+				$summary[month][$valueNameList[$k].'taken']+=$value;
 				
 			}
 			if($j>=$startCurrentWeek){
 				$memberList[$i][percentage][week][$valueNameList[$k].'goal']+=$goal;
 				$memberList[$i][percentage][week][$valueNameList[$k].'taken']+=$value;
-				//$summary[week][$valueNameList[$k].'goal']+=$goal;
-				//$summary[week][$valueNameList[$k].'taken']+=$value;
-				
 				$memberList[$i][percentage][week][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][week][daynumber]++;}
+				
+				$summary[week][$valueNameList[$k].'goal']+=$goal;
+				$summary[week][$valueNameList[$k].'taken']+=$value;
 			}
-			if($j==$startCurrentDay){
+			if($j>=$startCurrentDay){
+				
 				$memberList[$i][percentage][day][$valueNameList[$k].'goal']+=$goal;
 				$memberList[$i][percentage][day][$valueNameList[$k].'taken']+=$value;
-				//$summary[day][$valueNameList[$k].'goal']+=$goal;
-				//$summary[day][$valueNameList[$k].'taken']+=$value;
-				
 				$memberList[$i][percentage][day][$valueNameList[$k]]+=$percent;
 				if($k==0){$memberList[$i][percentage][day][daynumber]++;}
 				
+				$summary[day][$valueNameList[$k].'goal']+=$goal;
+				$summary[day][$valueNameList[$k].'taken']+=$value;
+				
 			}
-			$summary[$periodNameList[$j]][$valueNameList[$k]]+=$memberList[$i][percentage][$periodNameList[$j]][$valueNameList[$k]];
-			
 		}
 		
 	}
 }
-//echo json_encode($memberList);
 
 $outdata=array();
 
@@ -272,7 +265,7 @@ for($i=0;$i<count($memberList);$i++){
 	for($k=0;$k<4;$k++){
 		for($j=0;$j<3;$j++){
 			$temp=$memberList[$i][percentage][$periodNameList[$j]][$valueNameList[$k]]/$memberList[$i][percentage][$periodNameList[$j]][daynumber];
-			$memberList[$i][percentage][$periodNameList[$j]][$valueNameList[$k]]=round($temp,2);
+			$memberList[$i][percentage][$periodNameList[$j]][$valueNameList[$k]]=round($temp,5);
 			
 
 		}
@@ -280,7 +273,6 @@ for($i=0;$i<count($memberList);$i++){
 	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage]));
 	
 }
-
 
 
 for($j=0;$j<3;$j++){

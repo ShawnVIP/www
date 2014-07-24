@@ -197,7 +197,7 @@ function contuploadData(){
 	$('#alertinfo').html("uploading action data, please wait...");
 	$('#out').html(JSON.stringify(outData));
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
-		url:'../res/upload_data.php',
+		url:'../res/upload_dataa.php',
 		data:JSON.stringify(outData), 
         success: function (msg) {
 			uploadAlert();

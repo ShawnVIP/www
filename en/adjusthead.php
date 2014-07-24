@@ -60,7 +60,7 @@ body {margin:0px}
 </head>
 <body><div id="myContent">
 <div id="backpic" class="pickpic"><img src="../upload/<?php echo $pic; ?>"  /> </div>
-<div id="choosepicture" class="btnBack1">Choose head picture</div>
+<div id="choosepicture" class="btnBack1 pickpic" >Choose head picture</div>
 <div id="mainarea">
 	<form action="../res/uploadhead.php" method="post" enctype="multipart/form-data">
     <p>Pictures:

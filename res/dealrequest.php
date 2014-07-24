@@ -49,9 +49,9 @@ if($accept==1){
 	mysql_query("SET CHARACTER_SET_RESULTS=utf8");
 
 
-	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($reqcode,$scode,'$now','$reltome',1)";
+	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($reqcode,$scode,'$now','$reltome',$guardian)";
 	$result=mysql_query($sql, $conn);
-	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($scode,$reqcode,'$now','$relforme',$guardian)";
+	$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($scode,$reqcode,'$now','$relforme',0)";
 	$result=mysql_query($sql, $conn);
 	
 
