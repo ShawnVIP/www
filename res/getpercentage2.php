@@ -66,7 +66,7 @@ $row=mysql_fetch_array($result);
 $headimage=$row['headimage'];
 $nickname=$row['nickname'];
 
-array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 
 if($type=="friend"){
 	$extInfo=" and a.relation =17";
@@ -80,17 +80,7 @@ $sql="SELECT a.friendid, a.relation, b.nickname, b.headimage, c." . $lang . "_na
 
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
-	/*	
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-	$stmt->bind_param("s", $scode);
-	$stmt->execute();
-	$stmt->store_result();
-	$stmt->bind_result($friendid, $relation,$nickname,$headimage,$relname);
-	while($stmt->fetch()){
-	*/
-	
-	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
 
@@ -109,10 +99,13 @@ $valueNameList=array('calories','distance','step','sleep');
 
 
 $valueList=array();
+$dayList=array();
 $tempdate=$fromdate;
 while($tempdate<=$enddate){
 	array_push($dateList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'dayid'=>date("d",strtotime($tempdate))));
 	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0));
+	
+	array_push($dayList,array('date'=> $tempdate,'alert'=>array(),'station'=>array()));
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
 }
 
@@ -142,6 +135,8 @@ for($i=0;$i<count($memberList);$i++){
 		$idlist.="," . $memberList[$i][scode];
 	}
 	array_push($memberList[$i][goalList],$valueList);
+	//-----------添加空白警告信息----------------------
+	array_push($memberList[$i][alertlist],$dayList);
 }
 //echo json_encode($dateList); 
 //echo json_encode($memberList);  
@@ -158,6 +153,7 @@ function findIDfromList($id){
 }
 function findDatefromList($date){
 	global $dateList;
+	$date=date("Y-m-d",strtotime($date));
 	for($i=0;$i<count($dateList);$i++){
 		if($dateList[$i][date]==$date){
 			return $i;
@@ -178,6 +174,17 @@ while($row=mysql_fetch_array($result)){
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
 }
+//---------------------add in alert
+$sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and alertdate<='$enddate' and delmark=0";
+//echo $sql;
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+	$sid=findIDfromList($row['sensorid']);
+	$did=findDatefromList($row['date']);
+	array_push($memberList[$sid][alertlist][0][$did][alert],array('time'=> $row['alertdate'],'alertid'=>$row['alerttype']));
+	
+}
+
 
 //-----------如果第一个值为0，需要从数据库中调取最近一次不为0的值赋值给第一个--------
 for($i=0;$i<count($memberList);$i++){
@@ -288,8 +295,8 @@ for($j=0;$j<3;$j++){
 
 	
 //-------------------计算本人目标完成百分比-------------------
+echo json_encode($memberList);
 
-
-echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
+//echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
 
 ?>
