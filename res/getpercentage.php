@@ -31,6 +31,18 @@ array_push($stationList,array('id'=> 'SIA','color'=>'#f29806'));
 array_push($stationList,array('id'=> 'WA','color'=>'#6aba0d'));
 array_push($stationList,array('id'=> 'RU','color'=>'#6aba0d'));
 array_push($stationList,array('id'=> 'UN','color'=>'#e0e0e0'));
+/*
+l  0x00表示DONG放置在桌面上未佩戴，未佩戴，连续五分钟内(或者超过五分钟)设备没有任何动作，没有任何角度变化；
+l  0x01表示DONG佩戴在身上，浅睡眠，当用户长按按键四秒后LED灯会全部点亮，进入睡眠模式；
+l  0x02表示DONG佩戴在身上，深睡眠，在睡眠模式中根据用户的轻微动作来判断用户是进入浅睡眠还是深睡眠；
+l  0x03表示 DONG佩戴在身上，端正坐姿，判断标准为步伐检测小于12步，Z轴与重力轴接近垂直，夹角在-90~-70度和70~90之间;
+l  0x04表示 DONG佩戴在身上，非端正坐姿，判断标准为步伐检测小于12步，Z轴与重力轴夹角0-70，-70~-0度；
+l  0x05表示走路，判断标准为五分钟区间内步伐超过12步，且平均速度小于6.4km/h
+l  0x06表示跑步，判断标准为五分钟区间内步伐超过12步，且平均速度大于6.4km/h
+HH的意思是深睡眠和浅睡眠不区分，都表示睡眠
+*/
+$sit=3;
+$crook=4;
 
 
 //--------------check ucode---------------------
@@ -101,9 +113,9 @@ $dayList=array();
 $tempdate=$fromdate;
 while($tempdate<=$enddate){
 	array_push($dateList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'dayid'=>date("d",strtotime($tempdate))));
-	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0));
+	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0,'sit'=>0,'crook'=>0));
 	
-	array_push($dayList,array('date'=> $tempdate,'alert'=>array(),'position'=>array()));
+	array_push($dayList,array('date'=> $tempdate,'alert'=>array()));
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
 }
 
@@ -169,8 +181,8 @@ while($row=mysql_fetch_array($result)){
 	$sid=findIDfromList($row['sensorid']);
 	$did=findDatefromList($row['date']);
 	for($k=0;$k<4;$k++){;
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=$row[$valueNameList[$k].'goal'];
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=(int)$row[$valueNameList[$k].'goal'];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=(int)$row['total' .$valueNameList[$k]];
 	}
 }
 //---------------------add in alert
@@ -185,6 +197,7 @@ while($row=mysql_fetch_array($result)){
 	
 }
 //---------------------add in position
+/*
 $sql="select sensorid,position,sdate,totime  from sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 order by sensorid,sdate,totime";
 //echo $sql;
 $result=mysql_query($sql,$conn); 
@@ -195,6 +208,27 @@ while($row=mysql_fetch_array($result)){
 	array_push($memberList[$sid][alertlist][0][$did][position],array('time'=> $row['sdate'].' '.$row['totime'],'position'=>$row['position']));
 	
 }
+*/
+
+
+
+$sql="SELECT sum(lasttime) as lasttime,position,sensorid,sdate FROM sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 and (position=$sit or position=$crook)  group by sensorid,position,sdate";
+//echo $sql;
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+	$sid=findIDfromList($row['sensorid']);
+	$did=findDatefromList($row['sdate']);
+	
+	
+	if($row['position']==$sit){
+		$memberList[$sid][goalList][0][$did][sit]=(int)$row['lasttime'];
+	}else{
+		$memberList[$sid][goalList][0][$did][crook]=(int)$row['lasttime'];
+	}
+	
+	
+}
+
 
 //-----------如果第一个值为0，需要从数据库中调取最近一次不为0的值赋值给第一个--------
 for($i=0;$i<count($memberList);$i++){
@@ -278,7 +312,7 @@ for($i=0;$i<count($memberList);$i++){
 
 
 $outdata=array();
-$addNameValue=array('alert'=>array(),'position'=>array());
+$addNameValue=array('alert'=>array(),'position'=>array('sit'=>0,'crook'=>0,'crookpercent'=>0));
 
 for($i=0;$i<count($memberList);$i++){
 	
@@ -295,19 +329,15 @@ for($i=0;$i<count($memberList);$i++){
 	for($j=0;$j<count($dateList);$j++){
 		
 		$alertnum=count($memberList[$i][alertlist][0][$j][alert]);
-		$positionnum=count($memberList[$i][alertlist][0][$j][position]);
-		//echo "alertnum:". $alertnum. "  positionnum:" . $positionnum . "\n";
+		
 		if($j>=$startCurrentMonth){
 			if($alertnum>0){
 				for($k=0;$k<$alertnum;$k++){
 					array_push($outputAddList[month][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
 				}
 			}
-			if($positionnum>0){
-				for($k=0;$k<$positionnum;$k++){
-					array_push($outputAddList[month][position],$memberList[$i][alertlist][0][$j][position][$k]);
-				}
-			}
+			$outputAddList[month][position][sit]+=$memberList[$i][goalList][0][$j][sit];
+			$outputAddList[month][position][crook]+=$memberList[$i][goalList][0][$j][crook];
 		}
 		if($j>=$startCurrentWeek){
 			if($alertnum>0){
@@ -315,11 +345,8 @@ for($i=0;$i<count($memberList);$i++){
 					array_push($outputAddList[week][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
 				}
 			}
-			if($positionnum>0){
-				for($k=0;$k<$positionnum;$k++){
-					array_push($outputAddList[week][position],$memberList[$i][alertlist][0][$j][position][$k]);
-				}
-			}
+			$outputAddList[week][position][sit]+=$memberList[$i][goalList][0][$j][sit];
+			$outputAddList[week][position][crook]+=$memberList[$i][goalList][0][$j][crook];
 		}
 		if($j>=$startCurrentDay){
 			if($alertnum>0){
@@ -327,15 +354,20 @@ for($i=0;$i<count($memberList);$i++){
 					array_push($outputAddList[day][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
 				}
 			}
-			if($positionnum>0){
-				for($k=0;$k<$positionnum;$k++){
-					array_push($outputAddList[day][position],$memberList[$i][alertlist][0][$j][position][$k]);
-				}
-			}
+			$outputAddList[day][position][sit]+=$memberList[$i][goalList][0][$j][sit];
+			$outputAddList[day][position][crook]+=$memberList[$i][goalList][0][$j][crook];
 		}
 		
 	}
-
+	for($j=0;$j<count($periodNameList);$j++){
+		$v1=$outputAddList[$periodNameList[$j]][position][sit];
+		$v2=$outputAddList[$periodNameList[$j]][position][crook];
+		if($v1+$v2>0){
+			$outputAddList[$periodNameList[$j]][position][crookpercent]=round($v2/($v1+$v2),3);
+		}else{
+			$outputAddList[$periodNameList[$j]][position][crookpercent]=0;
+		}
+	}
 	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
 	
 }
@@ -354,6 +386,7 @@ for($j=0;$j<3;$j++){
 
 	
 //-------------------计算本人目标完成百分比-------------------
+//echo json_encode($memberList);
 
 echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
 
