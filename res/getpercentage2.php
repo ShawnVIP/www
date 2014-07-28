@@ -2,8 +2,6 @@
 include "dbconnect.php";
 
 
-
-
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-3","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
 $obj=json_decode($json_string); 
@@ -24,7 +22,18 @@ if($lang==""){$lang="cn";}
 checkuser($ucode,$scode,$ecode,$source);
 
 $stationList=array();
-
+/*
+l  0x00表示DONG放置在桌面上未佩戴，未佩戴，连续五分钟内(或者超过五分钟)设备没有任何动作，没有任何角度变化；
+l  0x01表示DONG佩戴在身上，浅睡眠，当用户长按按键四秒后LED灯会全部点亮，进入睡眠模式；
+l  0x02表示DONG佩戴在身上，深睡眠，在睡眠模式中根据用户的轻微动作来判断用户是进入浅睡眠还是深睡眠；
+l  0x03表示 DONG佩戴在身上，端正坐姿，判断标准为步伐检测小于12步，Z轴与重力轴接近垂直，夹角在-90~-70度和70~90之间;
+l  0x04表示 DONG佩戴在身上，非端正坐姿，判断标准为步伐检测小于12步，Z轴与重力轴夹角0-70，-70~-0度；
+l  0x05表示走路，判断标准为五分钟区间内步伐超过12步，且平均速度小于6.4km/h
+l  0x06表示跑步，判断标准为五分钟区间内步伐超过12步，且平均速度大于6.4km/h
+HH的意思是深睡眠和浅睡眠不区分，都表示睡眠
+*/
+$SitID=3;
+$uSitID=4;
 array_push($stationList,array('id'=> 'UN','color'=>'#e0e0e0'));
 array_push($stationList,array('id'=> 'ST','color'=>'#9d9d9d'));
 array_push($stationList,array('id'=> 'SL','color'=>'#27b1df'));
@@ -66,7 +75,7 @@ $row=mysql_fetch_array($result);
 $headimage=$row['headimage'];
 $nickname=$row['nickname'];
 
-array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array()));
 
 if($type=="friend"){
 	$extInfo=" and a.relation =17";
@@ -105,7 +114,7 @@ while($tempdate<=$enddate){
 	array_push($dateList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'dayid'=>date("d",strtotime($tempdate))));
 	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0));
 	
-	array_push($dayList,array('date'=> $tempdate,'alert'=>array(),'station'=>array()));
+	array_push($dayList,array('date'=> $tempdate,'alert'=>array(),'position'=>array()));
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
 }
 
@@ -154,6 +163,7 @@ function findIDfromList($id){
 function findDatefromList($date){
 	global $dateList;
 	$date=date("Y-m-d",strtotime($date));
+	
 	for($i=0;$i<count($dateList);$i++){
 		if($dateList[$i][date]==$date){
 			return $i;
@@ -164,7 +174,7 @@ function findDatefromList($date){
 
 
 $sql="select *,totalcal as totalcalories,totalsteps as totalstep from dailyvalue where sensorid in ($idlist) and date>='$fromdate' and date<='$enddate'";
-//echo $sql;
+
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 	$sid=findIDfromList($row['sensorid']);
@@ -175,15 +185,41 @@ while($row=mysql_fetch_array($result)){
 	}
 }
 //---------------------add in alert
-$sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and alertdate<='$enddate' and delmark=0";
+$sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and DATE_FORMAT(alertdate,'%Y-%m-%d')<='$enddate' and delmark=0";
+//echo $sql;
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+	$sid=findIDfromList($row['sid']);
+	$did=findDatefromList($row['alertdate']);
+	
+	array_push($memberList[$sid][alertlist][0][$did][alert],array('time'=> $row['alertdate'],'alertid'=>$row['alerttype']));
+	
+}
+//---------------------add in position
+/*$sql="select sensorid,position,sdate,totime  from sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 order by sensorid,sdate,totime";
 //echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 	$sid=findIDfromList($row['sensorid']);
-	$did=findDatefromList($row['date']);
-	array_push($memberList[$sid][alertlist][0][$did][alert],array('time'=> $row['alertdate'],'alertid'=>$row['alerttype']));
+	$did=findDatefromList($row['sdate']);
+	
+	array_push($memberList[$sid][alertlist][0][$did][position],array('time'=> $row['sdate'].' '.$row['totime'],'position'=>$row['position']));
 	
 }
+*/
+
+$sql="SELECT sum(lasttime) as lasttime,position,sensorid FROM sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 and (position=3 or position=4)  group by sensorid,position";
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+	$sid=findIDfromList($row['sensorid']);
+	$did=findDatefromList($row['sdate']);
+	
+	//array_push($memberList[$sid][alertlist][0][$did][position],array('positionid'=> $row['position'],'lasttime'=>$row['lasttime']));
+	
+}
+
+
+
 
 
 //-----------如果第一个值为0，需要从数据库中调取最近一次不为0的值赋值给第一个--------
@@ -264,8 +300,11 @@ for($i=0;$i<count($memberList);$i++){
 		
 	}
 }
+//----------------addin alert and position-----------------
+
 
 $outdata=array();
+$addNameValue=array('alert'=>array(),'position3'=>0,'position4'=>0,'posrate'=>0);
 
 for($i=0;$i<count($memberList);$i++){
 	
@@ -277,7 +316,53 @@ for($i=0;$i<count($memberList);$i++){
 
 		}
 	}
-	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage]));
+	$outputAddList=array("day"=>$addNameValue,"week"=>$addNameValue,"month"=>$addNameValue);
+	/*
+	for($j=0;$j<count($dateList);$j++){
+		
+		$alertnum=count($memberList[$i][alertlist][0][$j][alert]);
+		$positionnum=count($memberList[$i][alertlist][0][$j][position]);
+		//echo "alertnum:". $alertnum. "  positionnum:" . $positionnum . "\n";
+		if($j>=$startCurrentMonth){
+			if($alertnum>0){
+				for($k=0;$k<$alertnum;$k++){
+					array_push($outputAddList[month][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
+				}
+			}
+			if($positionnum>0){
+				for($k=0;$k<$positionnum;$k++){
+					array_push($outputAddList[month][position],$memberList[$i][alertlist][0][$j][position][$k]);
+				}
+			}
+		}
+		if($j>=$startCurrentWeek){
+			if($alertnum>0){
+				for($k=0;$k<$alertnum;$k++){
+					array_push($outputAddList[week][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
+				}
+			}
+			if($positionnum>0){
+				for($k=0;$k<$positionnum;$k++){
+					array_push($outputAddList[week][position],$memberList[$i][alertlist][0][$j][position][$k]);
+				}
+			}
+		}
+		if($j>=$startCurrentDay){
+			if($alertnum>0){
+				for($k=0;$k<$alertnum;$k++){
+					array_push($outputAddList[day][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
+				}
+			}
+			if($positionnum>0){
+				for($k=0;$k<$positionnum;$k++){
+					array_push($outputAddList[day][position],$memberList[$i][alertlist][0][$j][position][$k]);
+				}
+			}
+		}
+		
+	}
+	*/
+	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
 	
 }
 
@@ -296,7 +381,6 @@ for($j=0;$j<3;$j++){
 	
 //-------------------计算本人目标完成百分比-------------------
 echo json_encode($memberList);
-
 //echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
 
 ?>

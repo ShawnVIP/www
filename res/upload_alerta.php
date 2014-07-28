@@ -3,7 +3,7 @@ include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"605","ecode":"640S9VQGT5x80rsE","source":"w","stamp":"2013-8-20 17:55:52","alertlist":[{"stamp":"'.$now.'","type":129}]}';
+$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","alertlist":[{"stamp":"2014-06-03 15:45:53","type":1}],"ecode":"mmijfcVIKsHYAnTc","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -20,7 +20,7 @@ if($lang==""){
 }
 //checkuser($ucode,$scode,$ecode,$source);
 
-
+//insert into alertlist (sid,alertdate,alerttype,delmark,userid) values (1,'2014-06-03 15:45:53',1,0,'7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M')
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
 $sql="insert into alertlist (sid,alertdate,alerttype,delmark,userid) values (?,?,?,0,?)";
@@ -30,7 +30,7 @@ $stmt = $mysqli->prepare($sql);
 for($i=0;$i<count($alertlist);$i++){
 	$stamp=$alertlist[$i] -> stamp;
 	$alerttype=$alertlist[$i] -> type;
-	
+	echo "insert into alertlist (sid,alertdate,alerttype,delmark,userid) values ($scode,'$stamp',$alerttype,0,'$ucode')";
 	$stmt->bind_param("ssss",$scode,$stamp,$alerttype,$ucode);
 	$stmt->execute();
 }
@@ -83,7 +83,7 @@ for($j=0;$j<count($sendlist);$j++){
 				$startmsg=$sendlist[$j][nickname]. ", your ".$sendlist[$j][relation]." " .$sendername;
 			}
 			if($typeid==1){
-				$message=$startmsg . "fall down at $falltime.";
+				$message=$startmsg . " fall down at $falltime.";
 			}
 			if($typeid==129){
 				$message=$startmsg ." fall down at $falltime and then press button to cancel the alert.";
@@ -104,7 +104,7 @@ for($j=0;$j<count($sendlist);$j++){
 		}
 		//echo $message;
 		if($message !=""){
-			popmessage($sendlist[$j][devicetoken],$message);
+			//popmessage($sendlist[$j][devicetoken],$message);
 			array_push($datalist,array('senderid'=>$scode,'receivername'=>$sendlist[$j][nickname],'receiverid'=>$sendlist[$j][receiverid],'devicetoken'=> $sendlist[$j][devicetoken],'status'=>$pmode, 'extinfo'=>$popinfo, 'message' => $message));
 		}
 	}

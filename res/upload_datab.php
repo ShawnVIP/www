@@ -190,7 +190,7 @@ for($i=0;$i<count($dateList);$i++){
 	$lasttime=1;
 	for($j=2;$j<1440;$j++){
 		if($statusList[$j] !=$statusList[$j-1]){
-			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
+			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1]));	
 			$lasttime=1;
 		}else{
 			$lasttime++;

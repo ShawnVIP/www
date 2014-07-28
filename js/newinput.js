@@ -37,6 +37,8 @@ var mi=myDate.getMinutes();
 var ms=myDate.getSeconds();
 
 var mytime=my+"-"+mm+"-"+md+" "+mh+":"+mi+":"+ms;  
+var mymin=" "+mh+":"+mi+":"+ms; 
+
 	
 $(function(){
 	if(back_ucode!=null){
@@ -197,7 +199,7 @@ function contuploadData(){
 	$('#alertinfo').html("uploading action data, please wait...");
 	$('#out').html(JSON.stringify(outData));
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
-		url:'../res/upload_dataa.php',
+		url:'../res/upload_data.php',
 		data:JSON.stringify(outData), 
         success: function (msg) {
 			uploadAlert();
@@ -209,7 +211,7 @@ function contuploadData(){
 }
 function uploadAlert(){
 	$('#alertinfo').html("upload alert data, please wait...");
-	var outData={ucode:back_ucode,scode:back_scode,alertlist:[{stamp:mytime,type:1}],ecode:back_ecode,source:"w"};
+	var outData={ucode:back_ucode,scode:back_scode,alertlist:[{stamp:currentDate+mymin,type:1}],ecode:back_ecode,source:"w"};
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
 		url:'../res/upload_alert.php',
 		data:JSON.stringify(outData), 

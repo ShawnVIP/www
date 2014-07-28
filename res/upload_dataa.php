@@ -179,7 +179,7 @@ for($i=0;$i<count($dateList);$i++){
 		for($k=0;$k>-5;$k--){
 			$newtime=date('H:i:s',strtotime("$tmpdate $k minute"));	
 			$newday=date("Y-m-d",strtotime("$tmpdate $k minute"));	
-			if($newday==$reqdate && $detectedposition>2 && $detectedposition<7){
+			if($newday==$reqdate){
 				//---------------------屏蔽 1,2,7
 				$statusList[timeToRealID($newtime)]=$detectedposition;
 			}
@@ -187,18 +187,23 @@ for($i=0;$i<count($dateList);$i++){
 	}
 	$olddata=-1;
 	$ordList=array();
+	$lasttime=1;
 	for($j=2;$j<1440;$j++){
 		if($statusList[$j] !=$statusList[$j-1]){
-			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1]));	
+			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
+			$lasttime=1;
+		}else{
+			$lasttime++;
 		}
 	}
-	array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1]));	
-
-	$sql="insert into sensorstation (sensorid,sdate,totime,position,adjtype) values ($scode,'$reqdate',?,?,0)";
+	array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
+	
+	$sql="insert into sensorstation (sensorid,sdate,totime,position,adjtype,lasttime) values ($scode,'$reqdate',?,?,0,?)";
 	$stmt = $mysqli->stmt_init();
 	$stmt = $mysqli->prepare($sql);
 	for($k=0;$k<count($ordList);$k++){
-		$stmt->bind_param("ss",$ordList[$k][totime],$ordList[$k][position]);
+		
+		$stmt->bind_param("sss",$ordList[$k][totime],$ordList[$k][position],$ordList[$k][lasttime]);
 		$stmt->execute();
 	}
 	$stmt->close();
