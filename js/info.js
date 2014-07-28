@@ -84,6 +84,8 @@ function searchByEmail(){
 			$('#defaultgoal').text(info.defaultgoal);
 			$('#fallalert').text(info.fallalert);
 			$('#positionalert').text(info.positionalert);
+			
+			$('#devicetoken').text(info.devicetoken);
 			$('#para0').text(info.para0);
 			$('#para1').text(info.para1);
 			$('#para2').text(info.para2);
@@ -117,14 +119,14 @@ function getMemberData(){
 			info=msg.myfriend
 			$('#myFriendList').empty()
 			for(i=0;i<info.length;i++){
-				str="<tr><td>"+info[i].sdate+"</td><td>"+info[i].friendid+"</td><td>"+info[i].relation+"</td><td>"+info[i].guardian+"</td></tr>";
+				str="<tr><td>"+info[i].sdate+"</td><td>"+info[i].friendid+"</td><td>"+info[i].relation+" | "+info[i].rname+"</td><td>"+info[i].guardian+"</td></tr>";
 				$("#myFriendList").append(str);
 				
 			}
 			info=msg.friendme
 			$('#friendToMeList').empty()
 			for(i=0;i<info.length;i++){
-				str="<tr><td>"+info[i].sdate+"</td><td>"+info[i].sensorid+"</td><td>"+info[i].relation+"</td><td>"+info[i].guardian+"</td></tr>";
+				str="<tr><td>"+info[i].sdate+"</td><td>"+info[i].sensorid+"</td><td>"+info[i].relation+" | "+info[i].rname+"</td><td>"+info[i].guardian+"</td></tr>";
 				$("#friendToMeList").append(str);
 				
 			}
