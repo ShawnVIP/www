@@ -2,8 +2,7 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-
-$json_string='{"mode":"0","numberPerPage":"1000","pageNumber":"1","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"507","dates":"2014-6-1","ecode":"AJvb6U2I22jPeebK","source":"a","cdate":"2014-06-17 17:27:32"}';
+$json_string='{"mode":"2","numberPerPage":"1000","pageNumber":"1","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"1","dates":"2014-6-1","ecode":"AJvb6U2I22jPeebK","source":"a","cdate":"2014-06-17 17:27:32"}';
 
 $obj=json_decode($json_string); 
 
@@ -11,11 +10,11 @@ $ucode=$obj -> ucode;
 $scode=$obj -> scode;
 $ecode=$obj -> ecode;
 $source=$obj -> source;
-$number=(int)$obj -> numberPerPage;
-$page=(int)$obj -> pageNumber;
+$number=(int)$obj -> numberperpage;
+$page=(int)$obj -> pagenumber;
 $mode=(int)$obj -> mode;
 
-checkuser($ucode,$scode,$ecode,$source);
+// scheckuser($ucode,$scode,$ecode,$source);
 
 
 
@@ -29,8 +28,7 @@ if($mode==2){
 	$checkStr="and a.readmode=" . $mode;
 }
 
-$sqla ="SELECT count(fromid) as cid FROM message as a, sensorinfo as b WHERE a.delmark=0  and a.fromid=b.id and a.toid=? " . $checkStr;
-echo "SELECT count(fromid) as cid FROM message as a, sensorinfo as b WHERE a.delmark=0 and  a.fromid=b.id and a.toid=$scode " . $checkStr;
+$sqla ="SELECT count(fromid) as cid FROM message as a, sensorinfo as b WHERE a.delmark=0 and a.fromid=b.id and a.toid=? " . $checkStr;
 $stmta = $mysqli->stmt_init();
 $stmta = $mysqli->prepare($sqla); //将sql添加到mysqli进行预处
 $stmta->bind_param("s",$scode);

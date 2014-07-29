@@ -14,11 +14,7 @@ $relforme=$obj -> relforme;
 $guardian=$obj -> guardian;
 
 if($guardian=="" ){
-	if( $relforme =="friend"){
-		$guardian=0;
-	}else{
-		$guardian=1;
-	} //default set guardian for all family
+	$guardian=0;
 }
 checkuser($ucode,$scode,$ecode,$source);
 

@@ -3,64 +3,69 @@
 include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"scode":"201","fcode":"1","ecode":"aaa","source":"w","message":"Hello, I miss you!","cdate":"'.$now.'"}';
+$json_string='{"scode":"632","fcode":"1","ecode":"aaa","source":"w","message":"测试一下","cdate":"'.$now.'"}';
 
 
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
+
+
 $scode=$obj -> scode;
 $ecode=$obj -> ecode;
+
+
 $fcode=$obj -> fcode;
 $source=$obj -> source;
 
 $message=$obj -> message;
 $sdate=$obj ->cdate;
+
+$idlist=array(629,630,631,632);
+$msglist=array('hello, this is a test!','这是一个测试信息','随便测试一下吧','I miss you!','What are you doing?');
+$k=rand(0,count($idlist)-1);
+$scode=$idlist[$k];
+$k=rand(0,count($msglist)-1);
+$message=$msglist[$k];
+
+
+
 //checkuser($ucode,$scode,$ecode,$source);
 
 
 
+$now=date("Y-m-d H:i:s");
+
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
 
-$sql="select * from familylist where sensorid=? and friendid=? and delmark=0";
+$sql="select * from familylist where sensorid=$scode and friendid=$fcode and delmark=0";
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
-$stmt->bind_param("ss",$scode,$fcode);
-$stmt->execute();
-if (!$stmt->fetch()) {
+$result=mysql_query($sql, $conn);
+if(! $row=mysql_fetch_array($result)){
 	echo json_encode(array('status'=>601));	
 	exit;
 }
 
 
-
-$sql = "INSERT INTO message( fromid, toid, message, sdate) VALUES (?,?,?,?)"; //预处理sql语句
-//echo  "INSERT INTO message( fromid, toid, message, sdate) VALUES ($scode,$fcode,'$message','$sdate')"; //预处理sql语句
-
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
-$stmt->bind_param("ssss", $scode,$fcode,$message,$sdate);
-$stmt->execute();
-
+$sql="INSERT INTO message( fromid, toid, message, sdate) VALUES ( $scode,$fcode,'$message','$sdate')";
+$result=mysql_query($sql, $conn);
 
 
 
 //$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
-$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=? and b.id=? ";
+$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode";
+$result=mysql_query($sql, $conn);
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("ss", $fcode,$scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($nickname,$devicetoken,$fromname);
+
 
 $popinfo='';
 $pmode=200;
 
-if($stmt->fetch()){
+if($row=mysql_fetch_array($result)){
+	$nickname=$row['nickname'];
+	$devicetoken=$row['devicetoken'];
+	$fromname=$row['fromname'];
 	$devicetoken=str_replace(" ","",$devicetoken);
 	$message="Hi $nickname, your friend $fromname just leave you message :'$message'.";
 	popmessage($devicetoken,$message);
@@ -77,7 +82,7 @@ if($stmt->fetch()){
 function popmessage($deviceToken,$message){
 	global $popinfo,$pmode;
 	// Put your private key's passphrase here:
-	$passphrase = 'pushchat';
+	$passphrase = '123456';
 	
 	// Put your alert message here:
 	//$message = 'My first push notification!';

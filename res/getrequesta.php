@@ -2,7 +2,7 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-
+$json_string='{"ucode":"phXYXvmB3P14XkRBYoBhrCmNK8WqXkTkOQK6","scode":"629","ecode":"mmijfcVIKsHYAnTc","source":"w","lang":"cn"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -16,23 +16,8 @@ if($lang==""){$lang="cn";}
 checkuser($ucode,$scode,$ecode,$source);
 
 
-//--------------check ucode---------------------
-/*
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
-
-	
-$sqla ="SELECT a.message,b.nickname, a.rdate,b.headimage,b.id,a.relforme,a.guardian, c." . $lang . "_name as relname from familyreqlist as a,sensorinfo as b,relation as c where a.fromscode=b.id and a.toscode=? and a.deal=0 and a.relforme=c.id";
-//echo "SELECT a.message,b.nickname, a.rdate,b.headimage,b.id,a.relforme,a.guardian c." . $lang . "_name as relname from familyreqlist as a,sensorinfo as b,relation as c where a.fromscode=b.id and a.toscode=$scode and a.deal=0 and a.relforme=c.id";
-	
-$stmta = $mysqli->stmt_init();
-$stmta = $mysqli->prepare($sqla); //将sql添加到mysqli进行预处
-$stmta->bind_param("s", $scode);
-$stmta->execute();
-$stmta->store_result();
-$stmta->bind_result($message, $nickname, $rdate,$head,$code,$relation,$guardian,$relname);
-*/
 $sql="SELECT b.nickname, a.rdate,b.headimage,b.id,a.relforme,a.guardian, c." . $lang . "_name as relname from familyreqlist as a,sensorinfo as b,relation as c where a.fromscode=b.id and a.toscode=$scode and a.deal=0 and a.relforme=c.id";
-//echo $sql;
+echo $sql;
 $result=mysql_query($sql,$conn); 
 $mname=array();
 $rel="Family";

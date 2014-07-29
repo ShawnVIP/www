@@ -400,7 +400,7 @@ function showAllData(){
 		c--
 		if(c==0){
 			c=parseInt(Math.random()*10+5)
-			pos=parseInt(Math.random()*7+1);
+			pos=parseInt(Math.random()*6+1);
 		}
 		outList[outList.length-1].detectedposition=pos;
 		

@@ -16,6 +16,7 @@ var iconList=new Array();
 
 iconList.push({id:'ST',color:'#9d9d9d',cnname:"静止",enname:"Stand"});
 iconList.push({id:'SL',color:'#27b1df',cnname:"睡眠",enname:"Sleep"});
+iconList.push({id:'SL',color:'#27b1df',cnname:"睡眠",enname:"Sleep"});
 iconList.push({id:'SI',color:'#6aba0d',cnname:"端坐",enname:"Sit"});
 iconList.push({id:'SIA',color:'#f29806',cnname:"歪坐",enname:"Sitting"});
 iconList.push({id:'WA',color:'#6aba0d',cnname:"步行",enname:"Walk"});
