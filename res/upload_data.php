@@ -4,8 +4,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 //$json_string='{"ucode":"f2026d8c-d99c-4535-2a7b-7ad18c28c4b5","scode":"1","data":[{"stamp":"2013-05-31 13:02","rawdata":[{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30}]}],"type":"raw"}';
-$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
-mysql_select_db($mysql_database,$conn);
+
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -26,7 +25,7 @@ $difftime=strtotime($nowTime)-strtotime($beginTime);
 // echo ("check user time cost" . $difftime . "\n");
 $beginTime=$nowTime;
 */
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
+
 //---------分钟转id不除以4
 function timeToRealID($time){
 	$min=explode(":", $time);
@@ -90,7 +89,7 @@ while($bdate <= $edate){
 $statusList=array();
 $dateList=array();
 $rndstring=randomkeys(6);
-
+$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
 $sql="insert into tempupload (sdate,stime,calories,steps,distance,move,sleepmode,angle,maxspeed,minspeed,averagespeed,detectedposition,sensorid,rndstring) values (?,?,?,?,?,?,?,?,?,?,?,?,$scode,'$rndstring')";
 $stmt = $mysqli->stmt_init();
 $stmt = $mysqli->prepare($sql);
@@ -124,9 +123,7 @@ for($i=0;$i<count($data);$i++){
 
 	$stmt->bind_param("ssssssssssss",$datestr,$ntime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition);
 	$stmt->execute();
-	$result=mysql_query($sql,$conn); 
-	
-	
+
 	$addDate=1;
 	for($j=0;$j<count($dateList);$j++){
 		if($dateList[$j][ldate]==$ndate[0]){
@@ -137,12 +134,9 @@ for($i=0;$i<count($data);$i++){
 		array_push($dateList,  array('ldate'=>$ndate[0] ,'sdate'=>$datestr));
 	}
 }
-$stmt->close();
-$mysqli-> close();	
+
 
 //-------------dedupe-----------------
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
-
 for($i=0;$i<count($dateList);$i++){
 
 	$sql="update uploadstation set umode=1 where sensorid=$scode and udate='" . $dateList[$i][ldate] ."'";
@@ -211,6 +205,8 @@ for($i=0;$i<count($dateList);$i++){
 	$result=mysql_query($sql,$conn); 
 
 }
+
+$mysqli->close;	
 
 $nowTime=date("Y-m-d H:i:s");
 $difftime=strtotime($nowTime)-strtotime($beginTime);

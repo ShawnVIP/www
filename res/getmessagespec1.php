@@ -2,7 +2,7 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"readmode":"0","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"1","fcode":"629","ecode":"AJvb6U2I22jPeebK","source":"a","direction":"0","msgid":246,"msgnumber":20}';
+$json_string='{"readmode":"0","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"1","fcode":"629","ecode":"AJvb6U2I22jPeebK","source":"a","direction":"1","msgid":246,"msgnumber":20}';
 
 $obj=json_decode($json_string); 
 
@@ -29,21 +29,22 @@ $lang=strtolower($row['language']);
 if($readmode==2){
 	$checkStr="";
 }else{
-	$checkStr=" and readmode=" . $readmode;
+	$checkStr=" and a.readmode=" . $readmode;
 }
 
 if($direction==1){
-	$sql ="SELECT * FROM message  WHERE id>$msgid and delmark=0 and toid=$scode and fromid=$fcode  " . $checkStr ." order by id limit 0,$msgnumber";
+	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id>$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id limit 0,$msgnumber";
 }else{
-	$sql ="SELECT * FROM message  WHERE id<$msgid and delmark=0 and toid=$scode and fromid=$fcode  " . $checkStr ." order by id desc limit 0,$msgnumber";
+	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id<$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id desc limit 0,$msgnumber";
 }
 
+//echo $sql;
 
 $msglist=array();
 $result=mysql_query($sql, $conn);
 
 while($row=mysql_fetch_array($result)){
-	array_push($msglist,array('messageid'=>$row['id'],'message'=>$row['message'],'sdate'=>$row['sdate']));
+	array_push($msglist,array('messageid'=>$row['id'],'message'=>$row['message'],'sdate'=>$row['sdate'],'scode'=>$row['fromid'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage']));
 }
 
 echo json_encode(array('status'=>200,'msglist'=>$msglist));

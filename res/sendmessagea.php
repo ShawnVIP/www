@@ -3,7 +3,7 @@
 include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"scode":"632","fcode":"1","ecode":"aaa","source":"w","message":"测试一下","cdate":"'.$now.'"}';
+$json_string='{"scode":"1","fcode":"629","ecode":"aaa","source":"w","message":"测试一下","cdate":"'.$now.'"}';
 
 
 $obj=json_decode($json_string); 
@@ -24,7 +24,8 @@ $sdate=$obj ->cdate;
 $idlist=array(629,630,631,632);
 $msglist=array('hello, this is a test!','这是一个测试信息','随便测试一下吧','I miss you!','What are you doing?');
 $k=rand(0,count($idlist)-1);
-$scode=$idlist[$k];
+//$fcode=$idlist[$k];
+//$scode=1;
 $k=rand(0,count($msglist)-1);
 $message=$msglist[$k];
 
@@ -51,7 +52,7 @@ if(! $row=mysql_fetch_array($result)){
 $sql="INSERT INTO message( fromid, toid, message, sdate) VALUES ( $scode,$fcode,'$message','$sdate')";
 $result=mysql_query($sql, $conn);
 
-
+echo $sql;
 
 //$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
 $sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode";

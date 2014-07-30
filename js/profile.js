@@ -630,7 +630,7 @@ function dealData(r){
 	for(var i=0;i<sensorList.length;i++){
 		j=i+1;
 		obj=sensorList[i];
-		
+		$('#PRO_usermail').text(obj.email);
 		var power="0000"+obj.power;
 		power=power.substring(power.length-4,power.length);
 

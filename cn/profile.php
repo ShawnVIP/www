@@ -15,7 +15,7 @@ $lang="cn";
 body {
  margin:0px;
 }
-#Frame_profileSetup{width:924px; height:545px; position:absolute; z-index:101; background-color:white;display:none }
+#Frame_profileSetup{width:924px; height:545px; position:absolute; z-index:101; background-color:white;display:none}
 
 
 
@@ -204,16 +204,16 @@ body {
 
 
 #apDiv6 {
-	position:absolute;
-	width:182px;
-	height:182px;
-	z-index:4;
-	left: 16px;
-	top: 14px;
+	position: absolute;
+	width: 182px;
+	height: 182px;
+	z-index: 4;
+	left: 17px;
+	top: 16px;
 	border: solid 1px #dedede;
-	background:#f5f5f5;
+	background: #f5f5f5;
 	//padding:8px;
-	overflow:hidden;
+	overflow: hidden;
 }
 .PRO_areaBack{background:#efefef;}
 #apDiv7 {
@@ -326,9 +326,20 @@ var LANG="cn";
 <div id="Frame_profileSetup" class="G_bigRound">
   
   <div id="PRO_infoArea" class="PRO_areaBack PRO_mainInfo">
-    <table width=100% cellpadding="0" cellspacing="0"><tr><td height=14 ></td></tr>
+    <table width=100% cellpadding="0" cellspacing="0"><tr><td height=14 >
+    
+    <table cellpadding="0" cellspacing="0"><tr>
+       <td width=80  class="PRO_Label" id="tmail">ID:</td>
+        <td width=273  id="PRO_usermail"></td>
+       </tr></table>
+      
+    </td></tr>
 
-     <tr><td height=48> <table cellpadding="0" cellspacing="0"><tr> <td width=80  class="PRO_Label" id="pname">Name:</td>
+
+
+
+
+     <tr><td height=48><table cellpadding="0" cellspacing="0"><tr> <td width=80  class="PRO_Label" id="pname">Name:</td>
        <td width=173 class="PRO_senNameBack">
     <input type="text" id="PRO_userName" maxlength="8" /></td><td width=40 class="PRO_Label" id="pmale">Male</td><td><img  id="INFO_sex0" src="../images/se_yes.png" /></td><td width=60 class="PRO_Label" id="pfemale">Female</td><td><img  id="INFO_sex1" src="../images/se_no.png" /></td></tr></table></td></tr>
      <tr><td align="center"><img src="../images/info_line.png" /></td></tr>

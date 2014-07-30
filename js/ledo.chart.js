@@ -397,20 +397,22 @@ function switchItem(event){
 		this.dw=3;
 		
 		//----------赋值如数组---------------------
-		this.deepSleep=0;
+		//this.deepSleep=0;
 		for(this.i=0;this.i<this.data.length;this.i++){
 
 			this.tmpdata=(this.data[this.i]).split('|');
 			this.id=Number(this.tmpdata[0]);
 			this.value=Number(this.tmpdata[1]);
+			//-----------深睡眠判断-----------------------
+			this.deepSleepMode=(this.tmpdata[2]==2);
 			if(this.maxHeight<Number(this.tmpdata[1])){this.maxHeight=Number(this.tmpdata[1]);}
 
 			this.sid=this.id;
 	
 			this.gid=Math.floor(this.sid/5)-this.fromTimeId;
 			if(this.gid<0){this.gid+=288;}
-			this.colorType=2;
-			if(this.value==0){this.colorType=1;}
+			this.deepSleepMode ? this.colorType=1:this.colorType=2;
+			
 			this.vData[this.i]=({id:this.gid,left:this.gid*this.dw+10,timeInfo:convertIDtoTime(this.id,2),colorType:this.colorType,valueData:this.value,itemHeight:0});
 		}
 		//-------------根据maxheight赋值itemheight--------------------
@@ -420,7 +422,7 @@ function switchItem(event){
 			this.value=Number(this.tmpdata[1]);
 			
 			this.itemHeight=Math.ceil(this.vData[this.i].valueData*(myLedo.colHeight-10)/this.maxHeight);
-			if(this.value==0){this.deepSleep+=5;}
+			//if(this.value==0){this.deepSleep+=5;}
 			this.vData[this.i].itemHeight=this.itemHeight+5;
 			
 		}

@@ -153,7 +153,12 @@ while ($stmt->fetch()) {
 	
 }
 */
-
+$email="";
+$sql="select email from accountinfo where  userid='$ucode'";
+$result=mysql_query($sql,$conn);
+if ($row=mysql_fetch_array($result)) {
+	$email=$row['email'];
+}
 
 $sql ="SELECT * FROM totalinfo  WHERE  userid='$ucode' and date='$cdate' order by orderlist";
 //echo $sql;
@@ -162,6 +167,8 @@ while ($row=mysql_fetch_array($result)) {
 	
 	$vname=array();
 	$value=array();
+	array_push($vname,"email");
+	array_push($value,$email);
 	array_push($vname,"station");
 	array_push($value,$row['station']);
 	array_push($vname,"connected");

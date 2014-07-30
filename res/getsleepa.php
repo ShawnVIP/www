@@ -20,7 +20,7 @@ $source=$obj -> source;
 checkuser($ucode,$scode,$ecode,$source);
 
 $bmr=0;
-$tmpdate=explode("T", $dates); 
+$tmpdate=explode(" ", $dates); 
 $moment="24:00:00";
 $today=0;
 
@@ -49,7 +49,7 @@ $day=substr($datestr,6,8);
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //鍒涘缓mysqli瀹炰緥
 
-//------------------鑾峰栦汉宸ヨ缃殑sleep鏃堕棿-----------------------
+//------------------鑾峰栦汉宸ヨ缃殑sleep鏃堕棿-----------------------
 $sql="select fdate,ftime,tdate,ttime from sleepdata where sid=? and sdate=?";
 $stmt = $mysqli->stmt_init();
 $stmt = $mysqli->prepare($sql);
@@ -76,7 +76,7 @@ if(!$stmt->fetch()){
 $moveList=array();
 
 $outlist=array();
-//----------棰勮sleep鍊?浠庡変竴澶╀腑鍒12鐐瑰埌褰撳ぉ涓?2鐐?-------------
+//----------棰勮sleep鍊?浠庡変竴澶╀腑鍒12鐐瑰埌褰撳ぉ涓?2鐐?-------------
 
 
 //------寮€濮嬫煡璇?

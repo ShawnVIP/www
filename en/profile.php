@@ -326,7 +326,12 @@ var LANG="<?php echo $lang; ?>";
 <div id="Frame_profileSetup" class="G_bigRound">
   
   <div id="PRO_infoArea" class="PRO_areaBack PRO_mainInfo">
-    <table width=100% cellpadding="0" cellspacing="0"><tr><td height=14 ></td></tr>
+    <table width=100% cellpadding="0" cellspacing="0"><tr><td height=14 >
+     <table cellpadding="0" cellspacing="0"><tr>
+       <td width=80  class="PRO_Label" id="tmail">ID:</td>
+        <td width=273  id="PRO_usermail"></td>
+       </tr></table>
+       </td></tr>
 
      <tr><td height=48> <table cellpadding="0" cellspacing="0"><tr> <td width=80  class="PRO_Label" id="pname">Name:</td>
        <td width=173 class="PRO_senNameBack">

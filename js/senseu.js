@@ -844,6 +844,8 @@ function showFamOut(event){
 		
 		//-------- toHour-FromHour 
 		var slp=new chartArea();
+		slp.deepSleep=r.deepsleep
+		
 		slp.color=["","#00c4ff","#bfbfbf","#00c4ff"];
 		slp.belongs="SLP";
 		slp.data=sourceDataList;

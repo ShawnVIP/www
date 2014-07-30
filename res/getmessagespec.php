@@ -20,22 +20,16 @@ $msgnumber=(int)$obj -> msgnumber;
 
 checkuser($ucode,$scode,$ecode,$source);
 
-$sql="select language from sensorinfo where id=$scode";
-
-$result=mysql_query($sql, $conn);
-$row=mysql_fetch_array($result);
-$lang=strtolower($row['language']);
-
 if($readmode==2){
 	$checkStr="";
 }else{
-	$checkStr=" and readmode=" . $readmode;
+	$checkStr=" and a.readmode=" . $readmode;
 }
 
 if($direction==1){
-	$sql ="SELECT * FROM message  WHERE id>$msgid and delmark=0 and toid=$scode and fromid=$fcode  " . $checkStr ." order by id limit 0,$msgnumber";
+	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id>$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id limit 0,$msgnumber";
 }else{
-	$sql ="SELECT * FROM message  WHERE id<$msgid and delmark=0 and toid=$scode and fromid=$fcode  " . $checkStr ." order by id desc limit 0,$msgnumber";
+	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id<$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id desc limit 0,$msgnumber";
 }
 
 
@@ -43,7 +37,7 @@ $msglist=array();
 $result=mysql_query($sql, $conn);
 
 while($row=mysql_fetch_array($result)){
-	array_push($msglist,array('messageid'=>$row['id'],'message'=>$row['message'],'sdate'=>$row['sdate']));
+	array_push($msglist,array('messageid'=>$row['id'],'message'=>$row['message'],'sdate'=>$row['sdate'],'scode'=>$row['fromid'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage']));
 }
 
 echo json_encode(array('status'=>200,'msglist'=>$msglist));
