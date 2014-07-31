@@ -184,7 +184,9 @@ function checkDaily($scode,$date){
 	global $mysql_database;
 	$addnewData=false;
 	$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
-	$sql="select caloriesgoal from dailyvalue where sensorid=? and date=?";
+	$mysqli->set_charset("uft8");
+	$mysqli->query("set names 'uft8'");
+	$sql="select caloriesgoal from dailyvalue where sensorid=? and date=? and caloriesgoal>0";
 	//echo "select * from dailyvalue where sensorid=$scode and date=$now";
 	$stmt = $mysqli->stmt_init();
 	$stmt = $mysqli->prepare($sql); //?sql???mysqli????
@@ -206,7 +208,7 @@ function checkDaily($scode,$date){
 	}
 	
 	if($addnewData){
-		$sql="select height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated from dailyvalue where sensorid=? and date<? and caloriesgoal>0 and stepgoal>0 and sleepgoal>0 order by id desc limit 0,1";
+		$sql="select height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated from dailyvalue where sensorid=? and date<? and caloriesgoal>0 and stepgoal>0 and distancegoal>0 order by id desc limit 0,1";
 		//echo "select height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated from dailyvalue where sensorid=$scode and date<$date and caloriesgoal>0 and stepgoal>0 and sleepgoal>0 order by id desc limit 0,1";
 		$stmt = $mysqli->stmt_init();
 		$stmt = $mysqli->prepare($sql); //?sql???mysqli????
@@ -218,7 +220,7 @@ function checkDaily($scode,$date){
 		$stmt->close();
 				
 		$sql="insert into dailyvalue ( height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated,sensorid,date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		//echo $sql . "\n";
+		//echo "insert into dailyvalue ( height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated,sensorid,date) values ($height,$weight,$step,$stepgoal,$caloriesgoal,$stepwidth,$distancegoal,$runningwidth,$bmi,$bmr,$age,$sleepgoal,$updated, $scode,$date)";
 		$stmt = $mysqli->stmt_init();
 		$stmt = $mysqli->prepare($sql); //?sql???mysqli????
 		

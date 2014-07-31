@@ -71,6 +71,7 @@ if(!$stmt->fetch()){
 	
 }
 
+$totalsleep=(strtotime("$tdate $ttime")-strtotime("$fdate $ftime"))/60;
 
 $moveList=array();
 
@@ -135,7 +136,7 @@ while($stmt->fetch()){
 
 $stmt->close();
 $mysqli->close;	
-$out=array('status'=>200,'mindate'=>date('Y-m-d',strtotime("$reqdate -1 day")),'fdate'=>$fdate,'ftime'=>$ftime,'tdate'=>$tdate,'ttime'=>$ttime,'ecode'=>$ecode,'deepsleep'=>$deepsleep,'data'=>$moveList);
+$out=array('status'=>200,'mindate'=>date('Y-m-d',strtotime("$reqdate -1 day")),'fdate'=>$fdate,'ftime'=>$ftime,'tdate'=>$tdate,'ttime'=>$ttime,'ecode'=>$ecode,'totalsleep'=>$totalsleep,'deepsleep'=>$deepsleep,'data'=>$moveList);
 
 echo json_encode($out);
 ?>

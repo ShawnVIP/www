@@ -17,8 +17,7 @@ $email=$obj -> email;
 
 
 //--------------check ucode---------------------
-$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
-mysql_select_db($mysql_database,$conn);
+
 $sensor=array();
 if($mode=="mail"){
 	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.email='$email' and a.userid=c.userid  and b.id=c.sensorid";
@@ -26,7 +25,6 @@ if($mode=="mail"){
 	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.userid=c.userid  and b.id=$scode and c.sensorid=$scode";	
 }
 
-//echo $sql;
 $result=mysql_query($sql,$conn); 
 if($row=mysql_fetch_array($result)){
 	

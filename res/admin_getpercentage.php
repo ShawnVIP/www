@@ -1,8 +1,7 @@
 <?php 
 include "dbconnect.php";
 
-$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
-mysql_select_db($mysql_database,$conn);
+
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
@@ -47,7 +46,6 @@ array_push($stationList,array('id'=> 'UN','color'=>'#e0e0e0'));
 
 
 $datalist=array();
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
 
 /*先把所有的id和本人的id放在一个数组中
 
@@ -55,16 +53,12 @@ $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_d
 */
 $memberList=array();
 
-$sql=" select headimage,nickname FROM sensorinfo where id=?";
+$sql=" select headimage,nickname FROM sensorinfo where id=$scode";
+$result=mysql_query($sql, $conn);
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->bind_result($headimage,$nickname);
-$stmt->fetch();
+$row=mysql_fetch_array($result);
 if ($type=="family"){
-	array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'headimage'=>$headimage,'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
 
 if($type=="friend"){
@@ -73,16 +67,11 @@ if($type=="friend"){
 	$extInfo=" and a.relation <>'friend'";
 }
 
-$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage FROM familylist as a, sensorinfo as b WHERE a.sensorid=? and b.id=a.friendid  and a.delmark=0". $extInfo;
+$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage FROM familylist as a, sensorinfo as b WHERE a.sensorid=$scode and b.id=a.friendid  and a.delmark=0". $extInfo;
+$result=mysql_query($sql, $conn);
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($friendid, $relation,$nickname,$headimage);
-while($stmt->fetch()){
-	array_push($memberList,array('scode'=> $friendid,'relation'=>$relation,'nickname'=>$nickname,'headimage'=>$headimage,'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+while($row=mysql_fetch_array($result)){
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relation'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'goalList'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
 

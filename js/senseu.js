@@ -31,9 +31,13 @@ var txtLib=({
 	s_fall:{cn:"跌倒",en:"Fall"},
 	s_time:{cn:"时间：",en:"Time:"},
 	s_me:{cn:"我",en:"Me"},
-	s_empty:{cn:"未命名",en:"unnaming"}
+	s_empty:{cn:"未命名",en:"unnaming"},
+	s_lessStep:{cn:"还有nn步达到目标值",en:"Less steps nn."},
+	s_lessDist:{cn:"还有nn公里达到目标值",en:"Less distance nn km."},
+	s_lessCal:{cn:"还有nn卡路里达到目标值",en:"Less steps nn cal."},
 });
 
+var warningList=Array()
 
 function getText(textName){
 	return eval('txtLib.'+textName+"."+LANG);
@@ -552,7 +556,7 @@ function showFamOut(event){
 		//beginLoad();
 		//orderList.push("loadActivityData()");
 		//orderList.push("loadSleepData()");
-		orderList.push("getWarning()");
+		//orderList.push("getWarning()");
 		//orderList.push("getFriend()");
 		loadNextServerProcess();
 		switchTap(0);
@@ -564,18 +568,15 @@ function showFamOut(event){
 		//orderList.push("loadSleepData()");
 		loadNextServerProcess();
 	}
-	function addWarning(r){
-		var dataList=r.info;
-		back_ecode=r.ecode;
-		$.cookie('back_ecode', back_ecode,{path:'/', expires:1000});
+	function addWarning(){
+		
 	
 		$('#INFO_warGroup div').each(function(){$(this).remove();});	
 		$('#INFO_numGroup div').each(function(){$(this).remove();});	
 
-		for(i=0;i<dataList.length;i++){
-			var obj=dataList[i];
-			
-			childDiv=$('<div class="INFO_warIcon" id="INFO_war'+i+'"><img src="../images/'+warnList[obj.catalog].name+'.png" /></div>');
+		for(i=0;i<warningList.length;i++){
+			var obj=warningList[i];
+			childDiv=$('<div class="INFO_warIcon" id="INFO_war'+i+'"><img src="../images/'+obj.type+'.png" /></div>');
 			childDiv.appendTo($('#INFO_warGroup'));
 			childDiv.attr("titles",obj.title);
 			childDiv.attr("detail",obj.detail);
@@ -603,6 +604,7 @@ function showFamOut(event){
 	}
 	*/
 	function getWarning(){
+		/*
 		back_ecode=$.cookie('back_ecode');
 		var outData={ucode:back_ucode,scode:back_scode,dates:dateStr,ecode:back_ecode,source:"w"};
 		$.ajax({type: "POST",contentType: "application/json",dataType: "json",
@@ -613,6 +615,7 @@ function showFamOut(event){
 				loadNextServerProcess();
         	}
     	});
+		*/
 
 		
 	}
@@ -715,7 +718,21 @@ function showFamOut(event){
 		disGoal<disTaken ? carTitleItem[3].percent=100:carTitleItem[3].percent=(disTaken*100/disGoal).toFixed(1);
 		
 		
-			
+
+		warningList=[];
+		if(calTaken<caloriesGoal){
+			outstr=getText('s_lessCal')
+			warningList.push({type:'war_cal',title:getText('s_cal'),detail:outstr.replace('nn',(caloriesGoal-calTaken).toFixed(1))});
+		}
+		if(disTaken<disGoal){
+			outstr=getText('s_lessDist')
+			warningList.push({type:'war_dis',title:getText('s_distance'),detail:outstr.replace('nn',(disGoal-disTaken).toFixed(1))});
+		}
+		if(stepsTaken<stepGoal){
+			outstr=getText('s_lessStep')
+			warningList.push({type:'war_step',title:getText('s_steps'),detail:outstr.replace('nn',stepGoal-stepsTaken)});
+		}
+		addWarning();
 		var slist="";
 		//------------seprate to three parts, act,step,distance
 		
@@ -834,25 +851,25 @@ function showFamOut(event){
 		
 		distHour=nfrom-beginHour;
 		if(distHour<0){distHour+=24;}
-		
+		/*
 		wb=new Date(fdatestr[0]+"/"+fdatestr[1]+"/"+fdatestr[2]+" "+ftime);
 		wu=new Date(tdatestr[0]+"/"+tdatestr[1]+"/"+tdatestr[2]+" "+ttime);
 			
 		sleepTime=parseInt((wu.getTime()-wb.getTime())/60000);
-			
+		*/
 		
 		
 		//-------- toHour-FromHour 
 		var slp=new chartArea();
 		slp.deepSleep=r.deepsleep
-		
+		slp.totalSleep=r.totalsleep
 		slp.color=["","#00c4ff","#bfbfbf","#00c4ff"];
 		slp.belongs="SLP";
 		slp.data=sourceDataList;
 		slp.distHour=distHour;
 		slp.drawBaseLine();
 		slp.beginHour=beginHour;
-		slp.slpTimeLong=parseInt(sleepTime/5);
+		slp.slpTimeLong=parseInt(slp.totalSleep/5);
 		slp.setupHour();
 		slp.putData();
 
@@ -863,18 +880,18 @@ function showFamOut(event){
 		infoStr='<span>'+eStr[0]+':'+eStr[1]+'<span>'+eStr[2]+'</span></span>';
 		$('#SLP_wakeUp').html(infoStr);
 		
-		infoStr='<span>'+formatTime(sleepTime)+'</span>';
+		infoStr='<span>'+formatTime(slp.totalSleep)+'</span>';
 		$('#SLP_wholeSleep').html(infoStr);
 		
 		infoStr='<span>'+formatTime(slp.deepSleep)+'</span>';
 		$('#SLP_deepSleep').html(infoStr);
 		$('#SLP_lable').hide();
 		$('#s_proBarSlp').show();
-		sumSlp.p={belongs:"s_proBarSlp",smode:"s",leftIcon:"../images/icon_sleep.png",currentValue:slp.deepSleep,totalValue:slpGoal};
+		sumSlp.p={belongs:"s_proBarSlp",smode:"s",leftIcon:"../images/icon_sleep.png",currentValue:slp.deepSleep,totalValue:slp.totalSleep};
 		
 		sumSlp.init();
 
-		bigSlp.p={belongs:"l_proBarSlp",smode:"l",leftIcon:"",currentValue:slp.deepSleep,totalValue:slpGoal};
+		bigSlp.p={belongs:"l_proBarSlp",smode:"l",leftIcon:"",currentValue:slp.deepSleep,totalValue:slp.totalSleep};
 		bigSlp.init();
 		
 		/*

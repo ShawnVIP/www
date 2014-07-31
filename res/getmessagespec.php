@@ -29,7 +29,11 @@ if($readmode==2){
 if($direction==1){
 	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id>$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id limit 0,$msgnumber";
 }else{
-	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid and  a.id<$msgid and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id desc limit 0,$msgnumber";
+	$msgstr="";
+	if($msgid>0){
+		$msgstr='and a.id<$msgid';
+	}
+	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid  $msgstr and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id desc limit 0,$msgnumber";
 }
 
 
