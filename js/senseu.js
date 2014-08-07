@@ -707,15 +707,15 @@ function showFamOut(event){
 		//calTakenMax=0
 		carTitleItem[1].currentValue=calTaken;
 		carTitleItem[1].totalValue=caloriesGoal;
-		caloriesGoal<calTaken ? carTitleItem[1].percent=100:carTitleItem[1].percent=(calTaken*100/caloriesGoal).toFixed(1);
+		caloriesGoal<calTaken ? carTitleItem[1].percent=100:carTitleItem[1].percent=parseInt(calTaken*100/caloriesGoal);
 		
 		carTitleItem[2].currentValue=stepsTaken;
 		carTitleItem[2].totalValue=stepGoal;
-		stepGoal<stepsTaken ? carTitleItem[2].percent=100:carTitleItem[2].percent=(stepsTaken*100/stepGoal).toFixed(1);
+		stepGoal<stepsTaken ? carTitleItem[2].percent=100:carTitleItem[2].percent=parseInt(stepsTaken*100/stepGoal);
 		
 		carTitleItem[3].currentValue=disTaken;
 		carTitleItem[3].totalValue=disGoal.toFixed(3);
-		disGoal<disTaken ? carTitleItem[3].percent=100:carTitleItem[3].percent=(disTaken*100/disGoal).toFixed(1);
+		disGoal<disTaken ? carTitleItem[3].percent=100:carTitleItem[3].percent=parseInt(disTaken*100/disGoal);
 		
 		
 
@@ -1467,7 +1467,7 @@ barItem.prototype.init=function(){
 		}
 	}
 	
-	this.p.totalValue>0 ? this.percent=(100*this.p.currentValue/this.p.totalValue).toFixed(1):this.percent=0;
+	this.p.totalValue>0 ? this.percent=parseInt(100*this.p.currentValue/this.p.totalValue):this.percent=0;
 	if(this.percent>100){this.percent=100;}
 	//alert(this.p.belongs+"  "+this.p.currentValue+"   "+this.p.totalValue+"   "+this.percent)
 	//$('#'+this.p.belongs+'LeftDown').html(this.p.currentValue+this.units);
@@ -1492,7 +1492,7 @@ barItem.prototype.init=function(){
 			this.leftTitle=(this.p.currentValue).toFixed(1)+" <span>"+getText('s_caltaken')+"</span>";
 			this.leftDown=getText('s_cal');
 			if(this.p.totalValue-this.p.currentValue>0){
-				this.rightDown=(this.p.totalValue-this.p.currentValue).toFixed(1)+" "+getText('s_calleft');
+				this.rightDown=parseInt(this.p.totalValue-this.p.currentValue)+" "+getText('s_calleft');
 			}else{
 				this.rightDown="0 "+getText('s_calleft');
 			}

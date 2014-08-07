@@ -3,7 +3,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-6-3","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
+$json_string='{"type":"family","lang":"cn","ucode":"rIX9GlYOxrmSabErbUpS5pjWCrMTnkohN3Ng","scode":"599","dates":"2014-8-6","cdate":"2014-8-6 下午4:04:47","ecode":"g57wkqnPlXp5s2yc","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -182,9 +182,11 @@ while($row=mysql_fetch_array($result)){
 	$did=findDatefromList($row['date']);
 	for($k=0;$k<4;$k++){;
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=(int)$row[$valueNameList[$k].'goal'];
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=(int)$row['total' .$valueNameList[$k]];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
 }
+echo json_encode($memberList);
+
 //---------------------add in alert
 $sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and DATE_FORMAT(alertdate,'%Y-%m-%d')<='$enddate' and delmark=0";
 //echo $sql;
@@ -196,6 +198,7 @@ while($row=mysql_fetch_array($result)){
 	array_push($memberList[$sid][alertlist][0][$did][alert],array('time'=> $row['alertdate'],'alertid'=>$row['alerttype']));
 	
 }
+
 //---------------------add in position
 /*
 $sql="select sensorid,position,sdate,totime  from sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 order by sensorid,sdate,totime";
@@ -386,8 +389,8 @@ for($j=0;$j<3;$j++){
 
 	
 //-------------------计算本人目标完成百分比-------------------
-//echo json_encode($memberList);
 
-echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
+ 
+//echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
 
 ?>

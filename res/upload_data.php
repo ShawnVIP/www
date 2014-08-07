@@ -203,6 +203,44 @@ for($i=0;$i<count($dateList);$i++){
 		
 	$sql="update uploadstation set umode=0 where sensorid=$scode and udate='$reqdate'";
 	$result=mysql_query($sql,$conn); 
+	//------------------update dailyvalue
+	$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance  from  basedata_" . $dateList[$i][sdate] . "  where sensorid=$scode";
+	$result=mysql_query($sql,$conn); 
+	$row=mysql_fetch_array($result);
+	$totalcal=$row['totalcal'];
+	$totalsteps=$row['totalsteps'];
+	$totaldistance=$row['totaldistance'];
+	
+	$sql="select * from dailyvalue where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
+		$result=mysql_query($sql,$conn); 
+		
+	}else{
+		$sql="select * from dailyvalue where sensorid=$scode and date<'".$dateList[$i][ldate]. "'";
+		$result=mysql_query($sql,$conn);
+		$row=mysql_fetch_array($result);
+		$height=$row['height'];
+		$weight=$row['weight'];
+		$step=$row['step'];
+		$stepgoal=$row['stepgoal'];
+		$caloriesgoal=$row['caloriesgoal'];
+		$distancegoal=$row['distancegoal'];
+		$runningwidth=$row['runningwidth'];
+		$stepwidth=$row['stepwidth'];
+		$sleepgoal=$row['sleepgoal'];
+		$bmi=$row['bmi'];
+		$bmr=$row['bmr'];
+		$age=$row['age'];
+		$updated=$row['updated'];
+		
+		$sql="INSERT INTO dailyvalue(height, weight, step, date, stepgoal, caloriesgoal, stepwidth, distancegoal, runningwidth, bmi, sensorid, updated, age, bmr, sleepgoal, totalcal, totalsteps, totaldistance, totalsleep) VALUES ($height, $weight, $step, '".$dateList[$i][ldate]. "', $stepgoal, $caloriesgoal, $stepwidth, $distancegoal, $runningwidth, $bmi, $scode, $updated, $age, $bmr, $sleepgoal, $totalcal, $totalsteps, $totaldistance, $totalsleep)";
+		$result=mysql_query($sql,$conn); 		
+		
+	}
+	
+	
 
 }
 

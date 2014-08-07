@@ -52,7 +52,7 @@ for($i=0;$i<count($numberList);$i++){
 
 }
 
-$sql="SELECT a.id,a.rdate,a.fromscode,a.reltome,b.nickname,b.headimage,c.cn_name,c.en_name FROM familyreqlist as a, sensorinfo as b,relation as c where a.toscode=1 and b.id=a.fromscode and a.relforme=c.id order by a.rdate desc";
+$sql="SELECT a.id,a.rdate,a.fromscode,a.reltome,b.nickname,b.headimage,c.cn_name,c.en_name FROM familyreqlist as a, sensorinfo as b,relation as c where a.toscode=$scode and b.id=a.fromscode and a.relforme=c.id order by a.rdate desc";
 //echo $sql;
 $result=mysql_query($sql, $conn);
 while($row=mysql_fetch_array($result)){

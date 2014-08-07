@@ -32,33 +32,27 @@ if (!$stmt->fetch()) {
 	exit;
 }
 
-
-
-$sql = "INSERT INTO message( fromid, toid, message, sdate) VALUES (?,?,?,?)"; //预处理sql语句
-//echo  "INSERT INTO message( fromid, toid, message, sdate) VALUES ($scode,$fcode,'$message','$sdate')"; //预处理sql语句
-
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
-$stmt->bind_param("ssss", $scode,$fcode,$message,$sdate);
-$stmt->execute();
+//$mysqli->set_charset("uft8");
+//$mysqli->query("set names 'uft8'");
+//$sql = "INSERT INTO message( fromid, toid, message, sdate) VALUES (?,?,?,?)"; //预处理sql语句
+$sql= "INSERT INTO message( fromid, toid, message, sdate) VALUES ($scode,$fcode,'$message','$sdate')"; //预处理sql语句
+$result=mysql_query($sql, $conn);
 
 
 
 
 //$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
-$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=? and b.id=? ";
+$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode ";
+$result=mysql_query($sql, $conn);
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("ss", $fcode,$scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($nickname,$devicetoken,$fromname);
 
 $popinfo='';
 $pmode=200;
 
-if($stmt->fetch()){
+if($row=mysql_fetch_array($result)){
+	$nickname=$row['nickname'];
+	$devicetoken=$row['devicetoken'];
+	$fromname=$row['fromname'];
 	$devicetoken=str_replace(" ","",$devicetoken);
 	$message="Hi $nickname, your friend $fromname just leave you message :'$message'.";
 	popmessage($devicetoken,$message);

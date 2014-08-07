@@ -181,8 +181,8 @@ while($row=mysql_fetch_array($result)){
 	$sid=findIDfromList($row['sensorid']);
 	$did=findDatefromList($row['date']);
 	for($k=0;$k<4;$k++){;
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=(int)$row[$valueNameList[$k].'goal'];
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=(int)$row['total' .$valueNameList[$k]];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=$row[$valueNameList[$k].'goal'];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
 }
 //---------------------add in alert

@@ -2,7 +2,7 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"mode":"0","numberperpage":"1000","pagenumber":"1","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"1","ecode":"AJvb6U2I22jPeebK","source":"a"}';
+$json_string='{"readmode":"0","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"605","ecode":"AJvb6U2I22jPeebK","source":"a"}';
 
 $obj=json_decode($json_string); 
 
@@ -52,8 +52,8 @@ for($i=0;$i<count($numberList);$i++){
 
 }
 
-$sql="SELECT a.id,a.rdate,a.fromscode,a.reltome,b.nickname,b.headimage,c.cn_name,c.en_name FROM familyreqlist as a, sensorinfo as b,relation as c where a.toscode=1 and b.id=a.fromscode and a.relforme=c.id order by a.rdate desc";
-//echo $sql;
+$sql="SELECT a.id,a.rdate,a.fromscode,a.reltome,b.nickname,b.headimage,c.cn_name,c.en_name FROM familyreqlist as a, sensorinfo as b,relation as c where a.toscode=$scode and b.id=a.fromscode and a.relforme=c.id order by a.rdate desc";
+echo $sql;
 $result=mysql_query($sql, $conn);
 while($row=mysql_fetch_array($result)){
 	array_push($requirement,array('fcode'=>$row['fromscode'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'rdate'=>$row['rdate'],'requireid'=>$row['id'],'relation'=>$row[$lang.'_name']));

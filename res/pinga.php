@@ -2,8 +2,9 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$now=date("Y-m-d H:i:s");
-$json_string='{"scode":"201","fcode":"1","ecode":"aaa","source":"w","message":"I ping you !"}';
+
+$json_string='{"scode":"279","fcode":"166","ecode":"aaa","source":"w","message":"I ping you at ' . date("Y-m-d H:i:s") . '!"}';
+//$json_string='{"scode":"201","fcode":"1","ecode":"aaa","source":"w","message":"I ping you !"}';
 
 $obj=json_decode($json_string); 
 
@@ -15,6 +16,7 @@ $fcode=$obj -> fcode;
 $message=$obj -> message;
 
 //checkuser($ucode,$scode,$ecode,$source);
+
 
 
 
@@ -34,43 +36,37 @@ if(! $stmt->fetch()){
 $datalist=array();
 
 //$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
-$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=? and b.id=? ";
+$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode";
+$result=mysql_query($sql, $conn);
 
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("ss", $fcode,$scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($nickname,$devicetoken,$fromname);
 
 $popinfo='';
 
 $pmode=200;
-if($stmt->fetch()){
+if($row=mysql_fetch_array($result)){
+	
+	$nickname=$row['nickname'];
+	$devicetoken=$row['devicetoken'];
+	$fromname=$row['fromname'];
 	$devicetoken=str_replace(" ","",$devicetoken);
 	$message="Hi $nickname, your friend $fromname just ping you at $now and leave message:'$message'.";
 	popmessage($devicetoken,$message);
 	echo json_encode(array('status'=>$pmode,'ecode'=>$ecode,'extinfo'=>array('devicetoken'=> $devicetoken, 'message'=> $message,'result'=>$popinfo)));
 	
 }else{
+	
 	$popinfo='cannot find your friends devicetoken';
 	echo json_encode(array('status'=>201,'ecode'=>$ecode,'errinfo'=>'cannot find your friends devicetoken'));
 }
 
-
-$sql="insert into pinglist (scode,fcode,message,pdate,info) values(?,?,?,?,?)";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处
-$stmt->bind_param("sssss", $scode,$fcode,$message,date("Y-m-d H:i:s"),$popinfo);
-$stmt->execute();
-// Put your device token here (without spaces):
-
+$sql="insert into pinglist (scode,fcode,message,pdate,info) values( $scode,$fcode,'$message','" . date("Y-m-d H:i:s") ."','$popinfo')";
+$result=mysql_query($sql, $conn);
 
 // Put your device token here (without spaces):
 function popmessage($deviceToken,$message){
 	global $popinfo,$pmode;
 	// Put your private key's passphrase here:
-	$passphrase = 'pushchat';
+	$passphrase = '123456';
 	
 	// Put your alert message here:
 	//$message = 'My first push notification!';
@@ -122,6 +118,8 @@ function popmessage($deviceToken,$message){
 	fclose($fp);
 }
 $mysqli-> close();
+
+
 
 
 ?>

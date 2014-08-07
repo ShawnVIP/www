@@ -268,7 +268,7 @@ function getUploadData(){
     });	
 		
 }
-var stationList=new Array("ST","SL","SI","SIA","WA","RU","UN");
+var stationList=new Array("ST","SL","SL","SI","SIA","WA","RU","UN");
 function getStationData(){
 	$('#alertinfo').html("get sensor station, please wait...");
 	$( "#dialog-modal" ).dialog({height: 140,modal: true});

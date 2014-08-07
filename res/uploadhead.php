@@ -7,7 +7,7 @@ $scode=$_POST[scode];
 $ecode=$_POST[ecode];
 $source=$_POST[source];
 $lang=$_POST[lang];
-checkuser($ucode,$scode,$ecode,$source);
+//checkuser($ucode,$scode,$ecode,$source);
 
 $filename= randomkeys(36) . ".jpg";//要生成的图片名字
 
@@ -70,8 +70,8 @@ $stmt->bind_param("ss", $filename,$scode);
 $stmt->execute();
 $stmt->close();
 
-//echo json_encode(array('status'=>200, 'picture'=>$filename,'ecode'=>$ecode));	
-?>
+echo json_encode(array('status'=>200, 'picture'=>$filename,'ecode'=>$ecode));	
+/*
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -82,9 +82,10 @@ $stmt->close();
 <body>
 <script>
 
-parent.updatedHead("<?php echo $filename; ?>");
+
 document.location="../<?php echo $lang; ?>/adjusthead.php?ucode=<?php echo $ucode; ?>&scode=<?php echo $scode; ?>&ecode=<?php echo $ecode; ?>&pic=<?php echo $filename; ?>";
 </script>
 </body>
 </html>
-
+*/
+?>

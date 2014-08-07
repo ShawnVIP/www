@@ -28,7 +28,7 @@ var LANG="en";
 
 <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript" src="../js/jquery.cookie.js"></script>
-
+<script language="javascript" src="../js/jquery.form.js"></script>
 <script language="javascript" src="../js/uploadhead.js"></script>
 <script type="text/javascript">
 
@@ -59,10 +59,10 @@ body {margin:0px}
 </style>
 </head>
 <body><div id="myContent">
-<div id="backpic" class="pickpic"><img src="../upload/<?php echo $pic; ?>"  /> </div>
+<div id="backpic" class="pickpic"><img id="headpic" src="../upload/<?php echo $pic; ?>"  /> </div>
 <div id="choosepicture" class="btnBack1 pickpic" >Choose head picture</div>
 <div id="mainarea">
-	<form action="../res/uploadhead.php" method="post" enctype="multipart/form-data">
+	<form id="uploadform" method="post" enctype="multipart/form-data">
     <p>Pictures:
     <input type="file" name="picture"  id="pickpicture" onchange="getPhotoSize(this)"/>
     <input type="hidden" name="scode" id="scode" value="<?php echo $scode; ?>" />

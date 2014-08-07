@@ -31,7 +31,7 @@ if($direction==1){
 }else{
 	$msgstr="";
 	if($msgid>0){
-		$msgstr='and a.id<$msgid';
+		$msgstr='and a.id<' .$msgid;
 	}
 	$sql ="SELECT a.id,a.fromid, a.message,a.sdate,b.nickname, b.headimage FROM message as a,sensorinfo as b  WHERE b.id=a.fromid  $msgstr and a.delmark=0 and ((a.toid=$scode and a.fromid=$fcode) or (a.toid=$fcode and a.fromid=$scode))  " . $checkStr ." order by a.id desc limit 0,$msgnumber";
 }
@@ -42,6 +42,8 @@ $result=mysql_query($sql, $conn);
 
 while($row=mysql_fetch_array($result)){
 	array_push($msglist,array('messageid'=>$row['id'],'message'=>$row['message'],'sdate'=>$row['sdate'],'scode'=>$row['fromid'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage']));
+	$sqla="update message set readmode=1 where id=" . $row['id'];
+	$resulta=mysql_query($sqla, $conn);
 }
 
 echo json_encode(array('status'=>200,'msglist'=>$msglist));
