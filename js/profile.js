@@ -730,5 +730,8 @@ function updatedHead(headpic){
 	//alert("change profile"+headpic);
 	headimage=headpic
 	$("#Pro_head").attr("src","../upload/"+headpic); 
-	parent.updatedHead(headpic);
+	if(parent.pageID==2){
+	
+		parent.updatedHead(headpic);
+	}
 }

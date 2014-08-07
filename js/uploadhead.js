@@ -46,8 +46,8 @@ function getPhotoSize(obj){
     }
 	
 	$(".pickpic").unbind();
-	//$("#submitpicture").click();  
-	//uploadPicture();
+	$("#submitpicture").click();  
+	/*
 	$('#uploadform').ajaxSubmit({
      type: "post",
      url: "../res/uploadhead.php",
@@ -59,4 +59,5 @@ function getPhotoSize(obj){
 		   $('#headpic').attr("src","../upload/"+result.picture);
      	}
 	 });
+	 */
 }

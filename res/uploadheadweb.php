@@ -7,72 +7,12 @@ $scode=$_POST[scode];
 $ecode=$_POST[ecode];
 $source=$_POST[source];
 $lang=$_POST[lang];
-//checkuser($ucode,$scode,$ecode,$source);
+checkuser($ucode,$scode,$ecode,$source);
 
 $filename= randomkeys(36) . ".jpg";//要生成的图片名字
-$tmpFile="../upload/_".$filename;
-$finalfilename="../upload/".$filename;
+
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
 
-
-$head =  $GLOBALS['HTTP_RAW_POST_DATA'];
-
-$file = fopen($tmpFile, 'wb');
-
-$begin=0;
-for($i=0;$i< strlen($head);$i++){
-	$midstr=substr($head,$i,1);
-	$order=	ord($midstr);
-	if($order==255){
-		$begin=$i;
-		$i=strlen($head);
-	}
-}
-
-$midstr=substr($head,$begin,strlen($head)-$begin-33);
-
-fwrite($file,$midstr);
-fclose($file);
-
-
-list($width, $height) = getimagesize($tmpFile);
-
-$newwidth=200;
-$newheight=200;
-$sourceWidth=$width;
-if($width>$height){
-	$sourceWidth=$height;
-	$rate=$height/$newheight;
-	$px=($width-$height)/2;
-	$py=0;
-}else{
-	$rate=$width/$newwidth;
-	$px=0;
-	$py=($height-$width)/2;
-}
-// 加载图像
-
-
-$ext="";
-$ext="jpg";
-$src_im = imagecreatefromjpeg($tmpFile);
-
-$dst_im = imagecreatetruecolor($newwidth, $newheight);
-
-
-// 调整大小
-imagecopyresampled($dst_im, $src_im, 0, 0, $px, $py, $newwidth, $newheight, $sourceWidth, $sourceWidth);
-
-//输出缩小后的图像
-//imagejpeg($dst_im,"../upload/". $filename);
-imagejpeg($dst_im,$finalfilename,95);
-
-imagedestroy($dst_im);
-imagedestroy($src_im);
-
-
-
-/*
 $tmpFile=$_FILES["picture"]["tmp_name"];
 $type=$_FILES["picture"]['type'];
 
@@ -129,7 +69,22 @@ $stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
 $stmt->bind_param("ss", $filename,$scode);
 $stmt->execute();
 $stmt->close();
-*/
-echo json_encode(array('status'=>200, 'picture'=>$filename));	
+
+//echo json_encode(array('status'=>200, 'picture'=>$filename,'ecode'=>$ecode));	
 
 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<script>
+parent.updatedHead("<?php echo $filename; ?>");
+
+document.location="../<?php echo $lang; ?>/adjusthead.php?ucode=<?php echo $ucode; ?>&scode=<?php echo $scode; ?>&ecode=<?php echo $ecode; ?>&pic=<?php echo $filename; ?>";
+</script>
+</body>
+</html>
