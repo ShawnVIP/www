@@ -1,0 +1,105 @@
+@charset "utf-8";
+
+/*popup login*/
+.popup_login {
+	width:368px;
+	height:362px;
+	position:absolute;
+	top:232px;
+	left:167px;
+	z-index:20;
+
+
+
+	z-index:3;
+}
+.popup_login_top {
+	background:url(../images/pop_t_bg.png) no-repeat;
+	height:10px;
+	overflow:hidden;
+}
+.popup_login_bottom {
+	background:url(../images/pop_b_bg.png) no-repeat;
+	height:9px;
+	overflow:hidden;
+}
+.popup_login_content {
+	background:#fff url(../images/pop_c_bg.png) repeat-x;
+	height:343px;
+	overflow:hidden;
+}
+.popup_login_content a {
+	color:#0096ff;
+}
+.popup_login_hide {
+	background:url(../images/pop_hide.gif) no-repeat;
+	width:23px;
+	height:23px;
+	display:block;
+	text-indent:-9999px;
+	position:absolute;
+	top:10px;
+	right:12px;
+}
+.popup_login_text1, .popup_login_text2 {
+	background:url(../images/text_258.png) no-repeat;
+	width:250px;
+	height:27px;
+	line-height:27px;
+	border:none;
+	padding:0 4px;
+}
+.popup_login_text2 {
+	background:url(../images/text_124.png) no-repeat;
+	width:116px;
+}
+.popup_signup {
+	margin:33px 0 0 60px;
+}
+.popup_login_table {
+	width:260px;
+	margin:9px 0 0 62px;
+}
+.popup_login_table th {
+	height:26px;
+	line-height:26px;
+	text-align:left
+}
+.popup_login_table td {
+	padding:0 0 8px 0;
+}
+.popup_login_agree {
+	margin:14px 0 0 62px;
+	font-size:9px;
+	overflow:hidden;
+	zoom:1;
+}
+.popup_login_agree input {
+	float:left;
+	margin-right:3px;
+}
+.popup_login_agree span {
+	display:block;
+	float:left;
+	margin-top:0;/* FF,OP */
+   [;margin-top:0px;]/* Sa,CH */
+   margin-top:4px\9;/*IE6、7、8*/
+   *margin-top:4px;/* IE7、6 */
+   _margin-top:4px;/* IE6 */
+}
+.popup_login_bnt, .popup_login_bnt_2 {
+	text-align:center;
+	margin:19px 0;
+}
+.popup_login_bnt input, .popup_login_bnt_2 input {
+	background:url(../images/bnt_sign_up.png) no-repeat;
+	width:193px;
+	height:41px;
+	border:none;
+	text-indent:-9999px;
+	display:block;
+	margin:0 auto
+}
+.popup_login_bnt_2 input {
+	background:url(../images/login_bnt.png) no-repeat;
+}

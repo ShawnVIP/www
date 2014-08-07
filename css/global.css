@@ -1,0 +1,4 @@
+@charset "UTF-8";
+
+@font-face{font-family:'yahei';src:url(fonts/helveticaneueltpro-lt-webfont.ttf); font-style:normal; font-weight:normal}
+*{margin:0;font-family:'yahei',"MS Serif", "New York", serif;}
