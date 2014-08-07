@@ -68,6 +68,7 @@ function searchByEmail(){
 				return;
 			}
 			info=msg.sensorList[0]
+			$('#email').text(info.email);
 			$('#userid').text(info.userid);
 			$('#sensorid').text(info.sensorid);
 			$('#scode').val(info.sensorid)

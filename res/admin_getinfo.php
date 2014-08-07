@@ -12,20 +12,45 @@ $obj=json_decode($json_string);
 
 $mode=$obj -> mode;
 $scode=$obj -> scode;
-$email=$obj -> email;
+$value=$obj -> email;
 
 
 
 //--------------check ucode---------------------
 
 $sensor=array();
+/*
 if($mode=="mail"){
 	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.email='$email' and a.userid=c.userid  and b.id=c.sensorid";
 }else{
 	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.userid=c.userid  and b.id=$scode and c.sensorid=$scode";	
 }
+*/
+$finalSql="";
+$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.email='$value' and a.userid=c.userid  and b.id=c.sensorid";
 
 $result=mysql_query($sql,$conn); 
+
+if($row=mysql_fetch_array($result)){
+	$finalSql=$sql;
+}
+if($finalSql==""){
+	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.userid=c.userid and b.id=c.sensorid  and b.id='$value'";	
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$finalSql=$sql;
+	}
+}
+if($finalSql==""){
+	$sql="select a.userid,a.email,b.* from accountinfo as a, sensorinfo as b, sensorlist as c where a.userid=c.userid  and b.id=c.sensorid  and b.nickname='$value'";	
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$finalSql=$sql;
+	}
+}
+
+//echo $finalSql;
+$result=mysql_query($finalSql,$conn); 
 if($row=mysql_fetch_array($result)){
 	
 	$vname=array();

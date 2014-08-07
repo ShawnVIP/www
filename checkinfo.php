@@ -25,21 +25,17 @@ body {margin:20px; color:#202020; font-size:12px;}
 <p>accountinfo</p>
 <table width="800" border="1" cellspacing="1" cellpadding="5" align="center" >
   <tr>
-    <td width="89" >email</td>
+    <td width="116" >email/sensorid/nickname</td>
     <td>
     <input name="email" type="text" id="email" value="test@hotmail.com" ></td>
-    <td><button id="search" >Search By email</button></td>
-    <td width="49" >sensorid</td>
-    <td width="20">
-    <input name="scode" type="text" id="scode" value="599" size="4" maxlength="4" ></td>
-    <td><button id="searchid" >Search By sensor ID</button></td>
-    
+    <td width="167"><button id="search" >Search</button></td>
+    <td width="235">&nbsp;</td>
   </tr>
  
   <tr>
     <td>userid</td>
-    <td width="248"id="userid" colspan=5>&nbsp;</td>
-    
+    <td width="227"id="userid" >&nbsp;</td>
+     <td>email</td> <td id="email">&nbsp;</td>
   </tr>
 </table>
 
