@@ -35,7 +35,42 @@ for($i=0;$i< strlen($head);$i++){
 }
 
 $headstr=substr($head,0,$begin);
-echo $headstr;
+$headstr=str_replace('"','',$headstr);
+
+$headstr = preg_replace('/[\n\r\t]/', ' ', $headstr);
+
+$pattern='/--Boundary[+A-Z0-9]*/';
+$replacement='';
+$headstr= preg_replace($pattern, $replacement, $headstr);
+
+$pattern='/Content[-A-Za-z:-;]*/';
+$replacement='';
+$headstr= preg_replace($pattern, $replacement, $headstr);
+
+$headstr=str_replace('form-data;','',$headstr);
+
+$strlist=split ("name=", $headstr);
+
+$valuelist = array();  
+for($i=1;$i<count($strlist)-1;$i++){
+	$tempstr=split (" ", $strlist[$i],2);
+	array_push($valuelist,array(trim($tempstr[0]),trim($tempstr[1])));
+	eval('$'.trim($tempstr[0]) .'="'.trim($tempstr[1]) .'";');
+	
+}
+//echo json_encode($strlist);
+
+echo json_encode($valuelist);
+
+
+//preg_match_all('/--Boundary[+A-Z0-9]*/', $headstr, $media);  
+
+//unset($data);  
+//echo json_encode($media);
+
+//$strlist=split (";", $passwd_line, 5);
+
+
 $midstr=substr($head,$begin,strlen($head)-$begin-33);
 
 $file = fopen($tmpFile, 'wb');

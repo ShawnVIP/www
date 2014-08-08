@@ -262,8 +262,20 @@ if($height !=""){ //---保存profile信息---------------------------
 	$stmt->close();
 	
 	*/
-	$sql="update sensorinfo set nickname='$nickname',gender='$gender',dob='$dob',timezone='$timezone',unit='$unit',updated=1,age=$age,language='$language', fallalert=$fallalert where id=$scode";
+	$sql="select headimage from sensorinfo where id=$scode";
 	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$headimage=$row['headimage'];	
+	}
+	if(substr($headimage,0,6)=="avatar"){
+		$headimage="avatar_" . strtolower($gender) . ".gif";
+	}
+	
+	
+	
+	$sql="update sensorinfo set headimage='$headimage', nickname='$nickname',gender='$gender',dob='$dob',timezone='$timezone',unit='$unit',updated=1,age=$age,language='$language', fallalert=$fallalert where id=$scode";
+	$result=mysql_query($sql,$conn); 
+	
 	
 	
 	if($gender=="F"){

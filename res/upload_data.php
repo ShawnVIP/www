@@ -139,9 +139,10 @@ for($i=0;$i<count($data);$i++){
 //-------------dedupe-----------------
 for($i=0;$i<count($dateList);$i++){
 
+	/*
 	$sql="update uploadstation set umode=1 where sensorid=$scode and udate='" . $dateList[$i][ldate] ."'";
 	$result=mysql_query($sql,$conn); 
-	
+	*/
 
 	$sql="delete from basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and stime in (select stime from tempupload where sensorid=$scode and sdate='" .$dateList[$i][sdate] ."' and rndstring='" . $rndstring . "')";
 	// echo $sql;
@@ -168,13 +169,14 @@ for($i=0;$i<count($dateList);$i++){
 	$result=mysql_query($sql,$conn); 
 	while ($row=mysql_fetch_array($result)){
 		$detectedposition=$row['detectedposition'];
+		if($detectedposition==2){$detectedposition=1;} //---1,2 都是睡眠模式------
 		$stime=$row['stime'];
 		$tmpdate=date("Y-m-d H:i:s",strtotime($reqdate . " " .$stime));
 		for($k=0;$k>-5;$k--){
 			$newtime=date('H:i:s',strtotime("$tmpdate $k minute"));	
 			$newday=date("Y-m-d",strtotime("$tmpdate $k minute"));	
 			if($newday==$reqdate){
-				//---------------------屏蔽 1,2,7
+				
 				$statusList[timeToRealID($newtime)]=$detectedposition;
 			}
 		}
@@ -200,9 +202,10 @@ for($i=0;$i<count($dateList);$i++){
 		$stmt->execute();
 	}
 	$stmt->close();
-		
+	/*	
 	$sql="update uploadstation set umode=0 where sensorid=$scode and udate='$reqdate'";
 	$result=mysql_query($sql,$conn); 
+	*/
 	//------------------update dailyvalue
 	$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance  from  basedata_" . $dateList[$i][sdate] . "  where sensorid=$scode";
 	$result=mysql_query($sql,$conn); 

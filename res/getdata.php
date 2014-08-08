@@ -289,7 +289,7 @@ if($row=mysql_fetch_array($result)){
 	$sql="insert into uploadstation ( sensorid,udate,umode) value ($scode,'$reqdate',1)";
 	$result=mysql_query($sql,$conn); 
 }
-	
+/*
 if($umode==1){//------------rebuild data--------------------
 	$sql="delete from sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0";
 	$result=mysql_query($sql,$conn); 
@@ -334,7 +334,7 @@ if($umode==1){//------------rebuild data--------------------
 	$result=mysql_query($sql,$conn); 
 
 }
-	
+*/
 $sql="SELECT totime,position FROM sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0 order by totime";
 $result=mysql_query($sql,$conn); 	
 while ($row=mysql_fetch_array($result)){
