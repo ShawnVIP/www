@@ -37,9 +37,9 @@ if($accept==2){
 	exit;
 }
 
-$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($reqcode,$scode,'$now','$reltome',$guardian)";
+$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian, becare) values ($reqcode,$scode,'$now','$reltome',$guardian,0)";
 $result=mysql_query($sql, $conn);
-$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian) values ($scode,$reqcode,'$now','$relforme',0)";
+$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian,becare) values ($scode,$reqcode,'$now','$relforme',0,$guardian)";
 $result=mysql_query($sql, $conn);
 	
 

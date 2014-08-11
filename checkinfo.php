@@ -166,7 +166,7 @@ body {margin:20px; color:#202020; font-size:12px;}
       
     </select></td>
     <td><button id="changeTime" >Change Time</button></td>
-    <td>&nbsp;</td>
+    <td><button id="updateData" >Update Data</button></td>
   </tr><tr>
     <td>age</td>
     <td id="sensorAge">&nbsp;</td>

@@ -7,55 +7,11 @@ $(function(){
 	$( "#searchid" ).click(function() {searchByID()});
 	$('#changeTime').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#changeTime" ).click(function() {getDailyData()});
+	$('#updateData').button({icons:{primary:"ui-icon-plusthick"}});
+	$( "#updateData" ).click(function() {updateData()});
+	
 });
-function searchByID(){
-	
-	var outData={mode:"id",scode:$('#scode').val()};
-	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
-		url:'res/admin_getinfo.php',
-		data:JSON.stringify(outData), 
-        success: function (msg) {
-			if(msg.status != 200){
-				$('#alertinfo').html("Nothing found!");
-				return;
-			}
-			info=msg.sensorList[0]
-			$('#email').val(info.email)
-			$('#userid').text(info.userid);
-			$('#sensorid').text(info.sensorid);
-			$('#language').text(info.language);
-			$('#power').text(info.power);
-			$('#lastupdate').text(info.lastupdate);
-			$('#nickname').text(info.nickname);
-			$('#headimage').text(info.headimage);
-			$('#headpic').attr("src","upload/"+info.headimage);
-			$('#dob').text(info.dob);
-			$('#unit').text(info.unit);
-			$('#gender').text(info.gender);
-			$('#updated').text(info.updated);
-			$('#defaultgoal').text(info.defaultgoal);
-			$('#fallalert').text(info.fallalert);
-			$('#positionalert').text(info.positionalert);
-			$('#para0').text(info.para0);
-			$('#para1').text(info.para1);
-			$('#para2').text(info.para2);
-			$('#para3').text(info.para3);
-			$('#para4').text(info.para4);
-			$('#detailid').text(info.detailid);
-			$('#usertype').text(info.usertype);
-			$('#createdate').text(info.createdate);
-			$('#timezone').text(info.timezone);
-			$('#age').text(info.age);
-			
-			getMemberData();
-			
-        },
- 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-       		$('#alertinfo').html("unknown error!");
-        }
-    });	
-	
-}
+
 function searchByEmail(){
 	
 	var outData={mode:"mail",email:$('#email').val()};
@@ -165,6 +121,29 @@ function getDailyValue(){
         }
     });	
 }
+//-------更新某天的数据刷新，模拟upload数据后的数据整理-------------
+function updateData(){
+	$('#alertinfo').html("refresh data to similate after upload , please wait...");
+	$( "#dialog-modal" ).dialog({height: 140,modal: true});
+	
+	var outData={sensorid:$('#sensorid').text(),date:$('#dateList').val()};
+	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
+		url:'res/admin_refreshdata.php?id='+Math.random(),
+		data:JSON.stringify(outData), 
+        success: function (msg) {
+			if(msg.status != 200){
+				$('#alertinfo').html("No dailyvalue for "+$('#dateList').val()+" found!");
+				return;
+			}
+			$( "#dialog-modal" ).dialog("close");
+        },
+ 		error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		$('#alertinfo').html("unknown error!");
+        }
+    });	
+		
+}
+
 function getDailyData(){
 	$('#alertinfo').html("get dailyvalue, please wait...");
 	$( "#dialog-modal" ).dialog({height: 140,modal: true});

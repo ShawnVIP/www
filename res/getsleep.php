@@ -105,21 +105,29 @@ function timeToRealID($time){
 	return $min[0]*60+$min[1];
 }
 
-$sql="select stime,move+steps as move,detectedposition as sleepmode from basedata_" .$lastdatestr . " where sensorid=? and stime>='$ftime' order by stime";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result( $stime,$move,$sleepmode);
-//-----------save data----------------------------
+if($tdate>$fdate){
 
-while($stmt->fetch()){
-	array_push($moveList,  timeToRealID($stime) ."|" . $move."|".$sleepmode);
-	//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
+	$sql="select stime,move+steps as move,detectedposition as sleepmode from basedata_" .$lastdatestr . " where sensorid=? and stime>='$ftime' order by stime";
+	$stmt = $mysqli->stmt_init();
+	$stmt = $mysqli->prepare($sql); 
+	$stmt->bind_param("s", $scode);
+	$stmt->execute();
+	$stmt->store_result();
+	$stmt->bind_result( $stime,$move,$sleepmode);
+	//-----------save data----------------------------
+	
+	while($stmt->fetch()){
+		array_push($moveList,  timeToRealID($stime) ."|" . $move."|".$sleepmode);
+		//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
+	}
+	$stmt->close();
+	$baseid=0;
+	$addstr="";
+}else{
+	$baseid=720;
+	$addstr=" and stime>='$ftime' ";
 }
-$stmt->close();
-$sql="select stime,move+steps as move,detectedposition as sleepmode from basedata_" .$datestr . " where sensorid=? and stime<='$ttime' order by stime";
+$sql="select stime,move+steps as move,detectedposition as sleepmode from basedata_" .$datestr . " where sensorid=? and stime<='$ttime' $addstr order by stime";
 $stmt = $mysqli->stmt_init();
 $stmt = $mysqli->prepare($sql); 
 $stmt->bind_param("s", $scode);
@@ -129,7 +137,7 @@ $stmt->bind_result( $stime,$move,$sleepmode);
 //-----------save data----------------------------
 $deepsleep=0;
 while($stmt->fetch()){
-	array_push($moveList,  timeToRealID($stime) ."|". $move."|".$sleepmode);
+	array_push($moveList,  $baseid+timeToRealID($stime) ."|". $move."|".$sleepmode);
 	if($sleepmode==2){$deepsleep+=5;}
 	//array_push($moveList,  720+timeToRealID($stime)."|" . $stime  ."|". $move);
 }

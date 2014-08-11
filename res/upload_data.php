@@ -159,7 +159,7 @@ for($i=0;$i<count($dateList);$i++){
 	
 	//----rebuild----------------------
 	$reqdate=$dateList[$i][ldate];
-	$sql="delete from sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0";
+	$sql="delete from sensorstation where sensorid=$scode and sdate='" . $dateList[$i][ldate] . "' and adjtype=0";
 	$result=mysql_query($sql,$conn); 
 	for($k=0;$k<=1440;$k++){
 		array_push($statusList, 0);
@@ -206,7 +206,7 @@ for($i=0;$i<count($dateList);$i++){
 	$sql="update uploadstation set umode=0 where sensorid=$scode and udate='$reqdate'";
 	$result=mysql_query($sql,$conn); 
 	*/
-	//------------------update dailyvalue
+	//------------------update dailyvalue-------------------
 	$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance  from  basedata_" . $dateList[$i][sdate] . "  where sensorid=$scode";
 	$result=mysql_query($sql,$conn); 
 	$row=mysql_fetch_array($result);
@@ -214,10 +214,70 @@ for($i=0;$i<count($dateList);$i++){
 	$totalsteps=$row['totalsteps'];
 	$totaldistance=$row['totaldistance'];
 	
+	$tdate=$dateList[$i][ldate];
+	$fdate=date('Y-m-d',strtotime("$tdate -1 day"));
+
+
+	$sql="select * from basedata_" .str_replace("-","",$fdate) . " where stime>'12:00:00' and detectedposition=1 and sensorid=$scode order by stime limit 0,1";
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$ftime=$row['stime'];
+	}else{
+		$sqla="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' and detectedposition=1 and sensorid=$scode  order by stime limit 0,1";
+		$resulta=mysql_query($sqla,$conn); 
+		if($rowa=mysql_fetch_array($resulta)){
+			$ftime=$rowa['stime'];
+			$fdate=$tdate;
+		}else{
+			$ftime="22:00:00";
+		}
+	}
+	$addstr="";
+	if($fdate==$tdate){
+		$addstr=" and stime>'$ftime' ";
+	}
+	$sql="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' $addstr and (detectedposition=5 or detectedposition=6) and sensorid=$scode  order by stime limit 0,1";
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$ttime=$row['stime'];
+	}else{
+		$ttime="07:00:00";
+	}
+	
+	$sql="select * from sleepdata where sid=$scode and sdate='$tdate'";
+	$result=mysql_query($sql,$conn); 
+	if($row=mysql_fetch_array($result)){
+		$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$tdate'";
+		$result=mysql_query($sql,$conn); 
+	}else{
+		$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$ftime', '$ttime', '$fdate', '$tdate')";
+		$result=mysql_query($sql,$conn); 
+	}
+	
+	
+	
+	if($fdate==$tdate){
+		$sql="select count(id) as cid from basedata_" .str_replace("-","",$tdate) . " where  stime>='$ftime'  and stime<='$ttime' and detectedposition=2 and sensorid=$scode";
+		$result=mysql_query($sql,$conn);
+		$row=mysql_fetch_array($result);
+		$totalsleep=$row['cid']*5;
+	}else{
+		$sql="select count(id) as cid from basedata_" .str_replace("-","",$fdate) . " where stime>='$ftime' and detectedposition=2 and sensorid=$scode";
+		$result=mysql_query($sql,$conn);
+		$row=mysql_fetch_array($result);
+		$totalsleep=$row['cid']*5;
+		$sql="select count(id) as cid from basedata_" .str_replace("-","",$tdate) . " where stime<='$ttime'  and detectedposition=2 and sensorid=$scode";
+		$result=mysql_query($sql,$conn);
+		$row=mysql_fetch_array($result);
+		$totalsleep+=$row['cid']*5;
+		
+	}
+	//echo $sql;
+	//------------------count total sleep---------------------
 	$sql="select * from dailyvalue where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
 	$result=mysql_query($sql,$conn); 
 	if($row=mysql_fetch_array($result)){
-		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
+		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
 		$result=mysql_query($sql,$conn); 
 		
 	}else{
@@ -242,6 +302,7 @@ for($i=0;$i<count($dateList);$i++){
 		$result=mysql_query($sql,$conn); 		
 		
 	}
+	//echo $sql;
 	
 	
 

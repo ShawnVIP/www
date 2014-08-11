@@ -85,12 +85,12 @@ if($type=="friend"){
 }
 
 //$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage FROM familylist as a, sensorinfo as b WHERE a.sensorid=? and b.id=a.friendid  and a.delmark=0". $extInfo;
-$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage, c." . $lang . "_name as relname FROM familylist as a, sensorinfo as b ,relation as c WHERE a.relation=c.id and  a.sensorid=$scode and b.id=a.friendid  and a.delmark=0". $extInfo;
+$sql="SELECT a.friendid, a.relation, b.nickname,a.guardian,a.becare, b.headimage, c." . $lang . "_name as relname FROM familylist as a, sensorinfo as b ,relation as c WHERE a.relation=c.id and  a.sensorid=$scode and b.id=a.friendid ". $extInfo;
 
 
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
-	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'guardmode'=>$row['guardian']+$row['becare']*2,'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
 
@@ -368,7 +368,7 @@ for($i=0;$i<count($memberList);$i++){
 			$outputAddList[$periodNameList[$j]][position][crookpercent]=0;
 		}
 	}
-	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
+	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'guardmode'=>$memberList[$i][guardmode],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
 	
 }
 
