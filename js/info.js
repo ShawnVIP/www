@@ -12,9 +12,31 @@ $(function(){
 	$('#deleteData').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#deleteData" ).click(function() {deleteData()});
 	
-	
+	getMailList();
+
 	
 });
+
+
+function getMailList(){
+	$('#alertinfo').html("get used email list, please wait...");
+	
+	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
+		url:'res/admin_getemail.php',
+		data:JSON.stringify(outData), 
+        success: function (msg) {
+			info=msg.mailList;
+			for(i=0;i<info.length;i++){
+				$("#mailList").prepend("<option value='"+info[i].email+"'>"+info[i].email+"</option>");
+			}
+			$( "#dialog-modal" ).dialog("close");
+			
+        },
+ 		error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		$('#alertinfo').html("unknown error!");
+        }
+    });	
+}
 
 function searchByEmail(){
 	

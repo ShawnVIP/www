@@ -97,12 +97,12 @@ for($i=0;$i<count($dateList);$i++){
 	$fdate=date('Y-m-d',strtotime("$tdate -1 day"));
 
 
-	$sql="select * from basedata_" .str_replace("-","",$fdate) . " where stime>'12:00:00' and detectedposition=1 and sensorid=$scode order by stime limit 0,1";
+	$sql="select * from basedata_" .str_replace("-","",$fdate) . " where stime>'20:00:00' and detectedposition=1 and sensorid=$scode order by stime desc limit 0,1";
 	$result=mysql_query($sql,$conn); 
 	if($row=mysql_fetch_array($result)){
 		$ftime=$row['stime'];
 	}else{
-		$sqla="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' and detectedposition=1 and sensorid=$scode  order by stime limit 0,1";
+		$sqla="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'07:00:00' and detectedposition=1 and sensorid=$scode  order by stime limit 0,1";
 		$resulta=mysql_query($sqla,$conn); 
 		if($rowa=mysql_fetch_array($resulta)){
 			$ftime=$rowa['stime'];
@@ -110,6 +110,10 @@ for($i=0;$i<count($dateList);$i++){
 		}else{
 			$ftime="22:00:00";
 		}
+	}
+	$addstr="";
+	if($fdate==$tdate){
+		$addstr=" and stime>'$ftime' ";
 	}
 	$sql="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' $addstr and (detectedposition=5 or detectedposition=6) and sensorid=$scode  order by stime limit 0,1";
 	$result=mysql_query($sql,$conn); 
