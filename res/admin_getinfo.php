@@ -12,7 +12,7 @@ $obj=json_decode($json_string);
 
 $mode=$obj -> mode;
 $scode=$obj -> scode;
-$value=$obj -> email;
+$value=strtolower($obj -> email);
 
 
 
@@ -62,7 +62,7 @@ if($row=mysql_fetch_array($result)){
 	array_push($value,$row['id']);
 	array_push($vname,"email");
 	array_push($value,$row['email']);
-	
+	$email=$row['email'];
 
 	array_push($vname,"power");
 	array_push($value,$row['power']);
@@ -121,6 +121,14 @@ if($row=mysql_fetch_array($result)){
 	
 	array_push($sensor,array_combine($vname,$value));
 	echo json_encode(array('status'=>200,'sensorList'=>$sensor));
+	
+	$sql="select * from usedmail where email='$email'";
+	$resulta=mysql_query($sql,$conn); 
+	if(! $rowa=mysql_fetch_array($resulta)){
+		$sql="INSERT INTO usedmail  (email) VALUES ('$email')";
+		$resulta=mysql_query($sql,$conn); 	
+	}
+	
 }else{
 	echo json_encode(array('status'=>201,'sensorList'=>$sensor));
 }

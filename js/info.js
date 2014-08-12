@@ -13,27 +13,26 @@ $(function(){
 	$( "#deleteData" ).click(function() {deleteData()});
 	
 	getMailList();
-
 	
+	$('#mailList').change(function(){
+		$("#email").val($('#mailList').val());
+	}) 
 });
 
 
 function getMailList(){
-	$('#alertinfo').html("get used email list, please wait...");
-	
+
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
 		url:'res/admin_getemail.php',
-		data:JSON.stringify(outData), 
+		
         success: function (msg) {
 			info=msg.mailList;
-			for(i=0;i<info.length;i++){
-				$("#mailList").prepend("<option value='"+info[i].email+"'>"+info[i].email+"</option>");
-			}
-			$( "#dialog-modal" ).dialog("close");
 			
-        },
- 		error: function(XMLHttpRequest, textStatus, errorThrown) {
-       		$('#alertinfo').html("unknown error!");
+			for(i=0;i<info.length;i++){
+				$("#mailList").append("<option value='"+info[i]+"'>"+info[i]+"</option>");
+			}
+			
+			
         }
     });	
 }

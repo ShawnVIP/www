@@ -27,7 +27,7 @@ body {margin:20px; color:#202020; font-size:12px;}
   <tr>
     <td width="116" >email/sensorid/nickname</td>
     <td>
-    <input name="email" type="text" id="email" value="test@hotmail.com" ></td>
+    <input name="email" type="text" id="email" value="" ></td>
     <td width="167"><select name="mailList"  size="1" id="mailList" >
       <option value="0">--select used email--</option>
       
