@@ -12,8 +12,6 @@ $ecode=$obj -> ecode;
 $source=$obj -> source;
 $rdate=$obj -> rdate;
 
-checkuser($ucode,$scode,$ecode,$source);
-
 $mdate=str_replace("-","",$rdate);
 
 //--------------check ucode---------------------
@@ -30,7 +28,10 @@ $result=mysql_query($sql,$conn);
 	
 $sql="delete FROM sensorstation where sensorid=$scode and sdate='$rdate'";
 $result=mysql_query($sql,$conn); 	
-	
+
+$sql="delete FROM sensordate where sensorid=$scode and yearmonth='" . substr($rdate,0,4). substr($rdate, 5,2) ."' and day='" . substr($rdate,8,2) . "'";
+$result=mysql_query($sql,$conn); 	
+
 $sql="delete FROM alertlist where sid=$scode and alertdate like '$rdate%'";
 
 $result=mysql_query($sql,$conn); 	
@@ -40,15 +41,6 @@ $result=mysql_query($sql,$conn);
 
 
 
-	
-/*
-$sql="update basedata_" . $mdate . "  set delmark=1 where sensorid=?";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->close();
-*/
 
 
 echo json_encode(array('status'=>'200','ecode'=>$ecode));

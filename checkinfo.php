@@ -35,7 +35,7 @@ body {margin:20px; color:#202020; font-size:12px;}
   <tr>
     <td>userid</td>
     <td width="227"id="userid" >&nbsp;</td>
-     <td>email</td> <td id="email">&nbsp;</td>
+     <td>email</td> <td id="usermail">&nbsp;</td>
   </tr>
 </table>
 
@@ -165,8 +165,7 @@ body {margin:20px; color:#202020; font-size:12px;}
     <td><select name="dateList"  size="1" id="dateList" >
       
     </select></td>
-    <td><button id="changeTime" >Change Time</button></td>
-    <td><button id="updateData" >Update Data</button></td>
+    <td colspan=2><button id="changeTime" >Change Time</button> |  <button id="updateData" >Update Data</button> | <button id="deleteData" >delete this data</button> </td>
   </tr><tr>
     <td>age</td>
     <td id="sensorAge">&nbsp;</td>

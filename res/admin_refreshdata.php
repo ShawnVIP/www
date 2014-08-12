@@ -111,13 +111,14 @@ for($i=0;$i<count($dateList);$i++){
 			$ftime="22:00:00";
 		}
 	}
-	$sql="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' and (detectedposition=5 or detectedposition=6) and sensorid=$scode  order by stime limit 0,1";
+	$sql="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' $addstr and (detectedposition=5 or detectedposition=6) and sensorid=$scode  order by stime limit 0,1";
 	$result=mysql_query($sql,$conn); 
 	if($row=mysql_fetch_array($result)){
 		$ttime=$row['stime'];
 	}else{
 		$ttime="07:00:00";
 	}
+	//echo $sql;
 	
 	$sql="select * from sleepdata where sid=$scode and sdate='$tdate'";
 	$result=mysql_query($sql,$conn); 
@@ -147,7 +148,7 @@ for($i=0;$i<count($dateList);$i++){
 		$totalsleep+=$row['cid']*5;
 		
 	}
-	echo $sql;
+	//echo $sql;
 	//------------------count total sleep---------------------
 	$sql="select * from dailyvalue where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
 	$result=mysql_query($sql,$conn); 
@@ -177,7 +178,7 @@ for($i=0;$i<count($dateList);$i++){
 		$result=mysql_query($sql,$conn); 		
 		
 	}
-	echo $sql;
+	//echo $sql;
 	
 
 }

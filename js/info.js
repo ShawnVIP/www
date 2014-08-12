@@ -9,6 +9,10 @@ $(function(){
 	$( "#changeTime" ).click(function() {getDailyData()});
 	$('#updateData').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#updateData" ).click(function() {updateData()});
+	$('#deleteData').button({icons:{primary:"ui-icon-plusthick"}});
+	$( "#deleteData" ).click(function() {deleteData()});
+	
+	
 	
 });
 
@@ -24,7 +28,7 @@ function searchByEmail(){
 				return;
 			}
 			info=msg.sensorList[0]
-			$('#email').text(info.email);
+			$('#usermail').text(info.email);
 			$('#userid').text(info.userid);
 			$('#sensorid').text(info.sensorid);
 			$('#scode').val(info.sensorid)
@@ -120,6 +124,31 @@ function getDailyValue(){
        		$('#alertinfo').html("unknown error!");
         }
     });	
+}
+//-------删除某天数据----------------------
+function deleteData(){
+	$('#alertinfo').html("delete all data, please wait...");
+	$( "#dialog-modal" ).dialog({height: 140,modal: true});
+	
+	var outData={scode:$('#sensorid').text(),rdate:$('#dateList').val()};
+	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
+		url:'res/newinput_removedata',
+		data:JSON.stringify(outData), 
+        success: function (msg) {
+			if(msg.status != 200){
+				$('#alertinfo').html("No dailyvalue for "+$('#dateList').val()+" found!");
+				return;
+			}
+			$( "#dialog-modal" ).dialog("close");
+			$("#dateList option[value='"+$('#dateList').val()+"']").remove();
+			
+        },
+ 		error: function(XMLHttpRequest, textStatus, errorThrown) {
+       		$('#alertinfo').html("unknown error!");
+			
+        }
+    });	
+		
 }
 //-------更新某天的数据刷新，模拟upload数据后的数据整理-------------
 function updateData(){

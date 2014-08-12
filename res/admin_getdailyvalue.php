@@ -65,7 +65,11 @@ if($row=mysql_fetch_array($result)){
 	
 	array_push($vname,"totaldistance");
 	array_push($value,$row['totaldistance']);
+	
 	array_push($vname,"sleepgoal");
+	array_push($value,$row['sleepgoal']);
+	
+	array_push($vname,"totalsleep");
 	array_push($value,$row['totalsleep']);
 	
 	array_push($sensor,array_combine($vname,$value));

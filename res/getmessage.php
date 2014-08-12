@@ -56,7 +56,7 @@ $sql="SELECT a.id,a.rdate,a.fromscode,a.reltome,b.nickname,b.headimage,c.cn_name
 //echo $sql;
 $result=mysql_query($sql, $conn);
 while($row=mysql_fetch_array($result)){
-	array_push($requirement,array('fcode'=>$row['fromscode'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'rdate'=>$row['rdate'],'requireid'=>$row['id'],'relation'=>$row[$lang.'_name']));
+	array_push($requirement,array('fcode'=>$row['fromscode'],'nickname'=>$row['nickname'],'headimage'=>$row['headimage'],'rdate'=>$row['rdate'],'requireid'=>$row['id'],'relation'=>array('cn'=>$row['cn_name'],'en'=>$row['en_name'])));
 	
 }
 
