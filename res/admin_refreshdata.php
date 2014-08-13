@@ -13,6 +13,8 @@ $dates=$obj -> date;
 $statusList=array();
 $dateList=array();
 
+$scode=$_POST[scode];
+
 //---------分钟转id不除以4
 function timeToRealID($time){
 	$min=explode(":", $time);
@@ -30,10 +32,15 @@ function realIdToTime($time){
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
 
+$tempstr=explode("|",$dates);
+for($i=0;$i<count($tempstr);$i++){
 
-array_push($dateList,  array('ldate'=>$dates ,'sdate'=>str_replace("-","",$dates)));
+	array_push($dateList,  array('ldate'=>$tempstr[$i] ,'sdate'=>str_replace("-","",$tempstr[$i])));
+}
 
+echo json_encode(array('status'=>$scode));
 //-------------dedupe-----------------
+/*
 for($i=0;$i<count($dateList);$i++){
 	
 	//----rebuild----------------------
@@ -81,10 +88,7 @@ for($i=0;$i<count($dateList);$i++){
 		$stmt->execute();
 	}
 	$stmt->close();
-	/*	
-	$sql="update uploadstation set umode=0 where sensorid=$scode and udate='$reqdate'";
-	$result=mysql_query($sql,$conn); 
-	*/
+	
 	//------------------update dailyvalue-------------------
 	$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance  from  basedata_" . $dateList[$i][sdate] . "  where sensorid=$scode";
 	$result=mysql_query($sql,$conn); 
@@ -190,4 +194,5 @@ for($i=0;$i<count($dateList);$i++){
 $mysqli->close;	
 	
 echo json_encode(array('status'=>200));
+*/
 ?>

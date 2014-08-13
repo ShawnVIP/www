@@ -76,7 +76,7 @@ $row=mysql_fetch_array($result);
 $headimage=$row['headimage'];
 $nickname=$row['nickname'];
 
-array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array()));
+array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'guardmode'=>0,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array()));
 
 if($type=="friend"){
 	$extInfo=" and a.relation =17";

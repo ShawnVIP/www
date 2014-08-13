@@ -3,7 +3,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"type":"family","lang":"cn","ucode":"rIX9GlYOxrmSabErbUpS5pjWCrMTnkohN3Ng","scode":"599","dates":"2014-8-6","cdate":"2014-8-6 下午4:04:47","ecode":"g57wkqnPlXp5s2yc","source":"w"}';
+$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"605","dates":"2014-8-12","ecode":"GkwkYjVklmFFO6jC","source":"a"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -19,7 +19,7 @@ $lang=strtolower($obj -> lang);
 if($lang==""){$lang="cn";}
 
 
-checkuser($ucode,$scode,$ecode,$source);
+//checkuser($ucode,$scode,$ecode,$source);
 
 $stationList=array();
 
@@ -76,7 +76,7 @@ $row=mysql_fetch_array($result);
 $headimage=$row['headimage'];
 $nickname=$row['nickname'];
 
-array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array()));
+array_push($memberList,array('scode'=> $scode,'relation'=>'Me','nickname'=>$nickname,'guardmode'=>0,'head'=>$headimage,'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array()));
 
 if($type=="friend"){
 	$extInfo=" and a.relation =17";
@@ -85,15 +85,15 @@ if($type=="friend"){
 }
 
 //$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage FROM familylist as a, sensorinfo as b WHERE a.sensorid=? and b.id=a.friendid  and a.delmark=0". $extInfo;
-$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage, c." . $lang . "_name as relname FROM familylist as a, sensorinfo as b ,relation as c WHERE a.relation=c.id and  a.sensorid=$scode and b.id=a.friendid  and a.delmark=0". $extInfo;
+$sql="SELECT a.friendid, a.relation, b.nickname,a.guardian,a.becare, b.headimage, c." . $lang . "_name as relname FROM familylist as a, sensorinfo as b ,relation as c WHERE a.relation=c.id and  a.sensorid=$scode and b.id=a.friendid ". $extInfo;
 
 
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
-	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'guardmode'=>$row['guardian']+$row['becare']*2,'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
-
+//echo json_encode($memberList);
 
 //------calc weekly date period.
 $fromdate=getyear($dates)."-".getmonth($dates)."-1";
@@ -119,6 +119,7 @@ while($tempdate<=$enddate){
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
 }
 
+//echo json_encode($dayList);
 
 //--------判断3个时间起点-本月，本周，本日------
 $startCurrentWeek=-1;
@@ -181,12 +182,10 @@ while($row=mysql_fetch_array($result)){
 	$sid=findIDfromList($row['sensorid']);
 	$did=findDatefromList($row['date']);
 	for($k=0;$k<4;$k++){;
-		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=(int)$row[$valueNameList[$k].'goal'];
+		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=$row[$valueNameList[$k].'goal'];
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
 }
-echo json_encode($memberList);
-
 //---------------------add in alert
 $sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and DATE_FORMAT(alertdate,'%Y-%m-%d')<='$enddate' and delmark=0";
 //echo $sql;
@@ -198,7 +197,6 @@ while($row=mysql_fetch_array($result)){
 	array_push($memberList[$sid][alertlist][0][$did][alert],array('time'=> $row['alertdate'],'alertid'=>$row['alerttype']));
 	
 }
-
 //---------------------add in position
 /*
 $sql="select sensorid,position,sdate,totime  from sensorstation where sensorid in ($idlist) and sdate>='$fromdate' and sdate<='$enddate' and delmark=0 order by sensorid,sdate,totime";
@@ -318,6 +316,7 @@ $outdata=array();
 $addNameValue=array('alert'=>array(),'position'=>array('sit'=>0,'crook'=>0,'crookpercent'=>0));
 
 for($i=0;$i<count($memberList);$i++){
+
 	
 	for($k=0;$k<4;$k++){
 		for($j=0;$j<3;$j++){
@@ -328,6 +327,7 @@ for($i=0;$i<count($memberList);$i++){
 		}
 	}
 	$outputAddList=array("day"=>$addNameValue,"week"=>$addNameValue,"month"=>$addNameValue);
+	//echo 'monthid:' . $startCurrentMonth. '  weekid:'. $startCurrentWeek.'   dayid:' . $startCurrentDay;
 	
 	for($j=0;$j<count($dateList);$j++){
 		
@@ -357,6 +357,7 @@ for($i=0;$i<count($memberList);$i++){
 					array_push($outputAddList[day][alert],$memberList[$i][alertlist][0][$j][alert][$k]);
 				}
 			}
+			echo $i . ":".$memberList[$i][goalList][0][$j][sit] . "  " . $memberList[$i][goalList][0][$j][crook] . "  ";
 			$outputAddList[day][position][sit]+=$memberList[$i][goalList][0][$j][sit];
 			$outputAddList[day][position][crook]+=$memberList[$i][goalList][0][$j][crook];
 		}
@@ -371,7 +372,7 @@ for($i=0;$i<count($memberList);$i++){
 			$outputAddList[$periodNameList[$j]][position][crookpercent]=0;
 		}
 	}
-	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
+	array_push($outdata,array('scode'=> $memberList[$i][scode],'relation'=>$memberList[$i][relation],'guardmode'=>$memberList[$i][guardmode],'nickname'=>$memberList[$i][nickname],'head'=>$memberList[$i][head],'percentage'=>$memberList[$i][percentage],'alert'=>$outputAddList));
 	
 }
 
@@ -389,8 +390,8 @@ for($j=0;$j<3;$j++){
 
 	
 //-------------------计算本人目标完成百分比-------------------
+//echo json_encode($memberList);
 
- 
-//echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
+echo json_encode(array('status'=>200,'peoplelist'=>$outdata,'peopleaverange'=>$summary,'ecode'=>$ecode));
 
 ?>
