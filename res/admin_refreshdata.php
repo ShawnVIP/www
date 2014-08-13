@@ -12,9 +12,10 @@ $dates=$obj -> date;
 
 $statusList=array();
 $dateList=array();
-
-$scode=$_POST[scode];
-
+if($_POST[mode]==1){
+	$scode=$_POST[scode];
+	$dates=$_POST[date];
+}
 //---------分钟转id不除以4
 function timeToRealID($time){
 	$min=explode(":", $time);
@@ -38,9 +39,9 @@ for($i=0;$i<count($tempstr);$i++){
 	array_push($dateList,  array('ldate'=>$tempstr[$i] ,'sdate'=>str_replace("-","",$tempstr[$i])));
 }
 
-echo json_encode(array('status'=>$scode));
+//echo json_encode(array('status'=>$dateList));
 //-------------dedupe-----------------
-/*
+$sqllist=array();
 for($i=0;$i<count($dateList);$i++){
 	
 	//----rebuild----------------------
@@ -51,7 +52,10 @@ for($i=0;$i<count($dateList);$i++){
 		array_push($statusList, 0);
 	}
 	$sql="SELECT detectedposition,stime FROM basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and delmark=0 and detectedposition is not null order by id";
+	
 	//echo $sql;
+}
+/*
 	$result=mysql_query($sql,$conn); 
 	while ($row=mysql_fetch_array($result)){
 		$detectedposition=$row['detectedposition'];
