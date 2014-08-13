@@ -37,7 +37,7 @@ $appurl=$row['appurl'];
 $hardversion=$row['hardversion'];
 $binfilename=$row['binfilename'];
 
-
-echo json_encode(array('status'=>200, 'appversion'=>$appversion,'appurl'=>$appurl,'hardversion'=>$hardversion,'binfilename'=>'hardbin/'.$binfilename));	
+echo json_encode(array('status'=>404));
+//echo json_encode(array('status'=>200, 'appversion'=>$appversion,'appurl'=>$appurl,'hardversion'=>$hardversion,'binfilename'=>'hardbin/'.$binfilename));	
 
 ?>
