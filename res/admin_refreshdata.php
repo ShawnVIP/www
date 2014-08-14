@@ -53,9 +53,6 @@ for($i=0;$i<count($dateList);$i++){
 	}
 	$sql="SELECT detectedposition,stime FROM basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and delmark=0 and detectedposition is not null order by id";
 	
-	//echo $sql;
-}
-/*
 	$result=mysql_query($sql,$conn); 
 	while ($row=mysql_fetch_array($result)){
 		$detectedposition=$row['detectedposition'];
@@ -143,7 +140,6 @@ for($i=0;$i<count($dateList);$i++){
 	}
 	
 	
-	
 	if($fdate==$tdate){
 		$sql="select count(id) as cid from basedata_" .str_replace("-","",$tdate) . " where  stime>='$ftime'  and stime<='$ttime' and detectedposition=2 and sensorid=$scode";
 		$result=mysql_query($sql,$conn);
@@ -198,5 +194,5 @@ for($i=0;$i<count($dateList);$i++){
 $mysqli->close;	
 	
 echo json_encode(array('status'=>200));
-*/
+
 ?>

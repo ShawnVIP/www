@@ -187,8 +187,9 @@ $sensorinfo=array();
 
 //-------------------refresh sensor station.-----------------------
 
-$url = "admin_refreshdata.php";
-$post_data = array ("scode" => $scode,"datestr" => $datelListStr);
+$url = "http://haisw.net/sense-u/res/admin_refreshdata.php";
+
+$post_data = array ("mode"=>1,"scode" => $scode,"date" => $datelListStr);
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $url);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -198,7 +199,8 @@ curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
 $output = curl_exec($ch);
 curl_close($ch);
-print_r($output);
+//echo($output );
+
 
 if ($updated==1){
 	

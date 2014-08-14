@@ -40,93 +40,7 @@ if($checkdate==$currentdate){
 	$today=1;
 	$moment=date("H:i:s",strtotime($cdate));
 }
-function checkWarning($scode,$ndate,$istoday,$moment,$mid){ //----------calc warning data, after upload, goal setting, --------------
-	global $mysql_server_name;
-	global $mysql_username;
-	global $mysql_password;
-	global $mysql_database;
-	global $conn;
 
-	$mdate=str_replace("-","",$ndate);
-
-	$ym=substr($mdate,0,6);
-	$day=intval(substr($mdate,6,8));
-
-	$sql="select * from sensordate where yearmonth='$ym' and day=$day and sensorid=$scode";
-	$result=mysql_query($sql,$conn); 
-	$row=mysql_num_rows($result);
-	if($row==0){return;}
-		
-	
-	$sql="select stepgoal,caloriesgoal,distancegoal,bmr from dailyvalue where sensorid=$scode and date='$ndate'";
-	//echo $sql;
-	$result=mysql_query($sql,$conn); 
-	$row=mysql_num_rows($result);
-	if($row==0){
-		//-------------没有找到查询日期的数据，找查询日期之前的数据-------------
-		$sql="select * from dailyvalue where sensorid=$scode and date<'$ndate' order by date desc limit 0,1";
-		$result=mysql_query($sql,$conn); 
-		$row=mysql_fetch_array($result);
-		$sql="INSERT INTO dailyvalue(height, weight, step, date, stepgoal, caloriesgoal, stepwidth, distancegoal, runningwidth, bmi, sensorid, updated, age, bmr, sleepgoal, totalcal, totalsteps, totaldistance, totalsleep) VALUES (" . $row['height'] ."," . $row['weight'] ."," . $row['step'] .",'$ndate', " . $row['stepgoal'] ."," . $row['caloriesgoal'] ."," . $row['stepwidth'] ."," . $row['distancegoal'] ."," . $row['runningwidth'] ."," . $row['bmi'] .", $scode, 0," . $row['age'] ."," . $row['bmr'] ."," . $row['sleepgoal'] .",0,0,0,0)";
-		$result=mysql_query($sql,$conn); 
-	}else{
-		$row=mysql_fetch_array($result);
-		$stepgoal=$row['stepgoal'];
-		$caloriesgoal=$row['caloriesgoal'];
-		$distancegoal=$row['distancegoal'];
-		$bmr=$row['bmr'];
-	}
-	
-	$totalsteps=0;
-	$totaldistance=0;
-	$totalcal=0;
-
-	$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance from basedata_$mdate where sensorid=$scode and delmark=0 and stime<'$moment'";
-	//echo $sql;
-	$result=mysql_query($sql,$conn); 
-	$row=mysql_num_rows($result);
-	if($row==0){
-		return;
-	}else{
-		
-		$row=mysql_fetch_array($result);
-		$totalcal=$row['totalcal'];
-		$totalsteps=$row['totalsteps'];
-		$totaldistance=$row['totaldistance'];
-	}
-	
-	$totaldistance=$totaldistance/100000;
-	
-	$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance where sensorid=$scode and date='$ndate'";
-	$result=mysql_query($sql,$conn); 
-	
-	$sql="update warninginfo set delmark=1 where sensorid=$scode and date='$ndate'";
-	$result=mysql_query($sql,$conn); 
-
-	if($totalcal<$caloriesgoal){
-
-		$rest=$caloriesgoal-$totalcal;
-		$titleinfo='Less Calories';
-		$cata=1;
-		$restinfo=round($rest,1) . " Calroeis to Go " . $caloriesgoal;
-	}
-	if($totalsteps<$stepgoal){
-
-		$rest=$stepgoal-$totalsteps;
-		$titleinfo='Less Steps';
-		$restinfo=round($rest,0) . " Steps to Go " . $stepgoal;
-		$cata=2;
-	}
-	if($totaldistance<$distancegoal){
-		$rest=($distancegoal-$totaldistance);
-		$titleinfo='Less Distance';
-		$restinfo=round($rest,2) . " Distance to Go " . $distancegoal;
-		$cata=3;
-	}
-	$sql="insert into warninginfo ( sensorid,date,catalog,title,detail) value ( $scode,'$ndate',$cata,'$titleinfo','$restinfo')";
-	$result=mysql_query($sql,$conn); 
-	
-}
 function checkNull($val){
 	if (is_null($val)){
 		return '';
@@ -142,7 +56,6 @@ $yearmonth=substr($datestr,0,6);
 $day=substr($datestr,6,8);
 $currentNumber=timeToID($moment);
 
-checkWarning($scode,$reqdate,$today,$moment,$currentNumber);
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
 /*
@@ -278,63 +191,7 @@ $edata=array();
 
 $statusList=array();
 
-	//-------------------get upload station----------------
-$umode=1;
 
-$sql="SELECT umode from uploadstation where sensorid=$scode and udate='$reqdate'";
-$result=mysql_query($sql,$conn); 
-if($row=mysql_fetch_array($result)){
-	$umode=$row['umode'];
-}else{
-	$sql="insert into uploadstation ( sensorid,udate,umode) value ($scode,'$reqdate',1)";
-	$result=mysql_query($sql,$conn); 
-}
-/*
-if($umode==1){//------------rebuild data--------------------
-	$sql="delete from sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0";
-	$result=mysql_query($sql,$conn); 
-	for($i=0;$i<=1440;$i++){
-		array_push($statusList, 0);
-	}
-	$sql="SELECT detectedposition,stime FROM basedata_$datestr where sensorid=$scode and delmark=0 and detectedposition is not null order by id";
-	
-	$result=mysql_query($sql,$conn); 
-	while ($row=mysql_fetch_array($result)){
-		$detectedposition=$row['detectedposition'];
-		$stime=$row['stime'];
-		$tmpdate=date("Y-m-d H:i:s",strtotime($reqdate . " " .$stime));
-		for($k=0;$k>-5;$k--){
-			$newtime=date('H:i:s',strtotime("$tmpdate $k minute"));	
-			$newday=date("Y-m-d",strtotime("$tmpdate $k minute"));	
-			if($newday==$reqdate && $detectedposition>2 && $detectedposition<7){
-				//---------------------屏蔽 1,2,7
-				$statusList[timeToRealID($newtime)]=$detectedposition;
-			}
-		}
-	}
-	$olddata=-1;
-	$ordList=array();
-	for($j=2;$j<1440;$j++){
-		if($statusList[$j] !=$statusList[$j-1]){
-			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1]));	
-		}
-	}
-	array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1]));	
-
-	$sql="insert into sensorstation (sensorid,sdate,totime,position,adjtype) values ($scode,'$reqdate',?,?,0)";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql);
-	for($i=0;$i<count($ordList);$i++){
-		$stmt->bind_param("ss",$ordList[$i][totime],$ordList[$i][position]);
-		$stmt->execute();
-	}
-	$stmt->close();
-		
-	$sql="update uploadstation set umode=0 where sensorid=$scode and udate='$reqdate'";
-	$result=mysql_query($sql,$conn); 
-
-}
-*/
 $sql="SELECT totime,position FROM sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0 order by totime";
 $result=mysql_query($sql,$conn); 	
 while ($row=mysql_fetch_array($result)){
