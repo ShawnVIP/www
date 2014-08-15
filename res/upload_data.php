@@ -50,15 +50,7 @@ function checkValueLib($ndate){
 	global $scode;
 	global $type;
 	
-	$sql="SELECT id from uploadstation where sensorid=$scode and udate='$ndate'";
-	$result=mysql_query($sql,$conn); 
-	$row=mysql_num_rows($result);
-	if($row==0){
-		$sql="insert into uploadstation ( sensorid,udate,umode) value ($scode,'$ndate',1)";
-	}else{
-		$sql="update uploadstation set umode=1 where sensorid=$scode and udate='$ndate'";
-	}
-	$result=mysql_query($sql,$conn); 
+	
 	
 	$mdate=str_replace("-","",$ndate);
 	$libname="basedata_" . $mdate ;
@@ -72,6 +64,8 @@ function checkValueLib($ndate){
 		$sql="insert into sensordate ( yearmonth,day,sensorid,type) value ($ym,$day,$scode,'$type')";
 		$result=mysql_query($sql,$conn); 
 	}
+	
+	
 }
 
 
@@ -83,6 +77,7 @@ $edate=date('Y-m-d',strtotime($endDate[0]));;
 
 while($bdate <= $edate){
 	checkValueLib($bdate);
+	loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => $scode,"date" => $bdate),false);
 	$bdate=date('Y-m-d',strtotime("$bdate 1 day"));
 }
 
@@ -186,20 +181,7 @@ $updated=$row['updated'];
 $sensorinfo=array();
 
 //-------------------refresh sensor station.-----------------------
-
-$url = "http://haisw.net/sense-u/res/admin_refreshdata.php";
-
-$post_data = array ("mode"=>1,"scode" => $scode,"date" => $datelListStr);
-$ch = curl_init();
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-// post数据
-curl_setopt($ch, CURLOPT_POST, 1);
-// post的变量
-curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-$output = curl_exec($ch);
-curl_close($ch);
-//echo($output );
+loadFunction('admin_refreshdata.php',array ("mode"=>1,"scode" => $scode,"date" => $datelListStr),false);
 
 
 if ($updated==1){

@@ -3,6 +3,8 @@
 //$backend_server="54.245.106.189:8080";
 //$backend_server="127.0.0.1:8000";
 
+$url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]; 
+$HOMEURL= dirname($url);
 $mysql_server_name="localhost";
 
 /*
@@ -176,68 +178,22 @@ function checkuser($ucode,$scode,$ecode,$source){
 	
 	return $vipmode;
 }
-
-function checkDaily($scode,$date){
-	global $mysql_server_name;
-	global $mysql_username;
-	global $mysql_password;
-	global $mysql_database;
-	$addnewData=false;
-	$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
-	$mysqli->set_charset("uft8");
-	$mysqli->query("set names 'uft8'");
-	$sql="select caloriesgoal from dailyvalue where sensorid=? and date=? and caloriesgoal>0";
-	//echo "select * from dailyvalue where sensorid=$scode and date=$now";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql); //?sql???mysqli????
-	$stmt->bind_param("ss", $scode,$date);
-	$stmt->execute();
-	$stmt->store_result();
-	$stmt->bind_result($caloriesgoal);
-	if(! $stmt->fetch()){
-		$addnewData=true;
-	}else{
-		/*if($caloriesgoal==0){
-			$addnewData=true;
-			$sql="delete from dailyvalue where sensorid=? and date=?";
-			$stmt = $mysqli->stmt_init();
-			$stmt = $mysqli->prepare($sql); //?sql???mysqli????
-			$stmt->bind_param("ss", $scode,$date);
-			$stmt->execute();
-		}*/
+function loadFunction($url,$data,$showReturn){
+	global $HOMEURL;
+	$loadurl = $HOMEURL ."/" . $url;
+	$post_data = $data;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	// post数据
+	curl_setopt($ch, CURLOPT_POST, 1);
+	// post的变量
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+	$output = curl_exec($ch);
+	curl_close($ch);
+	if($showReturn){
+		echo($output );
 	}
-	
-	if($addnewData){
-		$sql="select height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated from dailyvalue where sensorid=? and date<? and caloriesgoal>0 and stepgoal>0 and distancegoal>0 order by id desc limit 0,1";
-		//echo "select height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated from dailyvalue where sensorid=$scode and date<$date and caloriesgoal>0 and stepgoal>0 and sleepgoal>0 order by id desc limit 0,1";
-		$stmt = $mysqli->stmt_init();
-		$stmt = $mysqli->prepare($sql); //?sql???mysqli????
-		$stmt->bind_param("ss", $scode,$date);
-		$stmt->execute();
-		$stmt->store_result();
-		$stmt->bind_result($height,$weight,$step,$stepgoal,$caloriesgoal,$stepwidth,$distancegoal,$runningwidth,$bmi,$bmr,$age,$sleepgoal,$updated); 
-		$stmt->fetch();
-		$stmt->close();
-				
-		$sql="insert into dailyvalue ( height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated,sensorid,date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		//echo "insert into dailyvalue ( height,weight,step,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,bmr,age,sleepgoal,updated,sensorid,date) values ($height,$weight,$step,$stepgoal,$caloriesgoal,$stepwidth,$distancegoal,$runningwidth,$bmi,$bmr,$age,$sleepgoal,$updated, $scode,$date)";
-		$stmt = $mysqli->stmt_init();
-		$stmt = $mysqli->prepare($sql); //?sql???mysqli????
-		
-		$stmt->bind_param("sssssssssssssss", $height,$weight,$step,$stepgoal,$caloriesgoal,$stepwidth,$distancegoal,$runningwidth,$bmi,$bmr,$age,$sleepgoal,$updated, $scode,$date);
-		$stmt->execute();
-		$stmt->store_result();
-		$stmt->close();
-		
-		$yesterday=date('Y-m-d',strtotime("$date -1 day"));
-		$sql="insert into sleepdata (sid,sdate,ftime,ttime,fdate,tdate) value ( $scode,'$date','22:00:00','07:00:00','$yesterday','$date')";
-		//echo $sql . "\n";
-		$stmt = $mysqli->stmt_init();
-		$stmt = $mysqli->prepare($sql);
-		$stmt->execute();
-		$stmt->close();
-	}
-	$mysqli->close();
 }
 function convertpass($salt,$pass){
 	$output= hash('sha256', $salt. $pass);
@@ -293,6 +249,7 @@ function formatDateStr($cdate){
 	if($pos>0){
 		$cdate=substr($cdate,0,$pos);
 	}
+	
 	return $cdate;
 }
 

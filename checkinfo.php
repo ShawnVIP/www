@@ -174,7 +174,7 @@ body {margin:20px; color:#202020; font-size:12px;}
     <td>age</td>
     <td id="sensorAge">&nbsp;</td>
     <td>updated</td>
-    <td id="updated">&nbsp;</td>
+    <td id="updatedday">&nbsp;</td>
   </tr>
   <tr>
     <td width="89" >height</td>
