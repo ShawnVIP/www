@@ -1,6 +1,6 @@
 <?php
 include "dbconnect.php";
-//include "warning.php";
+include "build_sensor_station.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 //$json_string='{"ucode":"f2026d8c-d99c-4535-2a7b-7ad18c28c4b5","scode":"1","data":[{"stamp":"2013-05-31 13:02","rawdata":[{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30}]}],"type":"raw"}';
@@ -26,34 +26,15 @@ $difftime=strtotime($nowTime)-strtotime($beginTime);
 $beginTime=$nowTime;
 */
 
-//---------分钟转id不除以4
-function timeToRealID($time){
-	$min=explode(":", $time);
-	return $min[0]*60+$min[1];
-}
-//---------id转分钟
-function realIdToTime($time){
-	$hour=intval($time/60);
-	$min=$time-$hour*60;
-	if($hour>23){$hour-=24;}
-	$hour<10 ? $rndTime='0'.$hour  : $rndTime=$hour;
-	$min<10 ? $rndTime=$rndTime.':0'.$min : $rndTime=$rndTime.":".$min;
-	return  $rndTime;
-}
 
-function checkValueLib($ndate){
-	global $mysql_server_name;
-	global $mysql_username;
-	global $mysql_password;
-	global $mysql_database;
+function checkValueLib($scode,$date){
+
 	global $conn;
-	global $scode;
 	global $type;
 	
 	
-	
-	$mdate=str_replace("-","",$ndate);
-	$libname="basedata_" . $mdate ;
+	$mdate=str_replace("-","",$date);
+
 
 	$ym=substr($mdate,0,6);
 	$day= substr($mdate,6,8);
@@ -69,26 +50,31 @@ function checkValueLib($ndate){
 }
 
 
-$beginDate=explode(" ", $data[0] ->stamp . ":00");
-$bdate=date('Y-m-d',strtotime($beginDate[0]));;
+$dateList=array();
+for($i=0;$i<count($data);$i++){
+	$tDate=explode(" ", $data[$i] ->stamp);
+	
+	$bdate=date('Y-m-d',strtotime($tDate[0]));
+	array_push($dateList,$bdate);
+}
 
-$endDate=explode(" ", $data[count($data)-1] ->stamp . ":00");
-$edate=date('Y-m-d',strtotime($endDate[0]));;
 
-while($bdate <= $edate){
-	checkValueLib($bdate);
-	loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => $scode,"date" => $bdate),false);
-	$bdate=date('Y-m-d',strtotime("$bdate 1 day"));
+$dateList=array_unique($dateList);
+
+for($i=0;$i<count($dateList);$i++){
+	checkValueLib($scode,$dateList[$i]);
+	checkDailyValue($scode,$dateList[$i],1,false);
 }
 
 $statusList=array();
-$dateList=array();
+
 $rndstring=randomkeys(6);
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
 $sql="insert into tempupload (sdate,stime,calories,steps,distance,move,sleepmode,angle,maxspeed,minspeed,averagespeed,detectedposition,sensorid,rndstring) values (?,?,?,?,?,?,?,?,?,?,?,?,$scode,'$rndstring')";
 $stmt = $mysqli->stmt_init();
 $stmt = $mysqli->prepare($sql);
 $datelListStr="";
+
 for($i=0;$i<count($data);$i++){
 	$ndate=explode(" ", $data[$i] -> stamp);
 	$datestr=str_replace("-","",$ndate[0]);
@@ -105,7 +91,7 @@ for($i=0;$i<count($data);$i++){
 
 	$temp= $data[$i] -> temp;
 	$move= $data[$i] -> move;
-        $distance=$distance*10;
+    $distance=$distance*10;
         //$move=$move*10;
 	$angle= $data[$i] -> angle;
 	$maxspeed= $data[$i] -> maxspeed;
@@ -119,38 +105,25 @@ for($i=0;$i<count($data);$i++){
 	$stmt->bind_param("ssssssssssss",$datestr,$ntime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition);
 	$stmt->execute();
 
-	$addDate=1;
-	for($j=0;$j<count($dateList);$j++){
-		if($dateList[$j][ldate]==$ndate[0]){
-			$addDate=0;
-		}
-	}
-	if($addDate==1){
-		array_push($dateList,  array('ldate'=>$ndate[0] ,'sdate'=>$datestr));
-		if($i>0){
-			$datelListStr .= "|" .$ndate[0] ;
-		}else{
-			$datelListStr = $ndate[0] ;
-		}
-	}
+	
 }
 
 
 //-------------dedupe-----------------
 for($i=0;$i<count($dateList);$i++){
-
+	$ldate=$dateList[$i];
+	$sdate=str_replace("-","",$ldate);
 	/*
 	$sql="update uploadstation set umode=1 where sensorid=$scode and udate='" . $dateList[$i][ldate] ."'";
 	$result=mysql_query($sql,$conn); 
 	*/
 
-	$sql="delete from basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and stime in (select stime from tempupload where sensorid=$scode and sdate='" .$dateList[$i][sdate] ."' and rndstring='" . $rndstring . "')";
+	$sql="delete from basedata_" . $sdate. " where sensorid=$scode and stime in (select stime from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "')";
 	// echo $sql;
 	$result=mysql_query($sql,$conn); 
 	
-	
 
-	$sql="insert into basedata_" . $dateList[$i][sdate] . " (stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition) select stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition from tempupload where sensorid=$scode and sdate='" .$dateList[$i][sdate] ."' and rndstring='" . $rndstring . "'";
+	$sql="insert into basedata_" . $sdate. " (stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition) select stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "'";
 	
 	$result=mysql_query($sql,$conn); 
 	
@@ -160,6 +133,10 @@ for($i=0;$i<count($dateList);$i++){
 }
 
 $mysqli->close;	
+
+//-------------------refresh sensor station.-----------------------
+
+buildSensorStation($scode,$dateList);
 
 $nowTime=date("Y-m-d H:i:s");
 $difftime=strtotime($nowTime)-strtotime($beginTime);
@@ -180,12 +157,9 @@ $updated=$row['updated'];
 
 $sensorinfo=array();
 
-//-------------------refresh sensor station.-----------------------
-loadFunction('admin_refreshdata.php',array ("mode"=>1,"scode" => $scode,"date" => $datelListStr),false);
 
 
 if ($updated==1){
-	
 	$sql ="SELECT * FROM totalinfo  WHERE  sensorid=$scode order by date desc limit 0,1";
 	$result=mysql_query($sql,$conn); 
 	$row=mysql_fetch_array($result);

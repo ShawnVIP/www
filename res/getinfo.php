@@ -7,7 +7,7 @@ create view totalinfo as select b.fallalert,b.positionalert, b.defaultgoal, b.tr
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"CvYdlBkGHxgUfH3d","source":"w"}';
+//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"CSvynzkQDDreFJEp","source":"w","cdate":"2014-8-16 下午8:10:54"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -20,36 +20,25 @@ checkuser($ucode,$scode,$ecode,$source);
 
 
 
-//--------------check ucode---------------------
 
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
-/*
-$session=randomkeys(16);
-$sql="update accountinfo set " . $source . "session=? where userid=?";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("ss", $session,$ucode);
-$stmt->execute();
-$stmt->close();
-*/
-//-----add in daily data----------------
+$valueList=checkDailyValue($scode,$cdate,1,true);
 
-
-loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => $scode,"date" => $cdate),false);
-
-$sensor=array();
+$infoList=array();
 
 $email="";
 $sql="select email from accountinfo where  userid='$ucode'";
 $result=mysql_query($sql,$conn);
 if ($row=mysql_fetch_array($result)) {
 	$email=$row['email'];
+}else{
+	echo json_encode(array('status'=>'101','message'=>'no user found'));
+	exit;
 }
 
-$sql ="SELECT * FROM totalinfo  WHERE  sensorid='$scode' and date='$cdate' order by orderlist";
-//echo $sql;
+$sql ="SELECT * FROM totalinfo  WHERE  sensorid='$scode' and date='$cdate'";
+$outList=array();
 $result=mysql_query($sql,$conn);
-while ($row=mysql_fetch_array($result)) {
+if ($row=mysql_fetch_array($result)) {
 	
 	$vname=array();
 	$value=array();
@@ -75,18 +64,8 @@ while ($row=mysql_fetch_array($result)) {
 	array_push($value,$row['unit']);
 	array_push($vname,"gender");
 	array_push($value,$row['gender']);
-	array_push($vname,"updated");
-	array_push($value,$row['updated']);
-	array_push($vname,"age");
-	array_push($value,$row['age']);
 	array_push($vname,"language");
 	array_push($value,$row['language']);
-	
-	array_push($vname,"height");
-	array_push($value,$row['height']);
-	array_push($vname,"weight");
-	array_push($value,$row['weight']);
-	
 	array_push($vname,"defaultgoal");
 	array_push($value,$row['defaultgoal']);
 	array_push($vname,"fallalert");
@@ -103,44 +82,24 @@ while ($row=mysql_fetch_array($result)) {
 	array_push($value,$row['fallangleh']);
 	array_push($vname,"para4");
 	array_push($value,$row['fallanglel']);
-
-	array_push($vname,"stepgoal");
-	array_push($value,$row['stepgoal']);
-	array_push($vname,"caloriesgoal");
-	array_push($value,$row['caloriesgoal']);
-	array_push($vname,"stepwidth");
-	array_push($value,$row['stepwidth']);
-	array_push($vname,"distancegoal");
-	array_push($value,round($row['distancegoal'],3));
-	array_push($vname,"runningwidth");
-	array_push($value,$row['runningwidth']);
-	array_push($vname,"bmi");
-	array_push($value,$row['bmi']);	
-	array_push($vname,"bmr");
-	array_push($value,$row['bmr']);	
-	array_push($vname,"sleepgoal");
-	array_push($value,$row['sleepgoal']);	
 	array_push($vname,"detailid");
 	array_push($value,$row['detailid']);	
 	array_push($vname,"usertype");
 	array_push($value,$row['vipmode']);	
 	
 	
-	$sqla ="SELECT count(a.message) as message from familyreqlist as a,sensorinfo as b where a.fromscode=b.id and a.toscode=? and a.deal=0";
-	//echo  "SELECT count(a.message) as message from friendreqlist as a,sensorinfo as b where a.fromscode=b.id and a.toscode=$scode and a.accept=0";
-	$stmta = $mysqli->stmt_init();
-	$stmta = $mysqli->prepare($sqla); //将sql添加到mysqli进行预处
-	$stmta->bind_param("s", $scode);
-	$stmta->execute();
-	$stmta->store_result();
-	$stmta->bind_result($message);
-	$stmta->fetch();
-	array_push($vname,"message");
-	array_push($value,$message);
-	array_push($sensor,array_combine($vname,$value));
+	$sqla ="SELECT count(a.message) as message from familyreqlist as a,sensorinfo as b where a.fromscode=b.id and a.toscode=$scode and a.deal=0";
+	$resulta=mysql_query($sqla,$conn);
+	$rowa=mysql_fetch_array($resulta);
 	
+	array_push($vname,"message");
+	array_push($value,$rowa['message']);
+	array_push($infoList,array_combine($vname,$value));
+	
+	array_push($outList,array_merge($valueList[0],$infoList[0]));
+	echo json_encode(array('status'=>200,'sensorlist'=>$outList,'ecode'=>$ecode));
+}else{
+	echo json_encode(array('status'=>201,'message'=>'no info found'));
 }
-echo json_encode(array('status'=>200,'sensorlist'=>$sensor,'ecode'=>$ecode));
-
 
 ?>

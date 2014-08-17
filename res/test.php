@@ -1,6 +1,11 @@
 <?php
 include "dbconnect.php";
 
+$a=array("a"=>"Cat","b"=>"Dog","c"=>"Cat");
+$a=array_unique($a);
+print_r(date('Y-m-d',strtotime('2012-8-1')));
+//loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => 1,"date" => '2014-08-16',"addnew"=>1,"returnmode"=>1),true);
+
 
 /*
 $datelListStr="2014-08-11|2014-08-12|2014-08-13";
@@ -37,7 +42,7 @@ while($row=mysql_fetch_array($result)){
 
 }
 */
-
+/*
 //获取域名或主机地址 
 echo $_SERVER['HTTP_HOST']."<br>"; #localhost
 
@@ -63,5 +68,5 @@ echo 'http://'.$_SERVER['SERVER_NAME'].':'.$_SERVER["SERVER_PORT"].$_SERVER["REQ
 $url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]; 
 echo dirname($url);
 #http://localhost/blog
-
+*/
 ?>

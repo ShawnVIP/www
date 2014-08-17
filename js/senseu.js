@@ -812,6 +812,28 @@ function showFamOut(event){
     	});
 
 	}
+	// 对Date的扩展，将 Date 转化为指定格式的String
+	// 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符， 
+	// 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字) 
+	// 例子： 
+	// (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423 
+	// (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18 
+	Date.prototype.Format = function (fmt) { //author: meizz 
+		var o = {
+			"M+": this.getMonth() + 1, //月份 
+			"d+": this.getDate(), //日 
+			"h+": this.getHours(), //小时 
+			"m+": this.getMinutes(), //分 
+			"s+": this.getSeconds(), //秒 
+			"q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+			"S": this.getMilliseconds() //毫秒 
+		};
+		if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+		for (var k in o)
+		if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+		return fmt;
+	}
+
 	function dealSleepData(r){
 		hideLoading('SLP');
 		//--------定义时间日期输入框数值以及起点和终点
@@ -832,25 +854,20 @@ function showFamOut(event){
 		var dataList=new Array();
 		
 		//----------setup period line. 
-		hourFrom=parseInt(ftime.substring(0,2));
-		hourTo=parseInt(ttime.substring(0,2));
-		
-		var nfrom=hourFrom;
-		var nto=hourTo;
-		if(nfrom>12){nfrom-=24;}
-		if(nto>12){nto-=24;}
-		var def=Math.floor((nto+nfrom)/2);
-		from=-12+def;
-		to=12+def;
-
-		beginHour=12+def;
-		
-		fdatestr=fdate.split('-');
-		tdatestr=tdate.split('-');
 		
 		
-		distHour=nfrom-beginHour;
-		if(distHour<0){distHour+=24;}
+		fromDateTime=fdate+" "+ftime;
+		toDateTime=tdate+" "+ttime;
+		fromDateTime=fromDateTime.substring(0,14)+"00:00"
+		
+		fromDateTime=fromDateTime.replace(/-/g,"/");
+		toDateTime=toDateTime.replace(/-/g,"/");
+		
+		fromDateTime=new Date(fromDateTime);
+		toDateTime=new Date(toDateTime);
+		
+		var distHour=Math.ceil((toDateTime-fromDateTime)/3600000);
+		//alert(toDateTime+"  "+fromDateTime+"  "+distHour);
 		/*
 		wb=new Date(fdatestr[0]+"/"+fdatestr[1]+"/"+fdatestr[2]+" "+ftime);
 		wu=new Date(tdatestr[0]+"/"+tdatestr[1]+"/"+tdatestr[2]+" "+ttime);
@@ -861,6 +878,7 @@ function showFamOut(event){
 		
 		//-------- toHour-FromHour 
 		var slp=new chartArea();
+		slp.fromDate=fromDateTime.Format('yyyy/MM/dd'); 
 		slp.deepSleep=r.deepsleep
 		slp.totalSleep=r.totalsleep
 		slp.color=["","#00c4ff","#bfbfbf","#00c4ff"];
@@ -868,11 +886,12 @@ function showFamOut(event){
 		slp.data=sourceDataList;
 		slp.distHour=distHour;
 		slp.drawBaseLine();
-		slp.beginHour=beginHour;
+		slp.beginHour=fromDateTime.getHours();
 		slp.slpTimeLong=parseInt(slp.totalSleep/5);
 		slp.setupHour();
+		
 		slp.putData();
-
+		
 		eStr=(conver24to12(ftime,2)).split('|');
 		infoStr='<span>'+eStr[0]+':'+eStr[1]+'<span>'+eStr[2]+'</span></span>';
 		$('#SLP_wentBed').html(infoStr);

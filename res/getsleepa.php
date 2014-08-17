@@ -1,12 +1,11 @@
-﻿<?php 
+<?php 
 include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-$json_string='{"type":"sleep","ucode":"h46PA5YdJHnMelOBrRAOhjHVp3PlzJnOaxrn","scode":"480","dates":"2014-5-6","cdate":"2014-7-1 下午9:46:56","ecode":"3HB2wARAZFKXdKhG","source":"w"}';
-
+//$json_string='{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-08-15","cdate":"2014-08-15 23:03:22","ecode":"LNMzlQlYjC09Nc5x","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -20,17 +19,6 @@ $source=$obj -> source;
 checkuser($ucode,$scode,$ecode,$source);
 
 $bmr=0;
-$tmpdate=explode(" ", $dates); 
-$moment="24:00:00";
-$today=0;
-
-
-$checkdate=date("Y-m-d",strtotime($tmpdate[0]));
-$currentdate=date("Y-m-d",strtotime($cdate));
-if($checkdate==$currentdate){
-	$today=1;
-	$moment=date("H:i:s",strtotime($cdate));
-}
 
 function checkNull($val){
 	if (is_null($val)){
@@ -40,103 +28,66 @@ function checkNull($val){
 	}
 }
 
-$reqdate=date("Y-m-d",strtotime($tmpdate[0]));
-//echo $reqdate;
-$datestr=str_replace("-","",$reqdate);
+//echo $cdate;
+
+$datestr=str_replace("-","",$cdate);
 $yearmonth=substr($datestr,0,6);
 $day=substr($datestr,6,8);
 
+$sql="select fdate,ftime,tdate,ttime from sleepdata where sid=$scode and sdate='$dates'";
 
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //鍒涘缓mysqli瀹炰緥
-
-//------------------鑾峰栦汉宸ヨ缃殑sleep鏃堕棿-----------------------
-$sql="select fdate,ftime,tdate,ttime from sleepdata where sid=? and sdate=?";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql);
-$stmt->bind_param("ss", $scode,$reqdate);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result( $fdate,$ftime,$tdate,$ttime);
-
-if(!$stmt->fetch()){
-	$fdate=date('Y-m-d',strtotime("$reqdate -1 day"));
-	$ftime="22:00:00";
-	$tdate=$reqdate;
-	$ttime="07:00:00";
-	$sql="insert into sleepdata (sid,ftime,fdate,ttime,tdate,sdate) values (?,?,?,?,?,?)";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("ssssss",$scode, $ftime,$fdate,$ttime,$tdate,$reqdate);
-	$stmt->execute();
-	$stmt->close();
+$result=mysql_query($sql,$conn); 
+$row=mysql_fetch_array($result);
+		
+$sql="select * from dailyvalue where sensorid=$scode and date='$dates'";
+$result=mysql_query($sql,$conn); 
+if($row=mysql_fetch_array($result)){
+	$totalsleep=$row['totalsleep'];
+	$deepsleep=$row['deepsleep'];
+}else{
+	$totalsleep=0;
+	$deepsleep=0;
 	
 }
-
 
 $moveList=array();
-
 $outlist=array();
-//----------棰勮sleep鍊?浠庡変竴澶╀腑鍒12鐐瑰埌褰撳ぉ涓?2鐐?-------------
 
 
-//------寮€濮嬫煡璇?
-$lastdatestr=str_replace("-","",$fdate);
 
-/*
-$sql="select id,stime,move,sleepmode from basedata_" .$lastdatestr . " where sensorid=? and stime>='$ftime' union select id,stime,move,sleepmode from basedata_" . $datestr . " where sensorid=? and stime<='$ttime' order by stime";
-echo "select id,stime,move,sleepmode from basedata_" .$lastdatestr . " where sensorid=$scode and stime>='$ftime' union select id,stime,move,sleepmode from basedata_" . $datestr . " where sensorid=$scode and stime<='$ttime'";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("ss", $scode,$scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result(  $id,$stime,$move,$sleepmode);
-//-----------save data----------------------------
-
-while($stmt->fetch()){
-	
-	//array_push($moveList,array('id'=>$id,'stime'=>$stime,'move'=>$move*$sleepmode));
-	array_push($moveList,$id . "|" . $stime ."|" . $move);
-}
-echo json_encode($moveList);
-*/
 function timeToRealID($time){
-	$min=explode(":", $time);
-	return $min[0]*60+$min[1];
+	global $yesterday;
+	
+	
+	return (strtotime($time)-strtotime($yesterday))/60;
 }
 
-$sql="select stime,move,sleepmode from basedata_" .$lastdatestr . " where sensorid=? and stime>='$ftime' order by stime";
-echo "select stime,move,sleepmode from basedata_" .$lastdatestr . " where sensorid=? and stime>='$ftime' order by stime";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result( $stime,$move,$sleepmode);
-//-----------save data----------------------------
+$yesterday=date('Y-m-d',strtotime($dates . " -1 day"));
+$ydatesort=str_replace("-","",$yesterday);
+$sdate=str_replace("-","",$dates);
 
-while($stmt->fetch()){
-	array_push($moveList,  timeToRealID($stime) ."|" . $move*$sleepmode);
-	//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
+
+
+$sql="SELECT detectedposition,move+steps as move,concat('" . $yesterday ." ',stime) as stime FROM basedata_" . $ydatesort . " where sensorid=$scode and (detectedposition=1 or detectedposition=2) and stime>'12:00:00'";
+$sql .=" union SELECT detectedposition,move+steps as move,concat('" . $dates ." ',stime) as stime FROM basedata_" . $sdate . " where sensorid=$scode and (detectedposition=1 or detectedposition=2)  and stime<'12:00:00'";
+echo $sql;
+$result=mysql_query($sql,$conn); 
+while($row=mysql_fetch_array($result)){
+
+	array_push($moveList,  timeToRealID($row['stime']) ."|" . $row['move']."|".$row['detectedposition']);
+		//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
 }
-$stmt->close();
-$sql="select stime,move,sleepmode from basedata_" .$datestr . " where sensorid=? and stime<='$ttime' order by stime";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("s", $scode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result( $stime,$move,$sleepmode);
-//-----------save data----------------------------
+$sql="SELECT a.*,b.totalsleep,b.deepsleep FROM sleepdata as a, dailyvalue as b WHERE a.sid=$scode and a.sid=b.sensorid and a.sdate='$dates' and a.sdate=b.date";
+echo $sql;
+$result=mysql_query($sql,$conn);
+if($row=mysql_fetch_array($result)){
+	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$row['fdate'],'ftime'=>$row['ftime'],'tdate'=>$row['tdate'],'ttime'=>$row['ttime'],'ecode'=>$ecode,'totalsleep'=>$row['totalsleep'],'deepsleep'=>$row['deepsleep'],'data'=>$moveList);
 
-while($stmt->fetch()){
-	array_push($moveList,  timeToRealID($stime) ."|". $move*$sleepmode);
-	//array_push($moveList,  720+timeToRealID($stime)."|" . $stime  ."|". $move);
+	
+}else{
+	$out=array('status'=>201,'message'=>'no sleep data defined');
+	
 }
-
-$stmt->close();
-$mysqli->close;	
-$out=array('status'=>200,'mindate'=>date('Y-m-d',strtotime("$reqdate -1 day")),'fdate'=>$fdate,'ftime'=>$ftime,'tdate'=>$tdate,'ttime'=>$ttime,'ecode'=>$ecode,'data'=>$moveList);
 
 echo json_encode($out);
 ?>

@@ -381,11 +381,14 @@ function switchItem(event){
 		
 	};
 	chartArea.prototype.setupHour=function(){
-		
-		for(this.i=0;this.i<=12;this.i++){
-			this.currentHour=convertHourNumber(this.beginHour+this.i*2);
-			$('#'+this.belongs+'_hourLabel'+this.i).html(this.currentHour);
+		var beginTime=new Date(this.fromDate+" 12:00:00");
+		for(var i=0;i<=12;i++){
+			var myDate = new Date();
+			myDate.setTime(beginTime.getTime()+2*i*60*60*1000)
+			var currentHour=myDate.Format('hh:mm'); 
+			$('#'+this.belongs+'_hourLabel'+i).html(currentHour);
 		}
+		
 		//----------添加浮标----------------
 		this.childDiv=$('<div class="G_floatBarLabel templetes" id="'+this.belongs+'_label"><div id="'+this.belongs+'_labelLeftText" class="G_labelLeftText G_unselect"></div><div id="'+this.belongs+'_labelRightText" class="G_labelRightText G_unselect"></div></div>');
 	 	this.childDiv.appendTo($('#'+this.belongs));

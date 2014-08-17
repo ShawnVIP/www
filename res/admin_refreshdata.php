@@ -35,8 +35,9 @@ $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_d
 
 $tempstr=explode("|",$dates);
 for($i=0;$i<count($tempstr);$i++){
-
-	array_push($dateList,  array('ldate'=>$tempstr[$i] ,'sdate'=>str_replace("-","",$tempstr[$i])));
+	$tomorrow=date('Y-m-d',strtotime($tempstr[$i] . " 1 day"));
+	$yesterday=date('Y-m-d',strtotime($tempstr[$i] . " -1 day"));
+	array_push($dateList,  array('ldate'=>$tempstr[$i] ,'sdate'=>str_replace("-","",$tempstr[$i]), 'ydatelong'=>$yesterday,'ydatesort'=>str_replace("-","",$yesterday),'tdatelong'=>$tomorrow,'tdatesort'=>str_replace("-","",$tomorrow)));
 }
 
 //echo json_encode(array('status'=>$dateList));
@@ -51,19 +52,23 @@ for($i=0;$i<count($dateList);$i++){
 	for($k=0;$k<=1440;$k++){
 		array_push($statusList, 0);
 	}
-	$sql="SELECT detectedposition,stime FROM basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and delmark=0 and detectedposition is not null order by id";
+	
+
+	//----------------------------分析标准数据，从当天的第一个数字到第二天第一数字--------------------
+	
+	$sql="SELECT detectedposition,concat('" . $dateList[$i][ldate] ." ',stime) as stime FROM basedata_" . $dateList[$i][sdate] . " where sensorid=$scode";
+	$sql .=" union SELECT detectedposition,concat('" . $dateList[$i][tdatelong] ." ',stime) as stime FROM basedata_" . $dateList[$i][tdatesort] . " where sensorid=$scode and stime<'00:05:00'";
 	
 	$result=mysql_query($sql,$conn); 
 	while ($row=mysql_fetch_array($result)){
 		$detectedposition=$row['detectedposition'];
 		if($detectedposition==2){$detectedposition=1;} //---1,2 都是睡眠模式------
 		$stime=$row['stime'];
-		$tmpdate=date("Y-m-d H:i:s",strtotime($reqdate . " " .$stime));
+		$tmpdate=date("Y-m-d H:i:s",strtotime($stime));
 		for($k=0;$k>-5;$k--){
 			$newtime=date('H:i:s',strtotime("$tmpdate $k minute"));	
 			$newday=date("Y-m-d",strtotime("$tmpdate $k minute"));	
 			if($newday==$reqdate){
-				
 				$statusList[timeToRealID($newtime)]=$detectedposition;
 			}
 		}
@@ -98,36 +103,37 @@ for($i=0;$i<count($dateList);$i++){
 	$totalsteps=$row['totalsteps'];
 	$totaldistance=$row['totaldistance'];
 	
-	$tdate=$dateList[$i][ldate];
-	$fdate=date('Y-m-d',strtotime("$tdate -1 day"));
-
-
-	$sql="select * from basedata_" .str_replace("-","",$fdate) . " where stime>'20:00:00' and detectedposition=1 and sensorid=$scode order by stime desc limit 0,1";
-	$result=mysql_query($sql,$conn); 
-	if($row=mysql_fetch_array($result)){
-		$ftime=$row['stime'];
-	}else{
-		$sqla="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'07:00:00' and detectedposition=1 and sensorid=$scode  order by stime limit 0,1";
-		$resulta=mysql_query($sqla,$conn); 
-		if($rowa=mysql_fetch_array($resulta)){
-			$ftime=$rowa['stime'];
-			$fdate=$tdate;
-		}else{
-			$ftime="22:00:00";
-		}
-	}
-	$addstr="";
-	if($fdate==$tdate){
-		$addstr=" and stime>'$ftime' ";
-	}
-	$sql="select * from basedata_" .str_replace("-","",$tdate) . " where stime<'12:00:00' $addstr and (detectedposition=5 or detectedposition=6) and sensorid=$scode  order by stime limit 0,1";
-	$result=mysql_query($sql,$conn); 
-	if($row=mysql_fetch_array($result)){
-		$ttime=$row['stime'];
-	}else{
-		$ttime="07:00:00";
-	}
+	//----------------------------分析睡眠数据，从昨天中午12点到今天中午12点-------------------------
+	$sql="SELECT detectedposition,concat('" . $dateList[$i][ydatelong] ." ',stime) as stime FROM basedata_" . $dateList[$i][ydatesort] . " where sensorid=$scode and (detectedposition=1 or detectedposition=2) and stime>'12:00:00'";
+	$sql .=" union SELECT detectedposition,concat('" . $dateList[$i][ldate] ." ',stime) as stime FROM basedata_" . $dateList[$i][sdate] . " where sensorid=$scode and (detectedposition=1 or detectedposition=2)  and stime<'12:00:00'";
 	//echo $sql;
+	$result=mysql_query($sql,$conn); 
+	$fromtime=$dateList[$i][ldate] . " 00:00:00";
+	$totime=$dateList[$i][ldate] . " 00:00:00";
+	
+	$deepsleep=0;
+	$totalsleep=0;
+	
+	while($row=mysql_fetch_array($result)){
+		
+		$totalsleep+=5;
+		if($row['detectedposition']==2){
+			$deepsleep+=5;	
+		}
+		if($row['stime']<$fromtime){$fromtime=$row['stime'];}
+		if($row['stime']>$totime){$totime=$row['stime'];}
+		
+	}
+	if($fromtime==$totime){
+		$fromtime=$dateList[$i][ydatelong] . " 22:00:00";
+		$totime=$dateList[$i][ldate] . " 07:00:00";
+	}
+	
+	
+	$ftime=date('H:i:s',strtotime($fromtime));	
+	$fdate=date("Y-m-d",strtotime($fromtime));	
+	$ttime=date('H:i:s',strtotime($totime));	
+	$tdate=date("Y-m-d",strtotime($totime));	
 	
 	$sql="select * from sleepdata where sid=$scode and sdate='$tdate'";
 	$result=mysql_query($sql,$conn); 
@@ -138,61 +144,16 @@ for($i=0;$i<count($dateList);$i++){
 		$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$ftime', '$ttime', '$fdate', '$tdate')";
 		$result=mysql_query($sql,$conn); 
 	}
-	
-	
-	if($fdate==$tdate){
-		$sql="select count(id) as cid from basedata_" .str_replace("-","",$tdate) . " where  stime>='$ftime'  and stime<='$ttime' and detectedposition=2 and sensorid=$scode";
-		$result=mysql_query($sql,$conn);
-		$row=mysql_fetch_array($result);
-		$totalsleep=$row['cid']*5;
-	}else{
-		$sql="select count(id) as cid from basedata_" .str_replace("-","",$fdate) . " where stime>='$ftime' and detectedposition=2 and sensorid=$scode";
-		$result=mysql_query($sql,$conn);
-		$row=mysql_fetch_array($result);
-		$totalsleep=$row['cid']*5;
-		$sql="select count(id) as cid from basedata_" .str_replace("-","",$tdate) . " where stime<='$ttime'  and detectedposition=2 and sensorid=$scode";
-		$result=mysql_query($sql,$conn);
-		$row=mysql_fetch_array($result);
-		$totalsleep+=$row['cid']*5;
-		
-	}
 	//echo $sql;
-	//------------------count total sleep---------------------
-	$sql="select * from dailyvalue where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
+	$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep,deepsleep=$deepsleep where sensorid=$scode and date='".$tdate. "'";
+	//echo $sql;
 	$result=mysql_query($sql,$conn); 
-	if($row=mysql_fetch_array($result)){
-		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep where sensorid=$scode and date='".$dateList[$i][ldate]. "'";
-		$result=mysql_query($sql,$conn); 
-		
-	}else{
-		$sql="select * from dailyvalue where sensorid=$scode and date<'".$dateList[$i][ldate]. "'";
-		$result=mysql_query($sql,$conn);
-		$row=mysql_fetch_array($result);
-		$height=$row['height'];
-		$weight=$row['weight'];
-		$step=$row['step'];
-		$stepgoal=$row['stepgoal'];
-		$caloriesgoal=$row['caloriesgoal'];
-		$distancegoal=$row['distancegoal'];
-		$runningwidth=$row['runningwidth'];
-		$stepwidth=$row['stepwidth'];
-		$sleepgoal=$row['sleepgoal'];
-		$bmi=$row['bmi'];
-		$bmr=$row['bmr'];
-		$age=$row['age'];
-		$updated=$row['updated'];
-		
-		$sql="INSERT INTO dailyvalue(height, weight, step, date, stepgoal, caloriesgoal, stepwidth, distancegoal, runningwidth, bmi, sensorid, updated, age, bmr, sleepgoal, totalcal, totalsteps, totaldistance, totalsleep) VALUES ($height, $weight, $step, '".$dateList[$i][ldate]. "', $stepgoal, $caloriesgoal, $stepwidth, $distancegoal, $runningwidth, $bmi, $scode, $updated, $age, $bmr, $sleepgoal, $totalcal, $totalsteps, $totaldistance, $totalsleep)";
-		$result=mysql_query($sql,$conn); 		
-		
-	}
-	//echo $sql;
 	
-
+	
 }
 
 $mysqli->close;	
 	
-echo json_encode(array('status'=>200));
+//echo json_encode(array('status'=>200));
 
 ?>

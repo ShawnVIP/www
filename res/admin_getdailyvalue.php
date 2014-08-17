@@ -13,14 +13,13 @@ $returnmode=1;
 if($_POST[mode]==1){
 	$scode=$_POST[scode];
 	$date=$_POST[date];
-	$addnew=$_POST[addnew];
-	$returnmode=$_POST[returnmode];
+	$addnew=(int)$_POST[addnew];
+	$returnmode=(int)$_POST[returnmode];
 }
 
 //INSERT INTO usedmail (email) SELECT email FROM usedmail where id=1 
 //--------------check ucode---------------------
-$conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
-mysql_select_db($mysql_database,$conn);
+
 $sensor=array();
 $sql="select * from dailyvalue where sensorid=$scode and date='$date'";
 //echo $sql;
@@ -45,10 +44,10 @@ $caloriesgoal=$row['caloriesgoal'];
 $distancegoal=$row['distancegoal'];
 $sleepgoal=$row['sleepgoal'];
 if($newmode==1){	
-	if($addnew==1){
+	
 	$sql="INSERT INTO dailyvalue (date,sensorid,age,height,weight,step,stepwidth,runningwidth,bmr,bmi,stepgoal,caloriesgoal,distancegoal,sleepgoal) value ('$date',$scode,$age,$height,$weight,$step,$stepwidth,$runningwidth,$bmr,$bmi,$stepgoal,$caloriesgoal,$distancegoal,$sleepgoal)";
 	$result=mysql_query($sql,$conn);
-	}
+	
 	$totalsteps=0;
 	$totalcal=0;
 	$totaldistance=0;
