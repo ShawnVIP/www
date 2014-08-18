@@ -87,7 +87,7 @@ function buildSensorStation($scode,$dateList){
 		$row=mysql_fetch_array($result);
 		$totalcal=$row['totalcal'];
 		$totalsteps=$row['totalsteps'];
-		$totaldistance=$row['totaldistance'];
+		$totaldistance=$row['totaldistance']/100000; //距离单位在sensor中是厘米
 		
 		//----------------------------分析睡眠数据，从昨天中午12点到今天中午12点-------------------------
 		$sql="SELECT detectedposition,concat('" . $ydatelong ." ',stime) as stime FROM basedata_" . $ydatesort . " where sensorid=$scode and (detectedposition=1 or detectedposition=2) and stime>'12:00:00'";

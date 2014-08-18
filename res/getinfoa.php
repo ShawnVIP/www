@@ -7,7 +7,7 @@ create view totalinfo as select b.fallalert,b.positionalert, b.defaultgoal, b.tr
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"CSvynzkQDDreFJEp","source":"w","cdate":"2014-8-16 下午8:10:54"}';
+$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"CSvynzkQDDreFJEp","source":"w","cdate":"2014-8-16 下午8:10:54"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -15,14 +15,18 @@ $scode=$obj -> scode;
 $ecode=$obj -> ecode;
 $source=$obj -> source;
 $cdate=formatDateStr($obj -> cdate);
+$goalonly=$obj -> source;
+//checkuser($ucode,$scode,$ecode,$source);
 
-checkuser($ucode,$scode,$ecode,$source);
-
-
+$goalonly=1;
 
 
 $valueList=checkDailyValue($scode,$cdate,1,true);
 
+if($goalonly==1){
+	echo json_encode(array('status'=>200,'caloriesgoal'=>$valueList[0][caloriesgoal],'distancegoal'=>$valueList[0][distancegoal],'stepgoal'=>$valueList[0][stepgoal],'sleepgoal'=>$valueList[0][sleepgoal],'caloriestoken'=>$valueList[0][totalcal],'distancetoken'=>$valueList[0][totaldistance],'steptoken'=>$valueList[0][totalsteps],'sleeptoken'=>$valueList[0][totalsleep],'ecode'=>$ecode));
+	exit;
+}
 $infoList=array();
 
 $email="";
@@ -30,10 +34,13 @@ $sql="select email from accountinfo where  userid='$ucode'";
 $result=mysql_query($sql,$conn);
 if ($row=mysql_fetch_array($result)) {
 	$email=$row['email'];
+}else{
+	echo json_encode(array('status'=>'101','message'=>'no user found'));
+	exit;
 }
 
 $sql ="SELECT * FROM totalinfo  WHERE  sensorid='$scode' and date='$cdate'";
-
+$outList=array();
 $result=mysql_query($sql,$conn);
 if ($row=mysql_fetch_array($result)) {
 	
@@ -93,11 +100,10 @@ if ($row=mysql_fetch_array($result)) {
 	array_push($value,$rowa['message']);
 	array_push($infoList,array_combine($vname,$value));
 	
+	array_push($outList,array_merge($valueList[0],$infoList[0]));
+	echo json_encode(array('status'=>200,'sensorlist'=>$outList,'ecode'=>$ecode));
+}else{
+	echo json_encode(array('status'=>201,'message'=>'no info found'));
 }
-$outList=array();
-
-array_push($outList,array_merge($valueList[0],$infoList[0]));
-echo json_encode(array('status'=>200,'sensorlist'=>$outList,'ecode'=>$ecode));
-
 
 ?>

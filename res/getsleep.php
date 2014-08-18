@@ -101,15 +101,15 @@ while($row=mysql_fetch_array($result)){
 }
 
 
-$sql="SELECT a.*,b.totalsleep,b.deepsleep FROM sleepdata as a, dailyvalue as b WHERE a.sid=$scode and a.sid=b.sensorid and a.sdate='$dates' and a.sdate=b.date";
+$sql="SELECT a.*,b.totalsleep,b.sleepgoal,b.deepsleep FROM sleepdata as a, dailyvalue as b WHERE a.sid=$scode and a.sid=b.sensorid and a.sdate='$dates' and a.sdate=b.date";
 //echo $sql;
 $result=mysql_query($sql,$conn);
 if($row=mysql_fetch_array($result)){
-	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$row['fdate'],'ftime'=>$row['ftime'],'tdate'=>$row['tdate'],'ttime'=>$row['ttime'],'ecode'=>$ecode,'totalsleep'=>$row['totalsleep'],'deepsleep'=>$row['deepsleep'],'data'=>$moveList,'newdata'=>$newmoveList);
+	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$row['fdate'],'ftime'=>$row['ftime'],'tdate'=>$row['tdate'],'ttime'=>$row['ttime'],'ecode'=>$ecode,'sleepgoal'=>$row['sleepgoal'],'totalsleep'=>$row['totalsleep'],'deepsleep'=>$row['deepsleep'],'data'=>$moveList,'newdata'=>$newmoveList);
 
 	
 }else{
-	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$row['fdate'],'ftime'=>'22:00:00','tdate'=>$row['tdate'],'ttime'=>'07:00:00','ecode'=>$ecode,'totalsleep'=>0,'deepsleep'=>0,'data'=>array());
+	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$yesterday,'ftime'=>'22:00:00','tdate'=>$cdate,'ttime'=>'07:00:00','ecode'=>$ecode,'totalsleep'=>0,'deepsleep'=>0,'data'=>array(),'newdata'=>array());
 	
 }
 

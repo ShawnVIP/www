@@ -178,7 +178,7 @@ function updateData(){
 	
 	var outData={sensorid:$('#sensorid').text(),date:$('#dateList').val()};
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
-		url:'res/admin_refreshdataa.php?id='+Math.random(),
+		url:'res/admin_refreshdata.php?id='+Math.random(),
 		data:JSON.stringify(outData), 
         success: function (msg) {
 			if(msg.status != 200){

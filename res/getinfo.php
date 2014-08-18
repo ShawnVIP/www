@@ -23,6 +23,7 @@ checkuser($ucode,$scode,$ecode,$source);
 
 $valueList=checkDailyValue($scode,$cdate,1,true);
 
+
 $infoList=array();
 
 $email="";

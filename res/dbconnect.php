@@ -367,51 +367,51 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		$value=array();
 		
 		array_push($vname,"age");
-		array_push($value,$age);
+		array_push($value,(int)$age);
 		
 		array_push($vname,"updated");
-		array_push($value,$updated);
+		array_push($value,(int)$updated);
 		
 		array_push($vname,"height");
-		array_push($value,$height);
+		array_push($value,(float)$height);
 		
 		array_push($vname,"weight");
-		array_push($value,$weight);
+		array_push($value,(float)$weight);
 		array_push($vname,"step");
-		array_push($value,$step);
+		array_push($value,(int)$step);
 		array_push($vname,"stepwidth");
-		array_push($value,$stepwidth);
+		array_push($value,(int)$stepwidth);
 		array_push($vname,"runningwidth");
-		array_push($value,$runningwidth);
+		array_push($value,(int)$runningwidth);
 		
 		array_push($vname,"bmr");
-		array_push($value,$bmr);
+		array_push($value,(float)$bmr);
 		array_push($vname,"bmi");
-		array_push($value,$bmi);
+		array_push($value,(float)$bmi);
 		
 		array_push($vname,"stepgoal");
-		array_push($value,$stepgoal);
+		array_push($value,(int)$stepgoal);
 		
 		array_push($vname,"totalsteps");
-		array_push($value,$totalsteps);
+		array_push($value,(int)$totalsteps);
 		
 		array_push($vname,"caloriesgoal");
-		array_push($value,$caloriesgoal);
+		array_push($value,(int)$caloriesgoal);
 		
 		array_push($vname,"totalcal");
-		array_push($value,$totalcal);
+		array_push($value,(int)$totalcal);
 		
 		array_push($vname,"distancegoal");
-		array_push($value,$distancegoal);
+		array_push($value,(float)$distancegoal);
 		
 		array_push($vname,"totaldistance");
-		array_push($value,$totaldistance);
+		array_push($value,(float)$totaldistance);
 		
 		array_push($vname,"sleepgoal");
-		array_push($value,$sleepgoal);
+		array_push($value,(int)$sleepgoal);
 		
 		array_push($vname,"totalsleep");
-		array_push($value,$totalsleep);
+		array_push($value,(int)$totalsleep);
 			
 		array_push($valueList,array_combine($vname,$value));
 		return $valueList;
