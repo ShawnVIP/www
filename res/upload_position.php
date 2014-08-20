@@ -24,7 +24,7 @@ for($i=0;$i<count($poslist);$i++){
 	$longitude=$poslist[$i] -> longitude;
 	$latitude=$poslist[$i] -> latitude;
 	
-	$stmt->bind_param("sss",$stamp,$longitude,$longitude);
+	$stmt->bind_param("sss",$stamp,$longitude,$latitude);
 	$stmt->execute();
 }
 $stmt->close();

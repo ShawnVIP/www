@@ -61,43 +61,7 @@ function checkWarning($scode,$ndate,$today,$moment){ //----------calc warning da
 	$stmt->execute();
 	$stmt->close();
 	
-	$sql="update warninginfo set delmark=1 where sensorid=? and date=?";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql); 
-	$stmt->bind_param("ss", $scode,$ndate);
-	$stmt->execute();
-	$stmt->close();
-	
-	$sql="insert into warninginfo ( sensorid,date,catalog,title,detail) value (?,?,?,?,?)";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql); 	
-	
-	//echo "cal: $totalcal $caloriesgoal | step: $totalsteps $stepgoal | distance: $totaldistance $distancegoal";
-	if($totalcal<$caloriesgoal){
-		$rest=$caloriesgoal-$totalcal;
-		$titleinfo='less calories';
-		$cata=1;
-		$restinfo='less calories ' . round($rest,1);
-		$stmt->bind_param("sssss", $scode,$ndate,$cata,$titleinfo,$restinfo);
-		$stmt->execute();
-	}
-	if($totalsteps<$stepgoal){
-		$rest=$stepgoal-$totalsteps;
-		$restinfo='less steps ' . round($rest,0);
-		$titleinfo='less steps';
-		$cata=2;
-		$stmt->bind_param("sssss", $scode,$ndate,$cata,$titleinfo,$restinfo);
-		$stmt->execute();
-	}
-	if($totaldistance<$distancegoal){
-		$rest=($distancegoal-$totaldistance);
-		$restinfo='less distance ' .round($rest,3);
-		$titleinfo='less distance';
-		$cata=3;
-		$stmt->bind_param("sssss", $scode,$ndate,$cata,$titleinfo,$restinfo);
-		$stmt->execute();
-	}
-	$stmt->close();
+
 }
 function DateDiff ( $interval , $date1 , $date2 ) {
 	$timedifference = $date2 - $date1 ;
