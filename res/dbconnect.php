@@ -317,12 +317,46 @@ function convert2utf8($string){
 function convert2gbk($string){
 	return iconv("utf-8","gbk",$string);
 }
+
+function DiffDate($date1, $date2) { 
+  if (strtotime($date1) > strtotime($date2)) { 
+    $ymd = $date2; 
+    $date2 = $date1; 
+    $date1 = $ymd; 
+  } 
+  list($y1, $m1, $d1) = explode('-', $date1); 
+  list($y2, $m2, $d2) = explode('-', $date2); 
+  $y = $m = $d = $_m = 0; 
+  $math = ($y2 - $y1) * 12 + $m2 - $m1; 
+  $y = round($math / 12); 
+  $m = intval($math % 12); 
+  $d = (mktime(0, 0, 0, $m2, $d2, $y2) - mktime(0, 0, 0, $m2, $d1, $y2)) / 86400; 
+  if ($d < 0) { 
+    $m -= 1; 
+    $d += date('j', mktime(0, 0, 0, $m2, 0, $y2)); 
+  } 
+  $m < 0 && $y -= 1; 
+  return array($y, $m, $d); 
+} 
+
 function checkDailyValue($scode,$date,$addnew,$returnmode){
 	global $conn;
 	
 	$valueList=array();
-	$sql="select * from dailyvalue where sensorid=$scode and date='$date'";
+	$sql="select dob from sensorinfo where id=$scode";
+	$result=mysql_query($sql,$conn); 
+	$row=mysql_fetch_array($result);
+	$dob=$row['dob'];
+	if($dob=="0000-00-00"){
+		$age=0;
+	}else{
+		$datediff=DiffDate($now,$dob);
+		$age=$datediff[0];
+		
+	}
+	$sql="select * from dailyvalue where sensorid='$scode' and date='$date'";
 	//echo $sql;
+	
 	$newmode=0;
 	$result=mysql_query($sql,$conn); 
 	if(!$row=mysql_fetch_array($result)){
@@ -331,7 +365,6 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		$row=mysql_fetch_array($result);
 		$newmode=1;
 	}
-	$age=$row['age'];
 	$height=$row['height'];
 	$weight=$row['weight'];
 	$step=$row['step'];

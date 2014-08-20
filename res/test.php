@@ -3,7 +3,16 @@ include "dbconnect.php";
 
 $a=array("a"=>"Cat","b"=>"Dog","c"=>"Cat");
 $a=array_unique($a);
-print_r(date('Y-m-d',strtotime('2012-8-1')));
+$dob="1972-6-21";
+if($dob=="0000-00-00"){
+	$age=0;
+}else{
+	$datediff=DiffDate($now,$dob);
+	$age=$datediff[0];
+		
+}
+echo $age;
+	
 //loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => 1,"date" => '2014-08-16',"addnew"=>1,"returnmode"=>1),true);
 
 
