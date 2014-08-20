@@ -1,5 +1,6 @@
 <?php 
 include "dbconnect.php";
+include "build_sensor_station.php";
 
 /*
 create view totalinfo as select b.fallalert,b.positionalert, b.defaultgoal, b.transmitpower,b.fallthreshold,b.fallimpact,b.fallangleh,b.fallanglel,a.orderlist,a.userid,a.station,a.connected,b.power,b.lastupdate as lastupdate,b.nickname,b.headimage,b.dob,b.gender,b.unit, b.vipmode,b.language, c.*,b.detailid  from sensorlist as a, sensorinfo as b,dailyvalue as c where  a.sensorid=b.id and c.sensorid=b.id
@@ -16,6 +17,7 @@ $ecode=$obj -> ecode;
 $source=$obj -> source;
 $cdate=formatDateStr($obj -> cdate);
 
+$cdate=date("Y-m-d",strtotime($cdate));
 checkuser($ucode,$scode,$ecode,$source);
 
 
@@ -23,6 +25,7 @@ checkuser($ucode,$scode,$ecode,$source);
 
 $valueList=checkDailyValue($scode,$cdate,1,true);
 
+buildSensorStation($scode,array($cdate));
 
 $infoList=array();
 

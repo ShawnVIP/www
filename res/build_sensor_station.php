@@ -44,7 +44,6 @@ function buildSensorStation($scode,$dateList){
 		
 		$sql="SELECT detectedposition,concat('" . $ldate ." ',stime) as stime FROM basedata_" . $sdate . " where sensorid=$scode";
 		$sql .=" union SELECT detectedposition,concat('" . $tdatelong ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime<'00:05:00'";
-		
 		$result=mysql_query($sql,$conn); 
 		while ($row=mysql_fetch_array($result)){
 			$detectedposition=$row['detectedposition'];

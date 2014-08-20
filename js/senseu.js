@@ -781,12 +781,25 @@ function showFamOut(event){
 	
 	}
 	function aniSetup(){
-
+		
+	
+	
+		carTitleItem[1].totalValue=caloriesGoal;
+		carTitleItem[2].totalValue=stepGoal;
+		carTitleItem[3].totalValue=disGoal;
+		for(i=1;i<4;i++){
+			carTitleItem[i].percent=parseInt(100*carTitleItem[i].currentValue/carTitleItem[i].totalValue);
+			if(carTitleItem[i].percent>100){carTitleItem[i].percent=100}
+		}
+		
+		
+		
 		bigCal.p={belongs:"l_proBarCal",smode:"l",leftIcon:"",currentValue:calTaken,totalValue:caloriesGoal};
 		bigCal.init();
 		sumAct.p={belongs:"s_proBarAct",smode:"s",leftIcon:"../images/icon_activity.png",currentValue:calTaken,totalValue:caloriesGoal};
 		sumAct.init();
 		sumAct.change();
+		
 		mStep.p={belongs:"m_proStep",smode:"m",leftIcon:"",currentValue:stepsTaken,totalValue:stepGoal};
 		mStep.init();
 		mMile.p={belongs:"m_proMile",smode:"m",leftIcon:"",currentValue:disTaken,totalValue:disGoal};
