@@ -341,19 +341,20 @@ function DiffDate($date1, $date2) {
 
 function checkDailyValue($scode,$date,$addnew,$returnmode){
 	global $conn;
-	
+	global $now;
 	$valueList=array();
 	$sql="select dob from sensorinfo where id=$scode";
 	$result=mysql_query($sql,$conn); 
 	$row=mysql_fetch_array($result);
 	$dob=$row['dob'];
 	if($dob=="0000-00-00"){
-		$age=0;
+		$age=0; 
 	}else{
 		$datediff=DiffDate($now,$dob);
 		$age=$datediff[0];
 		
 	}
+	//echo "from: $dob to $now . year:" . $datediff[0];
 	$sql="select * from dailyvalue where sensorid='$scode' and date='$date'";
 	//echo $sql;
 	
