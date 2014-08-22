@@ -72,6 +72,14 @@ function buildSensorStation($scode,$dateList){
 		}
 		array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
 	
+		
+		$firstStationTime=date("H:i:s",strtotime($ordList[0][totime] ." -" . $ordList[0][lasttime] . " minute"));	
+		if($firstStationTime != "00:00:00"){
+			
+			array_shift($ordList, array('totime'=>$firstStationTime,'position'=>0,'lasttime'=>($firstStationTime-date("H:i:s",strtotime("00:00:00"))/60)));	
+		}
+		
+		
 		$sql="insert into sensorstation (sensorid,sdate,totime,position,adjtype,lasttime) values ($scode,'$ldate',?,?,0,?)";
 		$stmt = $mysqli->stmt_init();
 		$stmt = $mysqli->prepare($sql);
