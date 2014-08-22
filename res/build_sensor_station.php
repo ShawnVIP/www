@@ -82,7 +82,7 @@ function buildSensorStation($scode,$dateList){
 		
 		//------------------update dailyvalue-------------------
 		$sql="select sum(calories) as totalcal, sum(steps) as totalsteps, sum(distance) as totaldistance  from  basedata_" . $sdate . "  where sensorid=$scode";
-		echo $sql;
+		//echo $sql;
 		$result=mysql_query($sql,$conn); 
 		$row=mysql_fetch_array($result);
 		$totalcal=$row['totalcal'];

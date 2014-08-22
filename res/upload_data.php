@@ -124,7 +124,7 @@ for($i=0;$i<count($dateList);$i++){
 	
 
 	$sql="insert into basedata_" . $sdate. " (stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition) select stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "'";
-	
+	echo $sql;
 	$result=mysql_query($sql,$conn); 
 	
 	$sql="delete from tempupload where rndstring='" . $rndstring . "'";
