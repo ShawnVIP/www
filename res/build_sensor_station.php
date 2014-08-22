@@ -131,7 +131,7 @@ function buildSensorStation($scode,$dateList){
 		}
 		//echo $sql;
 		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep,deepsleep=$deepsleep where sensorid=$scode and date='".$tdate. "'";
-		//echo $sql;
+		echo $sql;
 		$result=mysql_query($sql,$conn); 
 		
 		
