@@ -38,7 +38,7 @@ function buildSensorStation($scode,$dateList){
 		$statusList=array();
 		for($k=0;$k<=1440;$k++){
 			array_push($ordList,0);
-			array_push($statusList，0);
+			array_push($statusList,0);
 		}
 		
 		//----------------------------分析标准数据，从当天的第一个数字到第二天第一数字--------------------
