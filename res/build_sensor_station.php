@@ -110,7 +110,7 @@ function buildSensorStation($scode,$dateList){
 			
 		}
 		if($fromtime==$totime){
-			$fromtime=$dateList[$i][ydatelong] . " 22:00:00";
+			$fromtime=$ydatelong. " 22:00:00";
 			$totime=$ldate . " 07:00:00";
 		}
 		
