@@ -304,6 +304,7 @@ function getStationData(){
 	$( "#dialog-modal" ).dialog({height: 140,modal: true});
 	
 	var outData={sensorid:$('#sensorid').text(),date:$('#dateList').val()};
+	
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
 		url:'res/admin_getstationdata.php',
 		data:JSON.stringify(outData), 

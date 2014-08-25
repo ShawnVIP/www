@@ -382,7 +382,7 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		if($addnew==1){
 			$sql="INSERT INTO dailyvalue (date,sensorid,age,height,weight,step,stepwidth,runningwidth,bmr,bmi,stepgoal,caloriesgoal,distancegoal,sleepgoal) value ('$date',$scode,$age,$height,$weight,$step,$stepwidth,$runningwidth,$bmr,$bmi,$stepgoal,$caloriesgoal,$distancegoal,$sleepgoal)";
 			$result=mysql_query($sql,$conn);
-			echo $sql;
+			//echo $sql;
 		}
 		$totalsteps=0;
 		$totalcal=0;

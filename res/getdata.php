@@ -196,7 +196,9 @@ $statusList=array();
 
 $sql="SELECT totime,position FROM sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0 order by totime";
 $result=mysql_query($sql,$conn); 	
+
 while ($row=mysql_fetch_array($result)){
+	
 	array_push($edata, array('t'=>$row['totime'] ,'i'=>($row['position'])));
 }
 

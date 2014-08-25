@@ -41,6 +41,7 @@ var mymin=" "+mh+":"+mi+":"+ms;
 
 	
 $(function(){
+	
 	if(back_ucode!=null){
 		back_ucode=$.cookie('back_ucode');
 		back_scode=$.cookie('back_scode');
@@ -50,6 +51,8 @@ $(function(){
 			url:'../res/getinfo.php',
         	data:JSON.stringify(outData), 
         	success: function (msg) {
+				
+				
 				dealgetInfo(msg);
 				
         	}
@@ -79,7 +82,8 @@ $(function(){
 	$('#valuelist').hide();
 	$('#buildAllData').hide();
 	$('#listAllData').hide();
-	
+	$('#addnew').button("option","disabled", true);
+	$('#autoBuild').button("option","disabled", true);
 	//监听键盘，只允许输入数字和小数点
 	$(".inputLong").keypress(function(event) {
 		var keyCode = event.which;
@@ -155,7 +159,8 @@ function showSensor(){
 	
 	$('#userbmr').text("BMR:"+back_bmr);
 	$('#stepWidth').text("Step Width:"+back_sw+" mm");
-
+	$('#addnew').button("enable");
+	$('#autoBuild').button("enable");
 }
 	
 function adjustDayList(){
