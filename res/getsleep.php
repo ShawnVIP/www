@@ -15,6 +15,7 @@ $type=$obj -> type;
 $dates=$obj -> dates;
 $cdate=$obj -> cdate;
 $source=$obj -> source;
+$fcode=(int)$obj -> fcode;
 
 checkuser($ucode,$scode,$ecode,$source);
 
@@ -29,6 +30,17 @@ function checkNull($val){
 }
 
 //echo $cdate;
+
+if($fcode >0){
+	$sql="select * from familylist where sensorid=$scode and friendid=$fcode and guardian=1";
+	$result=mysql_query($sql,$conn); 
+	if(! mysql_fetch_array($result)){
+		echo json_encode(array('status'=>506,'message'=>'wrong linkage between two sensorid'));
+		exit();
+	}
+	
+	$scode=$fcode;
+}
 
 $datestr=str_replace("-","",$cdate);
 $yearmonth=substr($datestr,0,6);

@@ -377,10 +377,12 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 	$caloriesgoal=$row['caloriesgoal'];
 	$distancegoal=$row['distancegoal'];
 	$sleepgoal=$row['sleepgoal'];
+	//echo " newmode:$newmode addnew:$addnew";
 	if($newmode==1){	
 		if($addnew==1){
 			$sql="INSERT INTO dailyvalue (date,sensorid,age,height,weight,step,stepwidth,runningwidth,bmr,bmi,stepgoal,caloriesgoal,distancegoal,sleepgoal) value ('$date',$scode,$age,$height,$weight,$step,$stepwidth,$runningwidth,$bmr,$bmi,$stepgoal,$caloriesgoal,$distancegoal,$sleepgoal)";
 			$result=mysql_query($sql,$conn);
+			echo $sql;
 		}
 		$totalsteps=0;
 		$totalcal=0;
@@ -401,51 +403,51 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		$value=array();
 		
 		array_push($vname,"age");
-		array_push($value,(int)$age);
+		array_push($value,(string)$age);
 		
 		array_push($vname,"updated");
-		array_push($value,(int)$updated);
+		array_push($value,(string)$updated);
 		
 		array_push($vname,"height");
-		array_push($value,(float)$height);
+		array_push($value,(string)$height);
 		
 		array_push($vname,"weight");
-		array_push($value,(float)$weight);
+		array_push($value,(string)$weight);
 		array_push($vname,"step");
-		array_push($value,(int)$step);
+		array_push($value,(string)$step);
 		array_push($vname,"stepwidth");
-		array_push($value,(int)$stepwidth);
+		array_push($value,(string)$stepwidth);
 		array_push($vname,"runningwidth");
-		array_push($value,(int)$runningwidth);
+		array_push($value,(string)$runningwidth);
 		
 		array_push($vname,"bmr");
-		array_push($value,(float)$bmr);
+		array_push($value,(string)$bmr);
 		array_push($vname,"bmi");
-		array_push($value,(float)$bmi);
+		array_push($value,(string)$bmi);
 		
 		array_push($vname,"stepgoal");
-		array_push($value,(int)$stepgoal);
+		array_push($value,(string)$stepgoal);
 		
 		array_push($vname,"totalsteps");
-		array_push($value,(int)$totalsteps);
+		array_push($value,(string)$totalsteps);
 		
 		array_push($vname,"caloriesgoal");
-		array_push($value,(int)$caloriesgoal);
+		array_push($value,(string)$caloriesgoal);
 		
 		array_push($vname,"totalcal");
-		array_push($value,(int)$totalcal);
+		array_push($value,(string)$totalcal);
 		
 		array_push($vname,"distancegoal");
-		array_push($value,(float)$distancegoal);
+		array_push($value,(string)$distancegoal);
 		
 		array_push($vname,"totaldistance");
 		array_push($value,(float)$totaldistance);
 		
 		array_push($vname,"sleepgoal");
-		array_push($value,(int)$sleepgoal);
+		array_push($value,(string)$sleepgoal);
 		
 		array_push($vname,"totalsleep");
-		array_push($value,(int)$totalsleep);
+		array_push($value,(string)$totalsleep);
 			
 		array_push($valueList,array_combine($vname,$value));
 		return $valueList;

@@ -68,9 +68,11 @@ $stmt->execute();
 $stmt->close();
 */
 $session=$ecode;
+
+checkDailyValue($scode,$reqdate,1,false);
 //------------------获取当天的dailydata bmr
 
-$sql="select bmr,stepgoal,caloriesgoal,distancegoal,stepwidth,totalcal,totaldistance, totalsteps FROM dailyvalue where sensorid=$scode and date<='$reqdate'  order by id desc limit 0,1";
+$sql="select bmr,stepgoal,caloriesgoal,distancegoal,stepwidth,totalcal,totaldistance, totalsteps FROM dailyvalue where sensorid=$scode and date<='$reqdate'  order by date desc limit 0,1";
 
 //echo $sql;
 
