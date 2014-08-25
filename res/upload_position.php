@@ -11,7 +11,7 @@ $scode=$obj -> scode;
 $ecode=$obj -> ecode;
 $source=$obj -> source;
 $poslist=$obj -> poslist;
-
+$alertlist=$obj -> alertlist;
 checkuser($ucode,$scode,$ecode,$source);
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
@@ -29,6 +29,19 @@ for($i=0;$i<count($poslist);$i++){
 }
 $stmt->close();
 
+$sql="INSERT INTO alertposition(scode, udate, longitude, latitude) values ($scode,?,?,?)";
+$stmt = $mysqli->stmt_init();
+$stmt = $mysqli->prepare($sql);
+
+for($i=0;$i<count($alertlist);$i++){
+	$stamp=$alertlist[$i] -> stamp;
+	$longitude=$alertlist[$i] -> longitude;
+	$latitude=$alertlist[$i] -> latitude;
+	
+	$stmt->bind_param("sss",$stamp,$longitude,$latitude);
+	$stmt->execute();
+}
+$stmt->close();
 
 echo json_encode(array('status'=>200,'ecode'=>$ecode));
 ?>
