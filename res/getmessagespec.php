@@ -1,6 +1,6 @@
 <?php 
 include "dbconnect.php";
-writeGetUrlInfo();
+
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"readmode":"0","ucode":"L222syBlfPBqCfrcMxnh3AMWtdROaEHtlyVv","scode":"1","fcode":"629","ecode":"AJvb6U2I22jPeebK","source":"a","direction":"0","msgid":246,"msgnumber":20}';

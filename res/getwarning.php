@@ -1,7 +1,7 @@
 <?php
  
 include "dbconnect.php";
-writeGetUrlInfo();
+
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"ucode":"3h1DOHA9ojm2uynCXx7L4DUIUrhv0a0KhDd5","scode":"12"}';

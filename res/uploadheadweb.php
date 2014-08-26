@@ -1,12 +1,13 @@
 <?php
 
 include "dbconnect.php";
-writeGetUrlInfo();
+
 $ucode=$_POST[ucode];
 $scode=$_POST[scode];
 $ecode=$_POST[ecode];
 $source=$_POST[source];
 $lang=$_POST[lang];
+
 checkuser($ucode,$scode,$ecode,$source);
 
 $filename= randomkeys(36) . ".jpg";//要生成的图片名字

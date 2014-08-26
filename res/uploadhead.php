@@ -1,7 +1,7 @@
 <?php
 
 include "dbconnect.php";
-writeGetUrlInfo();
+
 /*
 $ucode=$_POST[ucode];
 $scode=$_POST[scode];
@@ -56,6 +56,7 @@ for($i=1;$i<count($strlist)-1;$i++){
 
 
 checkuser($ucode,$scode,$ecode,$source);
+
 //--------------------------------
 
 $midstr=substr($head,$begin,strlen($head)-$begin-33);

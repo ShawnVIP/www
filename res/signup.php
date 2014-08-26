@@ -1,6 +1,6 @@
 <?php
 include "dbconnect.php";
-writeGetUrlInfo();
+writeGetUrlInfo(0);
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];

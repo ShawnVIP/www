@@ -1,6 +1,6 @@
 <?php
 include "dbconnect.php";
-writeGetUrlInfo();
+
 $a=array("a"=>"Cat","b"=>"Dog","c"=>"Cat");
 $a=array_unique($a);
 $dob="1972-6-21";

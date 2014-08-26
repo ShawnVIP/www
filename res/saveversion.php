@@ -1,7 +1,7 @@
 <?php
 
 include "dbconnect.php";
-writeGetUrlInfo();
+
 $appversion=$_POST[appversion];
 $appurl=$_POST[appurl];
 $hardversion=$_POST[hardversion];

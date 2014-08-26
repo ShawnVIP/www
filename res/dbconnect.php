@@ -54,11 +54,11 @@ function writeFile($file,$str,$mode='w')
 
 //扩展应用，比如记录每次请求的url内容
 
-function writeGetUrlInfo()
+function writeGetUrlInfo($scode)
 {
 
     $requestInformation =date("Y-m-d H:i:s").",". $_SERVER['REMOTE_ADDR'].','.$_SERVER['HTTP_USER_AGENT'].', http://'.$_SERVER['HTTP_HOST'].htmlentities($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING']."\n" . $GLOBALS['HTTP_RAW_POST_DATA']."\n" ; 
-	$fileName = RootPath.'/log/'.date('Y-m-d').'.log'; //网站根目录RootPath是在配置文件里define('RootPath', substr(dirname(__FILE__))); 
+	$fileName = RootPath.'/log/log_'.date('Y-m-d').'_' . $scode . '.log'; //网站根目录RootPath是在配置文件里define('RootPath', substr(dirname(__FILE__))); 
 	//echo $fileName;
 	writeFile($fileName, $requestInformation, 'a'); //表示追加
 	
@@ -170,6 +170,7 @@ function buildLearning($scode,$activity_goal,$activity_goal_type){
 	
 }
 function checkuser($ucode,$scode,$ecode,$source){
+	writeGetUrlInfo($scode);
 	global $mysql_server_name;
 	global $mysql_username;
 	global $mysql_password;

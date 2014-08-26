@@ -1,6 +1,6 @@
 <?php
 include "dbconnect.php";
-writeGetUrlInfo();
+
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 $obj=json_decode($json_string); 
@@ -13,6 +13,7 @@ $source=$obj -> source;
 $cdate=$obj -> cdate;
 
 checkuser($ucode,$scode,$ecode,$source);
+
 //$scode=1;
 //$cdate="2014-5-6 22:29:00";
 //$power=80;
