@@ -2,6 +2,7 @@
 
 //$backend_server="54.245.106.189:8080";
 //$backend_server="127.0.0.1:8000";
+define('RootPath', ".."); 
 
 $url='http://'.$_SERVER['SERVER_NAME'].$_SERVER["REQUEST_URI"]; 
 $HOMEURL= dirname($url);
@@ -24,6 +25,44 @@ mysql_query("SET CHARACTER_SET_RESULTS=utf8");
 
 //date_default_timezone_set('Asia/Shanghai'); 
 $now=date("Y-m-d");
+/*
+**
+* 写文件
+* @param    string  $file   文件路径
+* @param    string  $str    写入内容
+* @param    char    $mode   写入模式
+*/
+function writeFile($file,$str,$mode='w')
+{
+    $oldmask = @umask(0);
+    $fp = @fopen($file,$mode);
+    @flock($fp, 3);
+    if(!$fp)
+    {
+        Return false;
+    }
+    else
+    {
+        @fwrite($fp,$str);
+        @fclose($fp);
+        @umask($oldmask);
+        Return true;
+    }
+}
+
+ 
+
+//扩展应用，比如记录每次请求的url内容
+
+function writeGetUrlInfo()
+{
+
+    $requestInformation =date("Y-m-d H:i:s").",". $_SERVER['REMOTE_ADDR'].','.$_SERVER['HTTP_USER_AGENT'].', http://'.$_SERVER['HTTP_HOST'].htmlentities($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING']."\n" . $GLOBALS['HTTP_RAW_POST_DATA']."\n" ; 
+	$fileName = RootPath.'/log/'.date('Y-m-d').'.log'; //网站根目录RootPath是在配置文件里define('RootPath', substr(dirname(__FILE__))); 
+	//echo $fileName;
+	writeFile($fileName, $requestInformation, 'a'); //表示追加
+	
+}
 
 function saveSession($ucode,$scode,$ecode,$source){
 	global $mysql_server_name;

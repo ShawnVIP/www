@@ -1,6 +1,7 @@
 <?php 
 include "dbconnect.php";
 header("Content-Type: text/html;charset=utf-8"); 
+writeGetUrlInfo();
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 $obj=json_decode($json_string); 

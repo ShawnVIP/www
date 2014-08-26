@@ -1,0 +1,10 @@
+2014-08-26 13:37:31,174.139.110.140,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:31.0) Gecko/20100101 Firefox/31.0, http://haisw.net/sense-u/res/getinfo.php?
+{"ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","scode":"605","ecode":"JOJSvRthQs5bJIAq","source":"w","cdate":"2014-8-26 下午1:39:18"}
+2014-08-26 13:37:31,174.139.110.140,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:31.0) Gecko/20100101 Firefox/31.0, http://haisw.net/sense-u/res/getdata.php?
+{"type":"act","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","scode":"605","dates":"2014-8-26","cdate":"2014-8-26 下午1:39:18","ecode":"JOJSvRthQs5bJIAq","source":"w"}
+2014-08-26 13:37:32,174.139.110.140,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:31.0) Gecko/20100101 Firefox/31.0, http://haisw.net/sense-u/res/getrelation.php?
+{"lang":"cn","relation":"family"}
+2014-08-26 13:37:34,174.139.110.140,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:31.0) Gecko/20100101 Firefox/31.0, http://haisw.net/sense-u/res/getsleep.php?
+{"type":"sleep","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","scode":"605","dates":"2014-8-26","cdate":"2014-8-26 下午1:39:18","ecode":"JOJSvRthQs5bJIAq","source":"w"}
+2014-08-26 13:37:39,174.139.110.140,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:31.0) Gecko/20100101 Firefox/31.0, http://haisw.net/sense-u/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","scode":"605","dates":"2014-8-26","cdate":"2014-8-26 下午1:39:18","ecode":"JOJSvRthQs5bJIAq","source":"w"}

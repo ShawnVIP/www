@@ -1,5 +1,6 @@
 <?php
 include "dbconnect.php";
+writeGetUrlInfo();
 
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 

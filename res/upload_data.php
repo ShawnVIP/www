@@ -1,6 +1,7 @@
 <?php
 include "dbconnect.php";
 include "build_sensor_station.php";
+writeGetUrlInfo();
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 //$json_string='{"ucode":"f2026d8c-d99c-4535-2a7b-7ad18c28c4b5","scode":"1","data":[{"stamp":"2013-05-31 13:02","rawdata":[{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30}]}],"type":"raw"}';

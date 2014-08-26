@@ -1,7 +1,7 @@
 <?php
 
 include "dbconnect.php";
-
+writeGetUrlInfo();
 $ucode=$_POST[ucode];
 $scode=$_POST[scode];
 $ecode=$_POST[ecode];

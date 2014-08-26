@@ -1,5 +1,6 @@
 <?php 
 include "dbconnect.php";
+writeGetUrlInfo();
 
 /*
 CREATE TABLE IF NOT EXISTS learningdata (

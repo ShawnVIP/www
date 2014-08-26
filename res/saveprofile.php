@@ -1,5 +1,6 @@
 <?php
 include "dbconnect.php";
+writeGetUrlInfo();
 
 
 function DateDiff ( $interval , $date1 , $date2 ) {
