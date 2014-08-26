@@ -153,7 +153,7 @@ function deleteData(){
 	
 	var outData={scode:$('#sensorid').text(),rdate:$('#dateList').val()};
 	$.ajax({type: "POST",contentType: "application/json",dataType: "json",
-		url:'res/newinput_removedata',
+		url:'res/newinput_removedata.php',
 		data:JSON.stringify(outData), 
         success: function (msg) {
 			if(msg.status != 200){
