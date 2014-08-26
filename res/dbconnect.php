@@ -57,8 +57,19 @@ function writeFile($file,$str,$mode='w')
 function writeGetUrlInfo($scode)
 {
 
-    $requestInformation =date("Y-m-d H:i:s").",". $_SERVER['REMOTE_ADDR'].','.$_SERVER['HTTP_USER_AGENT'].', http://'.$_SERVER['HTTP_HOST'].htmlentities($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING']."\n" . $GLOBALS['HTTP_RAW_POST_DATA']."\n" ; 
-	$fileName = RootPath.'/log/log_'.date('Y-m-d').'_' . $scode . '.log'; //网站根目录RootPath是在配置文件里define('RootPath', substr(dirname(__FILE__))); 
+    global $conn;
+	$ndate=date('Y-m-d');
+	$sql="select * from loginfo where ldate='$ndate' and scode=$scode";
+	$result=mysql_query($sql,$conn); 
+	$filename='log_'.date('Y-m-d').'_' . $scode . '.log';
+	if(!$row=mysql_fetch_array($result)){
+		$sql="select * from loginfo where ldate='$ndate' and scode=$scode";
+		$sql="INSERT INTO loginfo (ldate,scode,lname) value ('$ndate',$scode,'$filename')";
+		$result=mysql_query($sql,$conn); 
+	}
+	
+	$requestInformation =date("Y-m-d H:i:s").",". $_SERVER['REMOTE_ADDR'].','.$_SERVER['HTTP_USER_AGENT'].', http://'.$_SERVER['HTTP_HOST'].htmlentities($_SERVER['PHP_SELF']).'?'.$_SERVER['QUERY_STRING']."\n" . $GLOBALS['HTTP_RAW_POST_DATA']."\n" ; 
+	$fileName = RootPath.'/log/'. $filename; //网站根目录RootPath是在配置文件里define('RootPath', substr(dirname(__FILE__))); 
 	//echo $fileName;
 	writeFile($fileName, $requestInformation, 'a'); //表示追加
 	

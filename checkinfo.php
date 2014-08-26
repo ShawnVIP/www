@@ -169,7 +169,7 @@ body {margin:20px; color:#202020; font-size:12px;}
     <td><select name="dateList"  size="1" id="dateList" >
       
     </select></td>
-    <td colspan=2><button id="changeTime" >Change Time</button> |  <button id="updateData" >Update Data</button> | <button id="deleteData" >delete this data</button> </td>
+    <td colspan=2><button id="changeTime" >Change Time</button>  <button id="updateData" >Update Data</button> <button id="deleteData" >delete this data</button> </td>
   </tr><tr>
     <td>age</td>
     <td id="sensorAge">&nbsp;</td>
@@ -223,6 +223,14 @@ body {margin:20px; color:#202020; font-size:12px;}
     <td width="248" id="sleepgoal">&nbsp;</td>
     <td width="177" >totalsleep</td>
     <td width="231" id="totalsleep">&nbsp;</td>
+  </tr> 
+  <tr>
+    <td width="89" >log</td>
+    <td width="248" id="logdata"><select name="logDateList"  size="1" id="logDateList" >
+      
+    </select></td>
+    <td  colspan=2><button id="downlog" >download log</button></td>
+    
   </tr>
 </table>
 <p>&nbsp;</p>

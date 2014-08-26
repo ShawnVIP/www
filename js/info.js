@@ -12,13 +12,17 @@ $(function(){
 	$('#deleteData').button({icons:{primary:"ui-icon-plusthick"}});
 	$( "#deleteData" ).click(function() {deleteData()});
 	
+	$('#downlog').button({icons:{primary:"ui-icon-plusthick"}});
+	$( "#downlog" ).click(function() {downlogo()});
 	getMailList();
 	
 	$('#mailList').change(function(){
 		$("#email").val($('#mailList').val());
 	}) 
 });
-
+function downlogo(){
+	window.open("log/"+$('#logDateList').val())
+}
 
 function getMailList(){
 
@@ -79,6 +83,12 @@ function searchByEmail(){
 			$('#timezone').text(info.timezone);
 			$('#age').text(info.age);
 			
+			$('#logDateList').empty();
+			loglist=msg.loglist;
+			for(i=0;i<loglist.length;i++){
+				var dayinfo=loglist[i];
+				$("#logDateList").prepend("<option value='"+dayinfo+"'>"+dayinfo+"</option>");
+			}
 			getMemberData();
 			
         },

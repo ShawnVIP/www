@@ -121,7 +121,7 @@ if($row=mysql_fetch_array($result)){
 	array_push($value,$row['age']);	
 	
 	array_push($sensor,array_combine($vname,$value));
-	echo json_encode(array('status'=>200,'sensorList'=>$sensor));
+	
 	
 	$sql="select * from usedmail where email='$email'";
 	$resulta=mysql_query($sql,$conn); 
@@ -129,7 +129,15 @@ if($row=mysql_fetch_array($result)){
 		$sql="INSERT INTO usedmail  (email) VALUES ('$email')";
 		$resulta=mysql_query($sql,$conn); 	
 	}
+	$sql="select * from loginfo where scode=" . $row['id'] ." order by ldate desc";
+	//echo $sql;
+	$loglist=array();
+	$result=mysql_query($sql,$conn); 
+	while($row=mysql_fetch_array($result)){
+		array_push($loglist,$row['lname']);	
+	}
 	
+	echo json_encode(array('status'=>200,'sensorList'=>$sensor,'loglist'=>$loglist));
 }else{
 	echo json_encode(array('status'=>201,'sensorList'=>$sensor));
 }
