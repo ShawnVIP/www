@@ -1,20 +1,30 @@
 <?php
 
 $mode=$_POST[mode];
-
-if($mode==1){
+$password=md5($_POST[password]);
+$outstr="";
+if($mode==1 & $password=="f9146ac536fabd9e06a112f4f8c28d66"){
 		
 	$tmpFile=$_FILES["binfile"]["tmp_name"];
 	$binfilename=$_FILES["binfile"]["name"];
+	$finalname=$binfilename;
 	$oldname=substr($binfilename,0,strlen($binfilename)-4);
+	//echo $binfilename;
 	$fileext =substr($binfilename, strrpos($binfilename, '.') + 1);
-	$i=97;
-	while ( file_exists("../hardbin/" .$binfilename)){
-		$binfilename=$oldname . chr($i) . "." . $fileext;
+	$i=48;
+	while ( file_exists($binfilename)){
+		$binfilename=$oldname ."_" . chr($i) . "." . $fileext;
 		$i++;
+		if($i>57){$i=97;}
 	}
 	
-	move_uploaded_file($_FILES["binfile"]["tmp_name"], $binfilename );
+	//echo $binfilename;
+	if($binfilename != $finalname){
+		$outstr=" rename $finalname to $binfilename. <br>";
+		rename($finalname,$binfilename);
+	}
+	$outstr .= " upload $finalname sucessful. <br>";
+	move_uploaded_file($_FILES["binfile"]["tmp_name"], $finalname );
 }
 ?>
 
@@ -72,8 +82,11 @@ a:visited { text-decoration: none;color: green}
 <form action="uploadres.php" id="uploadform" method="post" enctype="multipart/form-data">
 <table width=800 align="center">
 <tr>
+  <td class="right">pass:</td><td><input type="password" name="password" /></td></tr>
+<tr><tr>
   <td class="right">file:</td><td><input type="file" name="binfile" /></td></tr>
 <tr><td class="right"></td><td><input type="hidden" name="mode" value=1 /><input type="submit" value="Send" /></td></tr>
+<tr><td></td><td><?php echo $outstr; ?></td></tr>
 </table>
 </form>
  <hr />

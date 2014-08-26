@@ -13,12 +13,6 @@ if($dob=="0000-00-00"){
 }
 //echo $age;
 
-$a="100";
-$b="200";
-$c=($a+$b)/2;
-//echo $c;
-
-echo count($test);
 	
 //loadFunction('admin_getdailyvalue.php',array ("mode"=>1,"scode" => 1,"date" => '2014-08-16',"addnew"=>1,"returnmode"=>1),true);
 
