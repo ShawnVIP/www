@@ -33,7 +33,14 @@ while ($row=mysql_fetch_array($result)) {
 	array_push($poslist,array('stamp'=> $row['udate'],'longitude'=>$row['longitude'],'latitude'=>$row['latitude']));
 
 }
+$alertlist=array();
+$sql="SELECT * FROM alertposition where udate like '" . $date . "%' and scode='$fcode' order by udate";
+$result=mysql_query($sql,$conn);
+while ($row=mysql_fetch_array($result)) {
+	
+	array_push($alertlist,array('stamp'=> $row['udate'],'longitude'=>$row['longitude'],'latitude'=>$row['latitude']));
 
+}
 $sensor=array();
 
 $sql="SELECT * FROM sensorstation where sensorid=$fcode and sdate='$date' and delmark=0 order by totime";
@@ -54,8 +61,7 @@ while($row=mysql_fetch_array($result)){
 	
 }
 
-echo json_encode(array('status'=>200,'poslist'=>$poslist,'stationlist'=>$sensor));
-
+echo json_encode(array('status'=>200,'poslist'=>$poslist,'alertlist'=>$alertlist,'stationlist'=>$sensor));
 
 ?>
 
