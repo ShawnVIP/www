@@ -895,6 +895,7 @@ function showFamOut(event){
 		slp.fromDate=fromDateTime.Format('yyyy/MM/dd'); 
 		slp.deepSleep=r.deepsleep
 		slp.totalSleep=r.totalsleep
+		slp.sleepGoal=r.sleepgoal
 		slp.color=["","#00c4ff","#bfbfbf","#00c4ff"];
 		slp.belongs="SLP";
 		slp.data=sourceDataList;
@@ -920,11 +921,11 @@ function showFamOut(event){
 		$('#SLP_deepSleep').html(infoStr);
 		$('#SLP_lable').hide();
 		$('#s_proBarSlp').show();
-		sumSlp.p={belongs:"s_proBarSlp",smode:"s",leftIcon:"../images/icon_sleep.png",currentValue:slp.deepSleep,totalValue:slp.totalSleep};
+		sumSlp.p={belongs:"s_proBarSlp",smode:"s",leftIcon:"../images/icon_sleep.png",currentValue:slp.totalSleep,totalValue:slp.sleepGoal};
 		
 		sumSlp.init();
 
-		bigSlp.p={belongs:"l_proBarSlp",smode:"l",leftIcon:"",currentValue:slp.deepSleep,totalValue:slp.totalSleep};
+		bigSlp.p={belongs:"l_proBarSlp",smode:"l",leftIcon:"",currentValue:slp.totalSleep,totalValue:slp.sleepGoal};
 		bigSlp.init();
 		
 		/*
