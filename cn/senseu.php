@@ -586,7 +586,7 @@ var LANG="cn";
      
      
     <!-- sleep底部信息 -->
-    <div id="SLP_info"><table width="860" height=100 border="0" cellpadding="0" cellspacing="0"><tr><td  rowspan="2"  ><table width="200" border="0" cellpadding="0" cellspacing="0" align="center">
+    <div id="SLP_info"><table width="860" height=100 border="0" cellpadding="0" cellspacing="0"><tr><td  rowspan="2"  ><table width="200" border="0" cellpadding="0" cellspacing="0" align="center"  id="changeDateArea">
       <tr>
         <td class="SLP_timeText">起始:</td>
         <td align=center><input name="slpFromDay" type="text" id="slpFromDay" style="width:75px" maxlength="10" readonly="readonly" /></td>

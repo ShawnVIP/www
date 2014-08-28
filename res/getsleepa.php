@@ -6,7 +6,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-//$json_string='{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-08-15","cdate":"2014-08-15 23:03:22","ecode":"LNMzlQlYjC09Nc5x","source":"w"}';
+$json_string='{"dates":"2014-08-27","cdate":"2014-08-27 00:05:03","ecode":"NL1fsDooeEwj7gAW","ucode":"yT7pCxQzhWMy4pRPLs11BMFAF4YNm4JPdoPs","source":"a","scode":"595","devicetoken":"4899feda 50f115f9 511c7d50 81756ebe 489d833b c89e1b16 8fa86538 7d404fcf"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -109,7 +109,7 @@ $sql="SELECT detectedposition,move+steps as move,concat('" . $ldate ." ',stime) 
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 
-	array_push($moveList,  timeToRealID($row['stime'])-1440 ."|" . $row['move']."|".$row['detectedposition']);
+	array_push($moveList,  timeToRealID($row['stime'])-720 ."|" . $row['move']."|".$row['detectedposition']);
 		//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
 }
 

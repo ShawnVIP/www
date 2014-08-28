@@ -317,6 +317,7 @@ $(function(){
 		setupAllValue();
 		//showFriendList();
 		$('#Frame_SLP').hide();
+		
 		$('#slpFromMin').timepicker({
     		showPeriodLabels: false,
 			hours: {
@@ -341,8 +342,7 @@ $(function(){
 				interval: 5               // Interval of displayed minutes
 			},
 		});
-		//$("#slpFromDay").datepicker();
-		//$("#slpToDay").datepicker();
+		
 		$("#slpFromDay").datepicker({dateFormat:"yy-mm-dd"});
 		$("#slpToDay").datepicker({dateFormat:"yy-mm-dd"});
 		
@@ -350,6 +350,7 @@ $(function(){
 		$('#changeSlpTime').bind({
 			click:function(event){changeSleepTime();}
 		});	
+		$('#changeDateArea').hide();
 		$('#addFamily').bind("mouseenter",{},showFamIn);
 		$('#addFamily').bind("mouseleave",{},showFamOut);
 		$('#addFamily').bind({

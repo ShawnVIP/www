@@ -398,8 +398,8 @@ function switchItem(event){
 		this.fromTimeId=this.beginHour*12;
 		this.maxHeight=100;
 		this.dw=3;
-		
-		//----------赋值如数组---------------------
+		//alert(this.beginHour+"  "+this.fromTimeId)
+		//----------赋值入数组---------------------
 		//this.deepSleep=0;
 		for(this.i=0;this.i<this.data.length;this.i++){
 
@@ -412,7 +412,7 @@ function switchItem(event){
 
 			this.sid=this.id;
 	
-			this.gid=Math.floor(this.sid/5)-this.fromTimeId;
+			this.gid=Math.floor(this.sid/5)-144;
 			if(this.gid<0){this.gid+=288;}
 			this.deepSleepMode ? this.colorType=1:this.colorType=2;
 			
@@ -426,7 +426,7 @@ function switchItem(event){
 			
 			this.itemHeight=Math.ceil(this.vData[this.i].valueData*(myLedo.colHeight-10)/this.maxHeight);
 			//if(this.value==0){this.deepSleep+=5;}
-			this.vData[this.i].itemHeight=this.itemHeight+5;
+			this.vData[this.i].itemHeight=this.itemHeight+3;
 			
 		}
 		//this.vData=removeZero(this.vData,"itemHeight",0)
@@ -438,17 +438,18 @@ function switchItem(event){
   			x2: (myLedo.hourNumber-1)*myLedo.eachHourWidth+myLedo.startPos, y2: myLedo.colHeight,
  
 		});
-		for(this.i=this.distHour*12;this.i<=this.distHour*12+this.slpTimeLong;this.i++){
+		/*for(this.i=this.distHour*12;this.i<=this.distHour*12+this.slpTimeLong;this.i++){
 			this.itemColor=this.color[2];
 			this.itemLeft=this.i*this.dw+10;
 			this.itemHeight=2;
 			$('#'+this.belongs+'_can').drawRect({fillStyle: this.itemColor, x: this.itemLeft, y: myLedo.colHeight-this.itemHeight, width: this.dw-1, height: this.itemHeight, strokeWidth: 0, fromCenter: false});
 		}
+		*/
 		for(this.i=0;this.i<this.vData.length;this.i++){
 			
 			this.itemColor=this.color[this.vData[this.i].colorType];
 			this.itemLeft=this.vData[this.i].left;
-			this.itemHeight=this.vData[this.i].itemHeight+2;
+			this.itemHeight=this.vData[this.i].itemHeight;
 			$('#'+this.belongs+'_can').drawRect({fillStyle: this.itemColor, x: this.itemLeft, y: myLedo.colHeight-this.itemHeight, width: this.dw-1, height: this.itemHeight, strokeWidth: 0, fromCenter: false});
 			
 		}
