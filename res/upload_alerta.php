@@ -4,7 +4,9 @@ include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"alertlist":[{"type":"129","stamp":"2014-08-26 15:16:59"}],"cdate":"2014-08-26 15:17:00","ecode":"2aVHRQqv2Z8a1xRg","ucode":"rIX9GlYOxrmSabErbUpS5pjWCrMTnkohN3Ng","source":"a","scode":"599","devicetoken":"21a729fd a50607c9 7d89a31b a2de3b60 4ae1b390 6b28bfaf de816c45 a24d5be4"}';
+//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"605","ecode":"640S9VQGT5x80rsE","source":"w","stamp":"2013-8-20 17:55:52","alertlist":[{"stamp":"'.$now.'","type":129}]}';
+$json_string='{"ecode":"ERPirHWC1yDa6BjO","source":"u","scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","alertlist":[{"stamp":"2014-09-03 09:48:59","alerttype":"1"}]}';
+
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -19,12 +21,12 @@ $alertlist=$obj -> alertlist;
 if($lang==""){
 	$lang="cn";
 }
-checkuser($ucode,$scode,$ecode,$source);
+//checkuser($ucode,$scode,$ecode,$source);
 
-
+//$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$tdate','$ftime', '$ttime', '$fdate', '$tdate')";
+//$result=mysql_query($sql,$conn); 
 
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
-/*
 $sql="insert into alertlist (sid,alertdate,alerttype,delmark,userid) values (?,?,?,0,?)";
 $stmt = $mysqli->stmt_init();
 $stmt = $mysqli->prepare($sql);
@@ -32,12 +34,12 @@ $stmt = $mysqli->prepare($sql);
 for($i=0;$i<count($alertlist);$i++){
 	$stamp=$alertlist[$i] -> stamp;
 	$alerttype=$alertlist[$i] -> type;
-	
+	echo "insert into alertlist (sid,alertdate,alerttype,delmark,userid) values ($scode,$stamp,$alerttype,0,$ucode)";
+
 	$stmt->bind_param("ssss",$scode,$stamp,$alerttype,$ucode);
 	$stmt->execute();
 }
 $stmt->close();
-*/
 
 $sendlist=array();
 $datalist=array();
@@ -53,7 +55,7 @@ if($row=mysql_fetch_array($result)){
 }
 
 $sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian=1) or id=$scode)  and devicetoken <>''";
-echo $sql;
+//echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 	$sqla="select b." . $row['language'] . "_name as relation from familylist as a, relation as b where sensorid=" . $row['id']. " and friendid=$scode and b.id=a.relation";
@@ -107,7 +109,7 @@ for($j=0;$j<count($sendlist);$j++){
 		}
 		//echo $message;
 		if($message !=""){
-			popmessage($sendlist[$j][devicetoken],'HK server' .$message);
+			popmessage($sendlist[$j][devicetoken],$message);
 			array_push($datalist,array('senderid'=>$scode,'receivername'=>$sendlist[$j][nickname],'receiverid'=>$sendlist[$j][receiverid],'devicetoken'=> $sendlist[$j][devicetoken],'status'=>$pmode, 'extinfo'=>$popinfo, 'message' => $message));
 		}
 	}

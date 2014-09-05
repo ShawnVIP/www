@@ -6,7 +6,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-$json_string='{"type":"act","ucode":"9rAFnWDjnvQDuRksRMpHnhWMrWbpf7ePJYtI","scode":"663","dates":"2014-8-27","cdate":"2014-8-27 下午3:22:41","ecode":"MgknIIKiVHhyjAjn","source":"w"}';
+$json_string='{"type":"act","ucode":"9rAFnWDjnvQDuRksRMpHnhWMrWbpf7ePJYtI","scode":"654","dates":"2014-9-2","cdate":"2014-9-2 下午3:22:41","ecode":"MgknIIKiVHhyjAjn","source":"w"}';
 
 $obj=json_decode($json_string); 
 

@@ -4,7 +4,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-//$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-5","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
+$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-5","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -20,7 +20,7 @@ $lang=strtolower($obj -> lang);
 if($lang==""){$lang="cn";}
 
 
-checkuser($ucode,$scode,$ecode,$source);
+//checkuser($ucode,$scode,$ecode,$source);
 
 $stationList=array();
 
@@ -114,7 +114,7 @@ $dayList=array();
 $tempdate=$fromdate;
 while($tempdate<=$enddate){
 	array_push($dateList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'dayid'=>date("d",strtotime($tempdate))));
-	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'deepsleep'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0,'sit'=>0,'crook'=>0));
+	array_push($valueList,array('date'=> $tempdate,'weekid'=>date("w",strtotime($tempdate)),'calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'caloriesper'=>0,'distanceper'=>0,'stepper'=>0,'sleepper'=>0,'sit'=>0,'crook'=>0));
 	
 	array_push($dayList,array('date'=> $tempdate,'alert'=>array()));
 	$tempdate=date('Y-m-d',strtotime("$tempdate 1 day"));
@@ -185,7 +185,6 @@ while($row=mysql_fetch_array($result)){
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k]]=$row[$valueNameList[$k].'goal'];
 		$memberList[$sid][goalList][0][$did][$valueNameList[$k].'taken']=$row['total' .$valueNameList[$k]];
 	}
-	$memberList[$sid][goalList][0][$did][deepsleep]=$row['deepsleep'];
 }
 //---------------------add in alert
 $sql="select sid,alerttype,alertdate  from alertlist where sid in ($idlist) and alertdate>='$fromdate' and DATE_FORMAT(alertdate,'%Y-%m-%d')<='$enddate' and delmark=0";
@@ -245,13 +244,12 @@ for($i=0;$i<count($memberList);$i++){
 			
 		}
 	}
-	
 }
 //--------------从第一个开始顺序赋值-------
 
 //echo "for month:" .$startCurrentMonth. "   for week:" .$startCurrentWeek . "   for day:" .$startCurrentDay ;
 
-$valueNameValue=array('calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0, 'caloriesgoal'=>0,'distancegoal'=>0,'stepgoal'=>0,'sleepgoal'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'deepsleep'=>0,'daynumber'=>0);
+$valueNameValue=array('calories'=>0,'distance'=>0,'step'=>0,'sleep'=>0, 'caloriesgoal'=>0,'distancegoal'=>0,'stepgoal'=>0,'sleepgoal'=>0,'caloriestaken'=>0,'distancetaken'=>0,'steptaken'=>0,'sleeptaken'=>0,'daynumber'=>0);
 
 
 $summary=array('day'=> $valueNameValue,'week'=> $valueNameValue,'month'=> $valueNameValue);
@@ -309,25 +307,6 @@ for($i=0;$i<count($memberList);$i++){
 			}
 		}
 		
-	}
-	//-----------for deepsleep------------------
-	for($j=0;$j<count($dateList);$j++){
-		
-		$value=$memberList[$i][goalList][0][$j][deepsleep];
-			
-			
-		if($j>=$startCurrentMonth){
-			$memberList[$i][percentage][month][deepsleep]+=$value;
-			$summary[month][deepsleep]+=$value;	
-		}
-		if($j>=$startCurrentWeek){
-			$memberList[$i][percentage][week][deepsleep]+=$value;	
-			$summary[week][deepsleep]+=$value;	
-		}
-		if($j>=$startCurrentDay){	
-			$memberList[$i][percentage][day][deepsleep]+=$value;
-			$summary[day][deepsleep]+=$value;	
-		}
 	}
 }
 //----------------addin alert and position-----------------

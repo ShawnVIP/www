@@ -440,11 +440,13 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		$totaldistance=0;
 		$totalsleep=0;
 		$updated=0;
+		$deepsleep=0;
 	}else{
 		$totalsteps=$row['totalsteps'];
 		$totalcal=$row['totalcal'];
 		$totaldistance=$row['totaldistance'];
 		$totalsleep=$row['totalsleep'];
+		$deepsleep=$row['deepsleep'];
 		$updated=$row['updated'];
 	}
 	
@@ -499,7 +501,9 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		
 		array_push($vname,"totalsleep");
 		array_push($value,(string)$totalsleep);
-			
+		
+		array_push($vname,"deepsleep");
+		array_push($value,(string)$deepsleep);	
 		array_push($valueList,array_combine($vname,$value));
 		return $valueList;
 	}

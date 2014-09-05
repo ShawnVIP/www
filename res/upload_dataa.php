@@ -4,7 +4,7 @@ include "build_sensor_station.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
-//$json_string='{"ucode":"f2026d8c-d99c-4535-2a7b-7ad18c28c4b5","scode":"1","data":[{"stamp":"2013-05-31 13:02","rawdata":[{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30}]}],"type":"raw"}';
+$json_string='{"data":[{"sleepmode":"1","distance":"0","move":"0","maxspeed":"0","minspeed":"0","calories":"8.500000","averagespeed":"0","detectedposition":"0","stamp":"2014-08-29 22:30:00","angle":"-17","steps":"0"},{"sleepmode":"1","distance":"0","move":"0","maxspeed":"0","minspeed":"0","calories":"8.500000","averagespeed":"0","detectedposition":"0","stamp":"2014-08-30 00:15:00","angle":"-17","steps":"0"}],"cdate":"2014-09-01 09:19:22","ecode":"06TVBwmNU1NKZrzw","ucode":"Bw2q5S5ZA5BPjdvHYIUyQXXJMvivO3ZByoON","source":"a","scode":"529","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}';
 
 $obj=json_decode($json_string); 
 
@@ -126,11 +126,11 @@ for($i=0;$i<count($dateList);$i++){
 	
 
 	$sql="insert into basedata_" . $sdate. " (stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition) select stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "'";
-	//echo $sql;
+	echo $sql;
 	$result=mysql_query($sql,$conn); 
 	
 	$sql="delete from tempupload where rndstring='" . $rndstring . "'";
-	$result=mysql_query($sql,$conn); 
+	//$result=mysql_query($sql,$conn); 
 
 }
 

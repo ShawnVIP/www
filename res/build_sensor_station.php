@@ -38,7 +38,7 @@ function buildSensorStation($scode,$dateList){
 		$statusList=array();
 		for($k=0;$k<=1440;$k++){
 			array_push($ordList,0);
-			array_push($statusList,-1);
+			array_push($statusList,7);
 		}
 		
 		//----------------------------分析标准数据，从当天的第一个数字到第二天第一数字--------------------
@@ -62,6 +62,7 @@ function buildSensorStation($scode,$dateList){
 		$olddata=-1;
 		$ordList=array();
 		$lasttime=1;
+		
 		for($j=2;$j<1440;$j++){
 			if($statusList[$j] !=$statusList[$j-1]){
 				array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
@@ -70,13 +71,8 @@ function buildSensorStation($scode,$dateList){
 				$lasttime++;
 			}
 		}
-		array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
-	
-		
-		$firstStationTime=date("H:i:s",strtotime($ordList[0][totime] ." -" . $ordList[0][lasttime] . " minute"));	
-		if($firstStationTime != "00:00:00"){
-			
-			array_shift($ordList, array('totime'=>$firstStationTime,'position'=>-1,'lasttime'=>($firstStationTime-date("H:i:s",strtotime("00:00:00"))/60)));	
+		if($statusList[$j-1] != 7){
+			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
 		}
 		
 		
