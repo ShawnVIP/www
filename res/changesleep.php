@@ -18,34 +18,47 @@ $sdate=$obj -> sdate;
 
 checkuser($ucode,$scode,$ecode,$source);
 
-
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
-
-$sql="select id from sleepdata where sid=? and sdate=?";
-
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("ss", $scode,$sdate);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($id);
-if($stmt->fetch()){
-	$sql="update sleepdata set ftime=?,fdate=?,ttime=?,tdate=? where id=$id";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql); 
-	$stmt->bind_param("ssss", $ftime,$fdate,$ttime,$tdate);
-	$stmt->execute();
-	$stmt->close();
+$sql="select id from sleepdata where sid=$scode and sdate='$sdate'";
+$result=mysql_query($sql,$conn);
+if($row=mysql_fetch_array($result)){
+	$id=$row['id'];	
+	$sql="update sleepdata set ftime='$ftime',fdate='$fdate',ttime='$ttime',tdate='$tdate',manual=1 where id=$id";
 }else{
-	$sql="insert into sleepdata (sid,ftime,fdate,ttime,tdate,sdate) values (?,?,?,?,?,?)";
-	$stmt = $mysqli->stmt_init();
-	$stmt = $mysqli->prepare($sql);
-	$stmt->bind_param("ssssss",$scode, $ftime,$fdate,$ttime,$tdate,$sdate);
-	$stmt->execute();
-	$stmt->close();
+	$sql="insert into sleepdata (sid,ftime,fdate,ttime,tdate,sdate,manual) values ($scode,'$ftime','$fdate','$ttime','$tdate', '$sdate',1)";
+	
+}
+$result=mysql_query($sql,$conn);
+
+$f=strtotime("$fdate $ftime");	
+$t=strtotime("$tdate $ttime");	
+$totalsleep=($t-$f)/60;
+//echo $totalsleep ;
+
+$ydatesort=str_replace("-","",$fdate);
+$tdatesort=str_replace("-","",$tdate);
+$lightsleep=0;
+if($fdate != $sdate){//----------get yesterday data---------
+	$sql="SELECT count(id) as lightsleepcounts FROM basedata_" . $ydatesort . " where sensorid=$scode and (move>0 or steps=2) and stime>'$ftime'";
+	$result=mysql_query($sql,$conn);
+	if($row=mysql_fetch_array($result)){
+		$lightsleep +=$row['lightsleepcounts']*5;
+	}
+	//echo $sql;
+	//echo "lightsleep".$lightsleep;
 }
 
-$mysqli-> close();
+$sql="SELECT count(id) as lightsleepcounts FROM basedata_" . $tdatesort . " where sensorid=$scode and (move>0 or steps=2) and stime<='$ttime'";
+$result=mysql_query($sql,$conn);
+if($row=mysql_fetch_array($result)){
+	$lightsleep +=$row['lightsleepcounts']*5;
+}
+//echo $sql;
+//echo "lightsleep".$lightsleep;
+$deepsleep=$totalsleep-$lightsleep;
 
+//echo "deepsleep".$deepsleep;
+$sql="update dailyvalue set totalsleep=$totalsleep, deepsleep=$deepsleep where sensorid=$scode and date='$sdate'";
+//echo $sql;
+$result=mysql_query($sql,$conn);
 echo json_encode(array('status'=>200,'ecode'=>$ecode));
 ?>

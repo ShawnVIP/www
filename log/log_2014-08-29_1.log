@@ -1,0 +1,6 @@
+2014-08-29 05:45:32,111.199.29.10,Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"dM8s6jZuTgOhkA90","source":"w","cdate":"2014-8-29 下午1:45:26"}
+2014-08-29 05:45:33,111.199.29.10,Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:26","ecode":"dM8s6jZuTgOhkA90","source":"w"}
+2014-08-29 05:45:38,111.199.29.10,Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:26","ecode":"dM8s6jZuTgOhkA90","source":"w"}

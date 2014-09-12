@@ -1,0 +1,58 @@
+2014-09-02 09:34:00,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","ecode":"a5ZK9m6aSVZ8b86w","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9","cdate":"2014-09-02 17:34:00"}
+2014-09-02 09:34:00,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-02 17:34:00","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:42:00,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","ecode":"a5ZK9m6aSVZ8b86w","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9","cdate":"2014-09-02 17:42:00"}
+2014-09-02 09:42:00,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-02 17:42:00","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:46:56,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","ecode":"a5ZK9m6aSVZ8b86w","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9","cdate":"2014-09-02 17:46:56"}
+2014-09-02 09:46:56,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-02 17:46:56","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","ecode":"a5ZK9m6aSVZ8b86w","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9","cdate":"2014-09-02 17:51:12"}
+2014-09-02 09:51:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-02 17:51:12","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:12","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:12","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:14,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:12","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:25,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getpercentage.php?
+{"dates":"2014-09-02","type":"friend","cdate":"2014-09-02 17:51:26","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:26,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getpercentage.php?
+{"dates":"2014-09-02","type":"family","cdate":"2014-09-02 17:51:27","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:27,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:28","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:27,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:28","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:51:29,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:51:28","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:30,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:30","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:30,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-02 17:52:30","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:30,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","ecode":"a5ZK9m6aSVZ8b86w","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9","cdate":"2014-09-02 17:52:30"}
+2014-09-02 09:52:30,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:30","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:32,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:30","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:34,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:35","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:34,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:35","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:34,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:35","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:34,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:35","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:52:34,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:52:35","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:54:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:54:13","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:54:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getsleep.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:54:13","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}
+2014-09-02 09:54:12,117.136.38.67,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-02","cdate":"2014-09-02 17:54:13","ecode":"a5ZK9m6aSVZ8b86w","ucode":"NeFP5UmXHCz5m2quYjT6oQDjMfPLoIB0WQ8p","source":"a","scode":"643","devicetoken":"3c33e1f5 d52a0f31 d560e8e1 92cbab52 ada81410 71d724ec cd80ff4d d3728ee9"}

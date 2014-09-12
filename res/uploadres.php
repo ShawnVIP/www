@@ -2,9 +2,7 @@
 
 $mode=$_POST[mode];
 $dir=$_POST[radio];
-if($dir =="root"){
-	$dir="";
-}else{
+if($dir !=""){
 	$dir.="/";
 }
 $password=md5($_POST[password]);
@@ -86,11 +84,6 @@ a:visited { text-decoration: none;color: green}
 
 </style>
 </head>
-<script>
-$(function(){
-	$('input:radio[value="<?php echo $_POST[radio]; ?>"]').attr("checked","checked"); 
-});
-</script>
 <body><p></p>
 <form action="uploadres.php" id="uploadform" method="post" enctype="multipart/form-data">
 <table width=800 align="center">
@@ -98,8 +91,8 @@ $(function(){
   <td class="right">pass:</td><td><input type="password" name="password" /></td></tr>
 <tr>
   <td class="right">direct:</td><td>
-  <input name="radio" type="radio" value="root" />root |  
-    <input name="radio" type="radio" value="res" />res |
+  <input name="radio" type="radio" value="" />root |  
+    <input name="radio" type="radio" value="res" checked="checked" />res |
     <input type="radio" name="radio" value="js" />js |
     <input type="radio" name="radio" value="cn" />cn | 
     <input type="radio" name="radio" value="en" />en

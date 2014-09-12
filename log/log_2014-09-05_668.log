@@ -1,0 +1,24 @@
+2014-09-05 00:59:58,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getinfo.php?
+{"ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","ecode":"X9asyjgVSUKOkItn","source":"w","cdate":"2014-9-5 9:59:57"}
+2014-09-05 00:59:58,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 9:59:57","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 01:00:06,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 9:59:57","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 01:00:07,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"en","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 9:59:57","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 02:27:25,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getinfo.php?
+{"ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","ecode":"X9asyjgVSUKOkItn","source":"w","cdate":"2014-9-5 11:27:24"}
+2014-09-05 02:27:25,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 11:27:24","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 02:27:30,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"en","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 11:27:24","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 02:27:45,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getinfo.php?
+{"ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","ecode":"X9asyjgVSUKOkItn","source":"w","cdate":"2014-9-5 11:27:44"}
+2014-09-05 02:27:45,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 11:27:44","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 02:27:47,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"en","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 11:27:44","ecode":"X9asyjgVSUKOkItn","source":"w"}
+2014-09-05 02:28:32,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getinfo.php?
+{"ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","ecode":"X9asyjgVSUKOkItn","source":"w","cdate":"2014-9-5 11:28:31"}
+2014-09-05 02:28:32,27.131.11.254,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"qG0sw7btPDPGfKSJHYgJHDwCQWa2ia15xV8Q","scode":"668","dates":"2014-9-5","cdate":"2014-9-5 11:28:31","ecode":"X9asyjgVSUKOkItn","source":"w"}

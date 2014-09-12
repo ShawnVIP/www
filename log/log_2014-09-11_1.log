@@ -1,0 +1,38 @@
+2014-09-11 01:08:06,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"BYmSOAprFhCSFlzZ","source":"w","cdate":"2014-9-11 上午9:10:41"}
+2014-09-11 01:08:06,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","cdate":"2014-9-11 上午9:10:41","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:11,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdatelist.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:17,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:10:41","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:22,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:10:41","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:32,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"BYmSOAprFhCSFlzZ","source":"w","cdate":"2014-9-11 上午9:11:07"}
+2014-09-11 01:08:32,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","cdate":"2014-9-11 上午9:11:07","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:37,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","cdate":"2014-9-11 上午9:11:07","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:45,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdatelist.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:08:50,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:11:07","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:09:43,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getinfo.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"BYmSOAprFhCSFlzZ","source":"w","cdate":"2014-9-11 上午9:12:17"}
+2014-09-11 01:09:43,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","cdate":"2014-9-11 上午9:12:17","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:09:56,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdatelist.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:10:00,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:12:17","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:10:05,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:12:17","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:10:12,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/changesleep.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"BYmSOAprFhCSFlzZ","fdate":"2014-09-02","tdate":"2014-09-02","ftime":"00:00:00","ttime":"11:50:00","sdate":"2014-9-2","source":"w"}
+2014-09-11 01:10:14,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:12:17","ecode":"BYmSOAprFhCSFlzZ","source":"w"}
+2014-09-11 01:10:25,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/changesleep.php?
+{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"BYmSOAprFhCSFlzZ","fdate":"2014-09-01","tdate":"2014-09-02","ftime":"20:40:00","ttime":"11:50:00","sdate":"2014-9-2","source":"w"}
+2014-09-11 01:10:27,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.9; rv:31.0) Gecko/20100101 Firefox/31.0, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-2","cdate":"2014-9-11 上午9:12:17","ecode":"BYmSOAprFhCSFlzZ","source":"w"}

@@ -1,0 +1,8 @@
+2014-09-04 04:55:57,114.98.77.112,Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko, http://www.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"Bw2q5S5ZA5BPjdvHYIUyQXXJMvivO3ZByoON","scode":"529","dates":"2014-9-4","cdate":"2014-9-4 ‎12‎:‎56‎:‎29","ecode":"z8T5j6212ZTR4k06","source":"w"}
+2014-09-04 04:55:57,114.98.77.112,Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko, http://www.sense-u.com/res/getinfo.php?
+{"ucode":"Bw2q5S5ZA5BPjdvHYIUyQXXJMvivO3ZByoON","scode":"529","ecode":"z8T5j6212ZTR4k06","source":"w","cdate":"2014-9-4 ‎12‎:‎56‎:‎29"}
+2014-09-04 04:55:59,114.98.77.112,Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko, http://www.sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"Bw2q5S5ZA5BPjdvHYIUyQXXJMvivO3ZByoON","scode":"529","dates":"2014-9-4","cdate":"2014-9-4 ‎12‎:‎56‎:‎29","ecode":"z8T5j6212ZTR4k06","source":"w"}
+2014-09-04 04:56:04,114.98.77.112,Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko, http://www.sense-u.com/res/getdatelist.php?
+{"ucode":"Bw2q5S5ZA5BPjdvHYIUyQXXJMvivO3ZByoON","scode":"529","dates":"2014-9-4","ecode":"z8T5j6212ZTR4k06","source":"w"}

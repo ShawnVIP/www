@@ -1,0 +1,81 @@
+2014-08-31 02:13:47,222.65.147.143,Sense-U 1.0.7 (iPhone; iPhone OS 7.1.2; en_US), http://sense-u.com/res/login.php?
+{
+  "password" : "daniel",
+  "cdate" : "2014-08-31 10:13:44",
+  "ecode" : "",
+  "ucode" : "",
+  "source" : "a",
+  "scode" : "",
+  "email" : "danielhuang@hotmail.com",
+  "devicetoken" : "fd759a48 36af2f85 55c38812 552c2528 065f3cff 6bd37e8e b68de443 580dba4b"
+}
+2014-08-31 03:21:45,222.65.147.143,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"email":"danielhuang@hotmail.com","password":"daniel","source":"a","devicetoken":"ed70f464 4918cb21 cee1e229 0fb78c3a 7fe73d57 d4207aa8 55725547 9cd1e1f6","cdate":"2014-08-31 11:21:46"}
+2014-08-31 03:37:50,222.65.147.143,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"source":"a","ecode":"B6WSalwJbkDdMcrb","devicetoken":"ed70f464 4918cb21 cee1e229 0fb78c3a 7fe73d57 d4207aa8 55725547 9cd1e1f6","password":"daniel","email":"danielhuang@hotmail.com","cdate":"2014-08-31 11:37:44","ucode":"3SvsvO4hNg335xR09JzC4UaKZZK451VnxSay"}
+2014-08-31 04:05:25,60.168.34.5,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"test500@hotmail.com","password":"123456"}
+2014-08-31 14:04:47,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"xxx@ledo.com","password":"123456"}
+2014-08-31 14:04:50,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"fdfadfdaf@gmail.com","password":"123456"}
+2014-08-31 14:04:54,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"orz@gmail.com","password":"123456"}
+2014-08-31 14:04:57,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kdu22@gmail.com","password":"123456"}
+2014-08-31 14:05:01,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kebindu@gmail.comg","password":"123456"}
+2014-08-31 14:05:04,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"lyp2@gmail.com","password":"123456"}
+2014-08-31 14:05:07,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"test1@hotmail.com","password":"111111"}
+2014-08-31 14:05:11,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:16:46,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"xxx@ledo.com","password":"123456"}
+2014-08-31 14:16:49,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"fdfadfdaf@gmail.com","password":"123456"}
+2014-08-31 14:16:52,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"orz@gmail.com","password":"123456"}
+2014-08-31 14:16:56,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kdu22@gmail.com","password":"123456"}
+2014-08-31 14:16:59,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kebindu@gmail.comg","password":"123456"}
+2014-08-31 14:17:02,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"lyp2@gmail.com","password":"123456"}
+2014-08-31 14:17:06,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"test1@hotmail.com","password":"111111"}
+2014-08-31 14:17:09,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:24:44,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:26:26,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:27:30,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:35:46,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"123456"}
+2014-08-31 14:35:54,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:37:36,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:38:00,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:38:53,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"xxx@ledo.com","password":"123456"}
+2014-08-31 14:38:56,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"fdfadfdaf@gmail.com","password":"123456"}
+2014-08-31 14:38:59,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"n","email":"450320994@qq.com","password":"890717"}
+2014-08-31 14:38:59,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"orz@gmail.com","password":"123456"}
+2014-08-31 14:39:03,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kdu22@gmail.com","password":"123456"}
+2014-08-31 14:39:06,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"kebindu@gmail.comg","password":"123456"}
+2014-08-31 14:39:09,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"lyp2@gmail.com","password":"123456"}
+2014-08-31 14:39:13,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"test1@hotmail.com","password":"111111"}
+2014-08-31 14:39:16,125.34.186.92,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"450320994@qq.com","password":"890717"}

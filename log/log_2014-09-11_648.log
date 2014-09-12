@@ -1,0 +1,42 @@
+2014-09-11 09:51:36,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/saveprofile.php?
+{"source":"a","timezone":"+08:00","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","caloriesgoal":"","language":"CN","dob":"1994-09-11","distancegoal":"","weight":"22.5","cdate":"2014-09-11 17:51:34","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","height":"170.0","gender":"M","stepgoal":"","nickname":"wzhu","defaultgoal":"step","ecode":"aoDb14Hjv6O4pYZz","scode":"648"}
+2014-09-11 09:51:43,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/upload_data.php?
+{"data":[],"cdate":"2014-09-11 17:51:40","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:51:43,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","ecode":"IeCp3yTBWdpb2uX5","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","cdate":"2014-09-11 17:51:40"}
+2014-09-11 09:51:44,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-11 17:51:40","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:52:00,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getposition.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:51:57","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","fcode":"648"}
+2014-09-11 09:52:01,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:51:57","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:52:01,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getsleep.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:51:57","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:52:01,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:51:57","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:52:06,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/updatepower.php?
+{"power":"30","cdate":"2014-09-11 17:52:04","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:52:06,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/saveupdated.php?
+{"ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","ecode":"IeCp3yTBWdpb2uX5","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","cdate":"2014-09-11 17:52:04"}
+2014-09-11 09:53:34,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getsleep.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:53:32","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:53:35,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:53:32","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:53:35,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:53:32","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:54:12,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","ecode":"IeCp3yTBWdpb2uX5","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","cdate":"2014-09-11 17:54:10"}
+2014-09-11 09:54:12,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-11 17:54:10","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:55:03,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/upload_data.php?
+{"data":[{"sleepmode":"1","distance":"0","move":"4","maxspeed":"0","minspeed":"0","calories":"2.400000","averagespeed":"0","detectedposition":"4","stamp":"2014-09-11 17:55:00","angle":"-8","steps":"0"}],"cdate":"2014-09-11 17:55:01","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:55:03,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/upload_position.php?
+{"alertlist":[],"cdate":"2014-09-11 17:55:01","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","poslist":[{"stamp":"2014-09-11 17:55:00","longitude":117.1378278653747,"latitude":31.83184666179772}]}
+2014-09-11 09:55:05,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/saveupdated.php?
+{"ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","ecode":"IeCp3yTBWdpb2uX5","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","cdate":"2014-09-11 17:55:03"}
+2014-09-11 09:55:08,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:55:06","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:55:08,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:55:06","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-11 09:55:08,114.98.81.161,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/getsleep.php?
+{"dates":"2014-09-11","cdate":"2014-09-11 17:55:06","ecode":"IeCp3yTBWdpb2uX5","ucode":"k67JWqzLANfz44R0rVSJ8VszUjYJ6BhEFxr0","source":"a","scode":"648","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}

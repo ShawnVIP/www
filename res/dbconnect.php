@@ -32,6 +32,15 @@ $now=date("Y-m-d");
 * @param    string  $str    写入内容
 * @param    char    $mode   写入模式
 */
+ 
+function mess(){   
+    echo json_encode(array('status'=>'400','message'=>'over time 30s'));
+	exit();
+}
+  
+//register_shutdown_function('mess');   
+//error_reporting(0);  
+
 function writeFile($file,$str,$mode='w')
 {
     $oldmask = @umask(0);
@@ -432,6 +441,10 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 	if($newmode==1){	
 		if($addnew==1){
 			$sql="INSERT INTO dailyvalue (date,sensorid,age,height,weight,step,stepwidth,runningwidth,bmr,bmi,stepgoal,caloriesgoal,distancegoal,sleepgoal) value ('$date',$scode,$age,$height,$weight,$step,$stepwidth,$runningwidth,$bmr,$bmi,$stepgoal,$caloriesgoal,$distancegoal,$sleepgoal)";
+			$result=mysql_query($sql,$conn);
+			$ydatelong=date('Y-m-d',strtotime($date . " -1 day"));
+			
+			$sql="INSERT INTO sleepdata(sid, sdate, fdate, tdate) VALUES ($scode,'$date','$ydatelong','$date'";
 			$result=mysql_query($sql,$conn);
 			//echo $sql;
 		}

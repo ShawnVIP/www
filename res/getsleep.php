@@ -72,7 +72,7 @@ function timeToRealID($time){
 	global $yesterday;
 	
 	
-	return (strtotime($time)-strtotime($yesterday))/60;
+	return (int)((strtotime($time)-strtotime($yesterday))/60);
 }
 
 $yesterday=date('Y-m-d',strtotime($dates . " -1 day"));

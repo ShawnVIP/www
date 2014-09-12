@@ -1,0 +1,606 @@
+2014-08-29 01:58:37,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"IGLOHCoPI6ITT3kW","source":"n","scode":"654","cdate":"2014-08-29 09:58:33","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 01:58:44,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/saveprofile.php?
+{"unit":"Metric","stepwidth":"70","weight":"60","height":"170","ecode":"IGLOHCoPI6ITT3kW","source":"n","nickname":"aa27","email":"aa27@qq.com","dob":"1941-1-1","gender":"M","scode":"654","cdate":"2014-08-29 09:58:40","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 01:58:47,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"IGLOHCoPI6ITT3kW","source":"n","scode":"654","cdate":"2014-08-29 09:58:43","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:29:04,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"yWQGjzrib8uyMuxM","source":"n","scode":"654","cdate":"2014-08-29 10:29:00","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:29:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/saveprofile.php?
+{"unit":"Metric","stepwidth":"70","weight":"60","height":"170","ecode":"yWQGjzrib8uyMuxM","source":"n","nickname":"aa27","email":"aa27@qq.com","dob":"1941-1-1","gender":"M","scode":"654","cdate":"2014-08-29 10:29:13","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:29:20,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"yWQGjzrib8uyMuxM","source":"n","scode":"654","cdate":"2014-08-29 10:29:16","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:33:16,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"17","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:35:00,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getinfo.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","ecode":"skWLTrjAwjTo47eL","source":"w","cdate":"2014-8-29 上午10:34:56"}
+2014-08-29 02:35:00,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:34:56","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 02:45:17,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getinfo.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","ecode":"skWLTrjAwjTo47eL","source":"w","cdate":"2014-8-29 上午10:45:12"}
+2014-08-29 02:45:17,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:45:12","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 02:51:32,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"16","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:51:37,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"19","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:51:41,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_alert.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","alertlist":[{"stamp":"2014-08-29 10:45","alerttype":1}]}
+2014-08-29 02:51:44,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:45","averagespeed":"50","distance":"42","minspeed":"25","calories":"6.6","sleepmode":"1","steps":"6","maxspeed":"101","detectedposition":"2","angle":"20","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:51:48,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 10:51:23","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 02:51:56,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getinfo.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","ecode":"skWLTrjAwjTo47eL","source":"w","cdate":"2014-8-29 上午10:51:52"}
+2014-08-29 02:51:56,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:51:52","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 03:00:34,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdatelist.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 03:00:38,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:51:52","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 03:11:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"63","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"63","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"63","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:25,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:29,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:34,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:38,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:42,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:47,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:11:51,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"90","cdate":"2014-08-29 11:11:04","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:13:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"90","cdate":"2014-08-29 11:11:04","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:16:21,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:51:52","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 03:18:02,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"Z9HELx8BbbvgLhlO","source":"n","scode":"654","cdate":"2014-08-29 11:17:58","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:18:08,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/saveprofile.php?
+{"unit":"Metric","stepwidth":"70","weight":"60","height":"170","ecode":"Z9HELx8BbbvgLhlO","source":"n","nickname":"aa27","email":"aa27@qq.com","dob":"1941-1-1","gender":"M","scode":"654","cdate":"2014-08-29 11:18:04","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:18:11,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/getinfo.php?
+{"ecode":"Z9HELx8BbbvgLhlO","source":"n","scode":"654","cdate":"2014-08-29 11:18:07","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:22:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"81","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:30:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 10:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"-20","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:30:27,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:00","averagespeed":"63","distance":"35","minspeed":"25","calories":"6.6","sleepmode":"1","steps":"5","maxspeed":"101","detectedposition":"2","angle":"17","move":"11"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:30:31,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:05","averagespeed":"84","distance":"98","minspeed":"25","calories":"6.9","sleepmode":"0","steps":"14","maxspeed":"126","detectedposition":"6","angle":"-127","move":"3"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:30:35,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"16","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:30:40,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"16","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:33:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"76","move":"4"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:33:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:25","averagespeed":"88","distance":"49","minspeed":"76","calories":"6.7","sleepmode":"1","steps":"7","maxspeed":"101","detectedposition":"4","angle":"-6","move":"8"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:33:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:30","averagespeed":"101","distance":"28","minspeed":"101","calories":"6.6","sleepmode":"1","steps":"4","maxspeed":"101","detectedposition":"4","angle":"7","move":"28"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:33:25,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 11:33:07","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:34:42,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:34:47,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"80","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:34:51,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 11:34:35","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:34:54,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 11:34:35","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:34:58,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 11:34:35","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:36:13,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-7","move":"3"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:37:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:41:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:41:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:42:15,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:47:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"80","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:49:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:49:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:25,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:34,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:38,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:51:43,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 11:51:03","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:52:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"80","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:15,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:20,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"3","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:28,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:33,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:54:37,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"90","cdate":"2014-08-29 11:54:01","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:56:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"90","cdate":"2014-08-29 11:54:01","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:56:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"90","cdate":"2014-08-29 11:54:01","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 03:57:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"80","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:02:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:06:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:11:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:11:27,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:11:31,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:11:35,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:11:43,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 12:11:12","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:12:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 12:11:12","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:21:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:26:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:28,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:33,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:37,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:41,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:46,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:50,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:44:55,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:19,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"78","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:23,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:28,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"78","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:32,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:36,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"80","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:41,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:45,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:49,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:54,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:47:58,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 11:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:02,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-14","move":"4"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:07,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-7","move":"7"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:11,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:15,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:20,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:28,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:33,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:40,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:45,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:48:49,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 12:47:06","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:49:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:51:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:52:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 04:56:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:01:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:02:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:02:20,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:04:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:04:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:04:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:04:25,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 13:04:06","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:06:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-7","move":"3"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:07:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:09:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"11","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:11:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:12:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:14:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:21:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:27,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:31,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:36,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:40,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:44,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 12:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:49,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:53,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:24:57,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:25:02,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:25:06,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 13:24:16","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:26:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:28:41,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:51:52","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 05:31:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:31:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:34:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:34:27,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:34:31,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:34:35,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:34:40,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 13:34:12","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:36:41,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 上午10:51:52","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 05:42:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"78","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:42:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"79","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:45:08,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getinfo.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","ecode":"skWLTrjAwjTo47eL","source":"w","cdate":"2014-8-29 下午1:45:04"}
+2014-08-29 05:45:08,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:04","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 05:45:14,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:04","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 05:46:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:46:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:46:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:47:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"87","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:48:32,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"87","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:26,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:34,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:49:39,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:56:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 05:56:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:00:52,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"87","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:00:57,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"87","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:01:01,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"87","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:01:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"3","angle":"86","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:01:16,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 14:00:46","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:01:34,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:04","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 06:01:37,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 下午1:45:04","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 06:11:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:11:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:12:02,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:12:32,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:14:52,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:16:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-6","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:22,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:27,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"62","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:31,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:36,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:40,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:44,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:49,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:24:53,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:25:01,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:25:05,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 14:24:15","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:26:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:26:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"61","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:31:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-7","move":"3"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 13:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:26,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:34,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:39,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:43,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:51,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 06:59:55,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:00:00,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:00:04,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:00:08,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:00:13,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:26,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:01:34,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:04:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:06:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 14:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:06:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:06:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:09:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:21:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:21:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:22:02,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:26:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:26:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:31:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:36:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:37:29,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdatelist.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 07:37:34,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getdata.php?
+{"type":"act","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","dates":"2014-8-29","cdate":"2014-8-29 下午3:37:30","ecode":"skWLTrjAwjTo47eL","source":"w"}
+2014-08-29 07:37:35,183.161.137.49,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://sense-u.com/res/getinfo.php?
+{"ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj","scode":"654","ecode":"skWLTrjAwjTo47eL","source":"w","cdate":"2014-8-29 下午3:37:30"}
+2014-08-29 07:40:13,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:29,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:36,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:41,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:45,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:40:50,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 15:40:06","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 07:41:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:04:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:04:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:09:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:09:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:09:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:14:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 15:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:29,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:33,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:38,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:42,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:47,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:51,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:33:56,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:34:01,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 16:33:06","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:36:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-9","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:26,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:35,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:40:39,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","scode":"654","power":"100","cdate":"2014-08-29 16:40:07","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:41:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:46:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:56:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 08:56:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:01:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:11:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:11:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:21,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 16:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:26,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"2"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:30,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:14:35,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-10","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:21:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:31:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:25","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:31:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:30","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:36:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:35","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:46:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:40","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:46:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:45","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:56:13,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:50","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 09:56:17,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 17:55","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:01:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:16:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:00","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:16:20,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:05","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:16:24,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:10","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-3","move":"1"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:16:29,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:15","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"4","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}
+2014-08-29 10:21:12,183.161.137.49,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"F86cnMQ2JDRlBxsu","source":"u","data":[{"stamp":"2014-08-29 18:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"6.5","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"0","angle":"-7","move":"0"}],"scode":"654","ucode":"bzi2FvsakV521Z25XqBC5pJ3sQEG12OvGJhj"}

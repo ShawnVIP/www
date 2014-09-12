@@ -2,9 +2,9 @@
 document.write("<script type='text/javascript' src='../js/reglogin.js'></"+"script>"); 
 $(function(){
 	$('#mac').click(function(){
-		window.open("../download/notifier.dmg");
+		window.open("../download/senseu_"+LANG+".pkg.zip");
 	});
 	$('#pc').click(function(){
-		window.open("../download/notifier.zip");
+		window.open("../download/senseu_"+LANG+".zip");
 	});
 });

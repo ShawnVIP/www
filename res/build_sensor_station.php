@@ -128,17 +128,17 @@ function buildSensorStation($scode,$dateList){
 		$ttime=date('H:i:s',strtotime($totime));	
 		$tdate=date("Y-m-d",strtotime($totime));	
 		
-		$sql="select * from sleepdata where sid=$scode and sdate='$tdate'";
+		$sql="select * from sleepdata where sid=$scode and sdate='$ldate'";
 		$result=mysql_query($sql,$conn); 
 		if($row=mysql_fetch_array($result)){
-			$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$tdate'";
+			$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$ldate'";
 			$result=mysql_query($sql,$conn); 
 		}else{
-			$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$tdate','$ftime', '$ttime', '$fdate', '$tdate')";
+			$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$ldate','$ftime', '$ttime', '$fdate', '$tdate')";
 			$result=mysql_query($sql,$conn); 
 		}
 		//echo $sql;
-		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep,deepsleep=$deepsleep where sensorid=$scode and date='".$tdate. "'";
+		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep,deepsleep=$deepsleep where sensorid=$scode and date='".$ldate. "'";
 		//echo $sql;
 		$result=mysql_query($sql,$conn); 
 		

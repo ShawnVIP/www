@@ -350,7 +350,7 @@ $(function(){
 		$('#changeSlpTime').bind({
 			click:function(event){changeSleepTime();}
 		});	
-		$('#changeDateArea').hide();
+		//$('#changeDateArea').hide();
 		$('#addFamily').bind("mouseenter",{},showFamIn);
 		$('#addFamily').bind("mouseleave",{},showFamOut);
 		$('#addFamily').bind({

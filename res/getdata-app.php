@@ -21,7 +21,7 @@ checkuser($ucode,$scode,$ecode,$source);
 
 $valueList=checkDailyValue($scode,$dates,1,true);
 
-echo json_encode(array('status'=>200,'caloriesgoal'=>$valueList[0][caloriesgoal],'disgoal'=>$valueList[0][distancegoal],'stepgoal'=>$valueList[0][stepgoal],'sleepgoal'=>$valueList[0][sleepgoal],'caltaken'=>$valueList[0][totalcal],'distaken'=>$valueList[0][totaldistance],'stepstaken'=>$valueList[0][totalsteps],'sleeptaken'=>$valueList[0][totalsleep],'deepsleep'=>$valueList[0][deepsleep],'ecode'=>$ecode));
+echo json_encode(array('status'=>200,'caloriesgoal'=>$valueList[0][caloriesgoal],'disgoal'=>$valueList[0][distancegoal],'stepgoal'=>$valueList[0][stepgoal],'sleepgoal'=>$valueList[0][sleepgoal],'caltaken'=>$valueList[0][totalcal],'distaken'=>$valueList[0][totaldistance],'stepstaken'=>$valueList[0][totalsteps],'sleeptaken'=>$valueList[0][totalsleep],'ecode'=>$ecode));
 	
 
 ?>

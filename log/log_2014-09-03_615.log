@@ -1,0 +1,6 @@
+2014-09-03 05:06:07,114.98.74.128,Ledo_Notifier_1.0, http://www.sense-u.com/res/upload_data.php?
+{"ecode":"PUGy29pfrlUO4tg5","source":"u","data":[{"stamp":"2014-09-03 03:20","averagespeed":"0","distance":"0","minspeed":"0","calories":"7.6","sleepmode":"1","steps":"0","maxspeed":"0","detectedposition":"2","angle":"65","move":"0"}],"scode":"615","ucode":"nqmigjMgPHxHRyGEXSjdZ8FEC1kyxs9z0qch"}
+2014-09-03 05:06:11,114.98.74.128,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"PUGy29pfrlUO4tg5","source":"u","scode":"615","power":"10","cdate":"2014-09-03 12:02:57","ucode":"nqmigjMgPHxHRyGEXSjdZ8FEC1kyxs9z0qch"}
+2014-09-03 05:06:14,114.98.74.128,Ledo_Notifier_1.0, http://www.sense-u.com/res/updatepower.php?
+{"ecode":"PUGy29pfrlUO4tg5","source":"u","scode":"615","power":"10","cdate":"2014-09-03 12:02:57","ucode":"nqmigjMgPHxHRyGEXSjdZ8FEC1kyxs9z0qch"}

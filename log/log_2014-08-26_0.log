@@ -1,0 +1,10 @@
+2014-08-26 06:58:50,183.161.151.29,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36, http://sense-u.com/res/login.php?
+
+2014-08-26 06:58:56,183.161.151.29,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"source":"a","devicetoken":"38037844 7503c3bd d2d4ef5e 64ffeb77 363dc58f 070d0870 1d323435 1d07b51e","password":"111111","email":"bwzhu23@qq.com","cdate":"2014-08-26 14:58:54"}
+2014-08-26 06:59:27,183.161.151.29,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-08-26 14:59:25","ecode":"gGKDYdGZgiTR2jFp","ucode":"yT7pCxQzhWMy4pRPLs11BMFAF4YNm4JPdoPs","source":"a","email":"bwzhu20@qq.com","devicetoken":"38037844 7503c3bd d2d4ef5e 64ffeb77 363dc58f 070d0870 1d323435 1d07b51e"}
+2014-08-26 08:01:25,117.136.0.99,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"email":"woodao@gmail.com","password":"Rexxar44","source":"a","devicetoken":"96d9ea90 0e2a9c0f 83a7fe15 e5eb5202 05464fc8 c59a77ce cfbf8472 0c7eb8b9","cdate":"2014-08-26 16:01:25"}
+2014-08-26 08:23:32,183.161.151.29,Clip/2.0.21 CFNetwork/672.0.8 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"source":"a","devicetoken":"21a729fd a50607c9 7d89a31b a2de3b60 4ae1b390 6b28bfaf de816c45 a24d5be4","password":"111111","email":"test@hotmail.com","cdate":"2014-08-26 16:23:32"}

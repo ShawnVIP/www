@@ -129,8 +129,8 @@ for($i=0;$i<count($dateList);$i++){
 	//echo $sql;
 	$result=mysql_query($sql,$conn); 
 	
-	$sql="delete from tempupload where rndstring='" . $rndstring . "'";
-	$result=mysql_query($sql,$conn); 
+	//$sql="delete from tempupload where rndstring='" . $rndstring . "'";
+	//$result=mysql_query($sql,$conn); 
 
 }
 

@@ -1,0 +1,36 @@
+2014-09-12 01:05:28,183.161.136.252,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"test5@eyou.com","password":"123456"}
+2014-09-12 03:03:43,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@gmail.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:03:41"}
+2014-09-12 03:03:45,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@gmail.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:03:43"}
+2014-09-12 03:05:19,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@gmail.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:05:17"}
+2014-09-12 03:05:36,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@yahoo.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:05:34"}
+2014-09-12 03:05:39,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@yahoo.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:05:38"}
+2014-09-12 03:05:54,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@yahoo.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:05:52"}
+2014-09-12 03:06:37,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@yahoo.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:06:35"}
+2014-09-12 03:07:07,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"email":"autofei@yahoo.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:07:05"}
+2014-09-12 03:15:58,98.207.232.18,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.78.2 (KHTML, like Gecko) Version/7.0.6 Safari/537.78.2, http://www.sense-u.com/res/login.php?
+{"email":"autofei@gmail.com","password":"xyf0571","ndate":"2014-9-11 8:15:32 PM PDT","source":"w"}
+2014-09-12 03:16:32,98.207.232.18,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.78.2 (KHTML, like Gecko) Version/7.0.6 Safari/537.78.2, http://www.sense-u.com/res/login.php?
+{"email":"autofei@gmail.com","password":"xyf0571","ndate":"2014-9-11 8:16:06 PM PDT","source":"w"}
+2014-09-12 03:17:12,98.207.232.18,Clip/2.0.20 CFNetwork/672.1.15 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"email":"autofei@gmail.com","password":"xyf0571","source":"a","cdate":"2014-09-11 20:17:11"}
+2014-09-12 08:13:54,222.65.147.143,Ledo_Notifier_1.0, http://www.sense-u.com/res/login.php?
+{"source":"u","email":"danielhuang@hotmail.com","password":"daniel"}
+2014-09-12 09:12:33,212.120.113.67,Clip/2.0.20 CFNetwork/711.0.6 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"source":"a","devicetoken":"c27e8700 e0e1efb3 ed93db74 3123bfe1 bc764f79 5e33c71e 0f1fc4dd 074f5899","password":"axion1978","email":"guido@ivengi.com","cdate":"2014-09-12 11:12:32"}
+2014-09-12 09:12:38,212.120.113.67,Clip/2.0.20 CFNetwork/711.0.6 Darwin/14.0.0, http://sense-u.com/res/signup.php?
+{"password":"axion1978","cdate":"2014-09-12 11:12:37","ecode":"vXOuwALyvjwklxns","ucode":"RHLAkbOwR2VI2iikVtoXgFzSRtM7Dn1HlIvV","source":"a","scode":"674","devicetoken":"c27e8700 e0e1efb3 ed93db74 3123bfe1 bc764f79 5e33c71e 0f1fc4dd 074f5899","email":"guido@ivengi.com"}
+2014-09-12 09:12:40,212.120.113.67,Clip/2.0.20 CFNetwork/711.0.6 Darwin/14.0.0, http://sense-u.com/res/login.php?
+{"password":"axion1978","cdate":"2014-09-12 11:12:39","ecode":"vXOuwALyvjwklxns","ucode":"RHLAkbOwR2VI2iikVtoXgFzSRtM7Dn1HlIvV","source":"a","scode":"674","devicetoken":"c27e8700 e0e1efb3 ed93db74 3123bfe1 bc764f79 5e33c71e 0f1fc4dd 074f5899","email":"guido@ivengi.com"}
+2014-09-12 09:34:56,93.95.250.72,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/login.php?
+{"email":"guido@ivengi.com","password":"axion1978","ndate":"2014-9-12 11:34:23","source":"w"}
+2014-09-12 09:42:33,93.95.250.72,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/login.php?
+{"email":"guido@ivengi.com","password":"axion1978","ndate":"2014-9-12 11:42:15","source":"w"}
