@@ -6,7 +6,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-$json_string='{"type":"act","ucode":"9rAFnWDjnvQDuRksRMpHnhWMrWbpf7ePJYtI","scode":"654","dates":"2014-9-2","cdate":"2014-9-2 下午3:22:41","ecode":"MgknIIKiVHhyjAjn","source":"w"}';
+$json_string='{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-11","cdate":"2014-9-11 下午4:25:02","ecode":"iyk5VJ7pI5D1rYMI","source":"w"}';
 
 $obj=json_decode($json_string); 
 
@@ -18,7 +18,7 @@ $dates=$obj -> dates;
 $cdate=$obj -> cdate;
 $source=$obj -> source;
 $fcode=(int)$obj -> fcode;
-//$vipmode=checkuser($ucode,$scode,$ecode,$source);
+$vipmode=checkuser($ucode,$scode,$ecode,$source);
 //$vipmode=1;
 $bmr=0;
 $tmpdate=explode(" ", $dates); 
@@ -196,6 +196,7 @@ $statusList=array();
 
 
 $sql="SELECT totime,position FROM sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0 order by totime";
+echo $sql;
 $result=mysql_query($sql,$conn); 	
 
 while ($row=mysql_fetch_array($result)){

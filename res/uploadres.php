@@ -2,7 +2,9 @@
 
 $mode=$_POST[mode];
 $dir=$_POST[radio];
-if($dir !=""){
+if($dir =="root"){
+	$dir="";
+}else{
 	$dir.="/";
 }
 $password=md5($_POST[password]);
@@ -15,13 +17,11 @@ if($mode==1 & $password=="f9146ac536fabd9e06a112f4f8c28d66"){
 	$oldname=substr($binfilename,0,strlen($binfilename)-4);
 	//echo $binfilename;
 	$fileext =substr($binfilename, strrpos($binfilename, '.') + 1);
-	$i=48;
+	
 	$filedir="../".$dir;
 	
-	while ( file_exists($filedir.$binfilename)){
-		$binfilename=$oldname ."_" . chr($i) . "." . $fileext;
-		$i++;
-		if($i>57){$i=97;}
+	if ( file_exists($filedir.$binfilename)){
+		$binfilename=$oldname ."_" . randomkeys(6). "." . $fileext;
 	}
 	
 	//echo $binfilename;
@@ -32,6 +32,26 @@ if($mode==1 & $password=="f9146ac536fabd9e06a112f4f8c28d66"){
 	$outstr .= " upload ". $filedir .$finalname ." sucessful. <br>";
 	move_uploaded_file($_FILES["binfile"]["tmp_name"], $filedir.$finalname );
 }
+
+function randomkeys($length)
+{
+	$vlist=array();
+	for($i=0;$i<10;$i++){
+		array_push($vlist,$i);
+	}
+	for($i=65;$i<=90;$i++){
+		array_push($vlist,chr($i));
+	}
+	for($i=97;$i<=122;$i++){
+		array_push($vlist,chr($i));
+	}
+	$output='';
+	for ($a = 0; $a < $length; $a++) {
+		$output .= $vlist[mt_rand(0, count($vlist)-1)];    
+	}
+	return $output;
+}
+
 ?>
 
 
@@ -84,6 +104,11 @@ a:visited { text-decoration: none;color: green}
 
 </style>
 </head>
+<script>
+$(function(){
+	$('input:radio[value="<?php echo $_POST[radio]; ?>"]').attr("checked","checked"); 
+});
+</script>
 <body><p></p>
 <form action="uploadres.php" id="uploadform" method="post" enctype="multipart/form-data">
 <table width=800 align="center">
@@ -91,8 +116,8 @@ a:visited { text-decoration: none;color: green}
   <td class="right">pass:</td><td><input type="password" name="password" /></td></tr>
 <tr>
   <td class="right">direct:</td><td>
-  <input name="radio" type="radio" value="" />root |  
-    <input name="radio" type="radio" value="res" checked="checked" />res |
+  <input name="radio" type="radio" value="root" />root |  
+    <input name="radio" type="radio" value="res" />res |
     <input type="radio" name="radio" value="js" />js |
     <input type="radio" name="radio" value="cn" />cn | 
     <input type="radio" name="radio" value="en" />en

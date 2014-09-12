@@ -442,10 +442,6 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 		if($addnew==1){
 			$sql="INSERT INTO dailyvalue (date,sensorid,age,height,weight,step,stepwidth,runningwidth,bmr,bmi,stepgoal,caloriesgoal,distancegoal,sleepgoal) value ('$date',$scode,$age,$height,$weight,$step,$stepwidth,$runningwidth,$bmr,$bmi,$stepgoal,$caloriesgoal,$distancegoal,$sleepgoal)";
 			$result=mysql_query($sql,$conn);
-			$ydatelong=date('Y-m-d',strtotime($date . " -1 day"));
-			
-			$sql="INSERT INTO sleepdata(sid, sdate, fdate, tdate) VALUES ($scode,'$date','$ydatelong','$date'";
-			$result=mysql_query($sql,$conn);
 			//echo $sql;
 		}
 		$totalsteps=0;

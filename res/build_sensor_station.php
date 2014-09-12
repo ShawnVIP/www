@@ -1,4 +1,5 @@
 ﻿<?php 
+include "calcdeepsleep.php";
 //---------分钟转id不除以4
 function timeToRealID($time){
 	$min=explode(":", $time);
@@ -13,6 +14,7 @@ function realIdToTime($time){
 	$min<10 ? $rndTime=$rndTime.':0'.$min : $rndTime=$rndTime.":".$min;
 	return  $rndTime;
 }
+$dates=array();
 
 function buildSensorStation($scode,$dateList){
 	global $mysql_server_name;
@@ -46,6 +48,7 @@ function buildSensorStation($scode,$dateList){
 		$sql="SELECT detectedposition,concat('" . $ldate ." ',stime) as stime FROM basedata_" . $sdate . " where sensorid=$scode";
 		$sql .=" union SELECT detectedposition,concat('" . $tdatelong ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime<'00:05:00'";
 		$result=mysql_query($sql,$conn); 
+		
 		while ($row=mysql_fetch_array($result)){
 			$detectedposition=$row['detectedposition'];
 			if($detectedposition==2){$detectedposition=1;} //---1,2 都是睡眠模式------
@@ -57,12 +60,15 @@ function buildSensorStation($scode,$dateList){
 				if($newday==$ldate){
 					$statusList[timeToRealID($newtime)]=$detectedposition;
 				}
+				
 			}
+			
 		}
+		
+		
 		$olddata=-1;
 		$ordList=array();
 		$lasttime=1;
-		
 		for($j=2;$j<1440;$j++){
 			if($statusList[$j] !=$statusList[$j-1]){
 				array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
@@ -71,9 +77,39 @@ function buildSensorStation($scode,$dateList){
 				$lasttime++;
 			}
 		}
+		
+		
+		//----------
+		
 		if($statusList[$j-1] != 7){
 			array_push($ordList, array('totime'=>realIdToTime($j-1),'position'=>$statusList[$j-1],'lasttime'=>$lasttime));	
 		}
+		//-----------处理单独1-------------
+		$independ=0;
+		for($i=0;$i<count($ordList);$i++){
+			$independ=0;
+			if($ordList[$i][position]==1 && $ordList[$i][lasttime]==5){
+				
+				$independ=1;
+				
+				switch ($i){
+				case 0:
+				 if($ordList[1][position] ==1){$independ=0;}
+				
+				  break;  
+				case count($ordList)-1:
+				  if($ordList[$i-1][position] ==1){$independ=0;}
+				   
+				  break;
+				default:
+				  if($ordList[$i-1][position] ==1 || $ordList[$i+1][position] ==1){$independ=0;}
+				 
+				}
+				
+				if($independ==1){$ordList[$i][position]=7;}
+			}
+		}
+		//---------处理结束-----------------
 		
 		
 		$sql="insert into sensorstation (sensorid,sdate,totime,position,adjtype,lasttime) values ($scode,'$ldate',?,?,0,?)";
@@ -95,53 +131,10 @@ function buildSensorStation($scode,$dateList){
 		$totalcal=$row['totalcal'];
 		$totalsteps=$row['totalsteps'];
 		$totaldistance=$row['totaldistance']/100000; //距离单位在sensor中是厘米
-		
-		//----------------------------分析睡眠数据，从昨天中午12点到今天中午12点-------------------------
-		$sql="SELECT detectedposition,concat('" . $ydatelong ." ',stime) as stime FROM basedata_" . $ydatesort . " where sensorid=$scode and (detectedposition=1 or detectedposition=2) and stime>'12:00:00'";
-		$sql .=" union SELECT detectedposition,concat('" . $ldate ." ',stime) as stime FROM basedata_" . $sdate . " where sensorid=$scode and (detectedposition=1 or detectedposition=2)  and stime<'12:00:00'";
-		//echo $sql;
+		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance where sensorid=$scode and date='".$ldate. "'";
 		$result=mysql_query($sql,$conn); 
-		$fromtime=$ldate . " 00:00:00";
-		$totime=$ldate . " 00:00:00";
-		
-		$deepsleep=0;
-		$totalsleep=0;
-		
-		while($row=mysql_fetch_array($result)){
-			
-			$totalsleep+=5;
-			if($row['detectedposition']==2){
-				$deepsleep+=5;	
-			}
-			if($row['stime']<$fromtime){$fromtime=$row['stime'];}
-			if($row['stime']>$totime){$totime=$row['stime'];}
-			
-		}
-		if($fromtime==$totime){
-			$fromtime=$ydatelong. " 22:00:00";
-			$totime=$ldate . " 07:00:00";
-		}
-		
-		
-		$ftime=date('H:i:s',strtotime($fromtime));	
-		$fdate=date("Y-m-d",strtotime($fromtime));	
-		$ttime=date('H:i:s',strtotime($totime));	
-		$tdate=date("Y-m-d",strtotime($totime));	
-		
-		$sql="select * from sleepdata where sid=$scode and sdate='$ldate'";
-		$result=mysql_query($sql,$conn); 
-		if($row=mysql_fetch_array($result)){
-			$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$ldate'";
-			$result=mysql_query($sql,$conn); 
-		}else{
-			$sql="INSERT INTO sleepdata(sid, sdate, ftime, ttime, fdate, tdate) VALUES ($scode, '$ldate','$ftime', '$ttime', '$fdate', '$tdate')";
-			$result=mysql_query($sql,$conn); 
-		}
-		//echo $sql;
-		$sql="update dailyvalue set totalcal=$totalcal, totalsteps=$totalsteps, totaldistance=$totaldistance, totalsleep=$totalsleep,deepsleep=$deepsleep where sensorid=$scode and date='".$ldate. "'";
-		//echo $sql;
-		$result=mysql_query($sql,$conn); 
-		
+	
+		calcsleeptime($ldate,$fdate,$ftime,$tdate,$ttime,$scode);
 		
 	}
 

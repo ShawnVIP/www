@@ -6,7 +6,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-//$json_string='{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-10","cdate":"2014-9-11 上午9:08:15","ecode":"zQfamcJxXgviG6C7","source":"w"}';
+//$json_string='{"type":"act","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-08-15","cdate":"2014-08-15 23:03:22","ecode":"LNMzlQlYjC09Nc5x","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -95,33 +95,32 @@ while($row=mysql_fetch_array($result)){
 */
 
 if($fdate != $tdate){
-	$sql="SELECT move+steps as move,concat('" . $fdate ." ',stime) as stime FROM basedata_" . $fdatesort . " where sensorid=$scode and  stime>'$ftime' order by stime";
+	$sql="SELECT detectedposition,move+steps as move,concat('" . $fdate ." ',stime) as stime FROM basedata_" . $fdatesort . " where sensorid=$scode and  stime>'$ftime' order by stime";
 	
 	
 	$result=mysql_query($sql,$conn); 
 	while($row=mysql_fetch_array($result)){
-		$row['move']==0 ? $sleepmode=2:$sleepmode=1;
-		array_push($moveList,  timeToRealID($row['stime']) ."|" . $row['move']."|".$sleepmode);
+	
+		array_push($moveList,  timeToRealID($row['stime']) ."|" . $row['move']."|".$row['detectedposition']);
 			//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
 	}
-	//echo $sql;
-	$sql="SELECT move+steps as move,concat('" . $tdate ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime<'$ttime' order by stime";
+	
+	$sql="SELECT detectedposition,move+steps as move,concat('" . $tdate ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime<'$ttime' order by stime";
 	
 	$result=mysql_query($sql,$conn); 
 	while($row=mysql_fetch_array($result)){
-		$row['move']==0 ? $sleepmode=2:$sleepmode=1;
-		array_push($moveList,  timeToRealID($row['stime'])-1440 ."|" . $row['move']."|".$sleepmode);
+	
+		array_push($moveList,  timeToRealID($row['stime'])-1440 ."|" . $row['move']."|".$row['detectedposition']);
 			//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
 	}
-	//echo $sql;
 }else{
 	
-	$sql="SELECT move+steps as move,concat('" . $tdate ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime>'$ftime'  and stime<'$ttime' order by stime";
+	$sql="SELECT detectedposition,move+steps as move,concat('" . $tdate ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime>'$ftime'  and stime<'$ttime' order by stime";
 	
 	$result=mysql_query($sql,$conn); 
 	while($row=mysql_fetch_array($result)){
-		$row['move']==0 ? $sleepmode=2:$sleepmode=1;
-		array_push($moveList,  timeToRealID($row['stime'])-1440 ."|" . $row['move']."|".$sleepmode);
+	
+		array_push($moveList,  timeToRealID($row['stime'])-1440 ."|" . $row['move']."|".$row['detectedposition']);
 			//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
 	}
 	
@@ -133,7 +132,7 @@ $sql="SELECT a.*,b.totalsleep,b.sleepgoal,b.deepsleep FROM sleepdata as a, daily
 //echo $sql;
 $result=mysql_query($sql,$conn);
 if($row=mysql_fetch_array($result)){
-	$out=array('status'=>200,'mindate'=>$fdate,'fdate'=>$row['fdate'],'ftime'=>$row['ftime'],'tdate'=>$row['tdate'],'ttime'=>$row['ttime'],'ecode'=>$ecode,'sleepgoal'=>$row['sleepgoal'],'totalsleep'=>$row['totalsleep'],'deepsleep'=>$row['deepsleep'],'data'=>$moveList);
+	$out=array('status'=>200,'mindate'=>$yesterday,'fdate'=>$row['fdate'],'ftime'=>$row['ftime'],'tdate'=>$row['tdate'],'ttime'=>$row['ttime'],'ecode'=>$ecode,'sleepgoal'=>$row['sleepgoal'],'totalsleep'=>$row['totalsleep'],'deepsleep'=>$row['deepsleep'],'data'=>$moveList);
 	
 }else{
 	$out=array('status'=>200,'mindate'=>$fdate,'fdate'=>$fdate,'ftime'=>$ftime,'tdate'=>$tdate,'ttime'=>$ttime,'ecode'=>$ecode,'totalsleep'=>0,'deepsleep'=>0,'sleepgoal'=>0,'data'=>array());

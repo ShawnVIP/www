@@ -2,8 +2,6 @@
 include "dbconnect.php";
 writeGetUrlInfo(0);
 
-
-
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 $obj=json_decode($json_string); 
@@ -69,19 +67,16 @@ $stmt->close();
 $ecode=randomkeys(16);
 
 
-$sql="select id,nickname,seedkey from sensorinfo where userid=? ";
-
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); 
-$stmt->bind_param("s", $ucode);
-$stmt->execute();
-$stmt->store_result();
-$stmt->bind_result($scode,$nickname,$kcode);  
-if(! $stmt->fetch()){
+$sql="select id,nickname,seedkey from sensorinfo where userid='$ucode' ";
+$result=mysql_query($sql,$conn);
+if(! $row=mysql_fetch_array($result)){
 	echo json_encode(array('status'=>'202','userInfo'=>array('ucode'=>$ucode,'use'=>$ecode)));
 	exit;
+}else{
+	$scode=$row['id'];
+	$nickname=$row['nickname'];
+	$kcode=$row['seedkey'];
 }
-$stmt->close();
 
 saveSession($ucode,$scode,$ecode,$source);
 $now=date("Y-m-d H:i:s");

@@ -1,6 +1,6 @@
 <?php 
 include "dbconnect.php";
-include "build_sensor_station.php";
+//include "build_sensor_station.php";
 
 
 /*
@@ -26,7 +26,7 @@ checkuser($ucode,$scode,$ecode,$source);
 
 $valueList=checkDailyValue($scode,$cdate,1,true);
 
-buildSensorStation($scode,array($cdate));
+//buildSensorStation($scode,array($cdate));
 
 $infoList=array();
 

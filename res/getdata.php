@@ -197,14 +197,14 @@ $statusList=array();
 
 $sql="SELECT totime,position FROM sensorstation where sensorid=$scode and sdate='$reqdate' and adjtype=0 order by totime";
 $result=mysql_query($sql,$conn); 	
-
+//echo $sql;
 while ($row=mysql_fetch_array($result)){
 	
 	array_push($edata, array('t'=>$row['totime'] ,'i'=>($row['position'])));
 }
 
 $fdata=array();
-
+//echo json_encode($edata);
 
 $sql="SELECT alertdate,alerttype FROM alertlist where sid=$scode and DATE_FORMAT(alertdate,'%Y-%m-%d')='$reqdate' and delmark=0";
 $result=mysql_query($sql,$conn); 	

@@ -1,9 +1,9 @@
 <?php
 include "dbconnect.php";
-
+include "calcdeepsleep.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-
+//$json_string='{"ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","ecode":"zQfamcJxXgviG6C7","fdate":"2014-09-09","tdate":"2014-09-10","ftime":"22:15:00","ttime":"07:00:00","sdate":"2014-9-10","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -29,36 +29,8 @@ if($row=mysql_fetch_array($result)){
 }
 $result=mysql_query($sql,$conn);
 
-$f=strtotime("$fdate $ftime");	
-$t=strtotime("$tdate $ttime");	
-$totalsleep=($t-$f)/60;
-//echo $totalsleep ;
 
-$ydatesort=str_replace("-","",$fdate);
-$tdatesort=str_replace("-","",$tdate);
-$lightsleep=0;
-if($fdate != $sdate){//----------get yesterday data---------
-	$sql="SELECT count(id) as lightsleepcounts FROM basedata_" . $ydatesort . " where sensorid=$scode and (move>0 or steps=2) and stime>'$ftime'";
-	$result=mysql_query($sql,$conn);
-	if($row=mysql_fetch_array($result)){
-		$lightsleep +=$row['lightsleepcounts']*5;
-	}
-	//echo $sql;
-	//echo "lightsleep".$lightsleep;
-}
+changesleeptime($sdate,$fdate,$ftime,$tdate,$ttime,$scode);
 
-$sql="SELECT count(id) as lightsleepcounts FROM basedata_" . $tdatesort . " where sensorid=$scode and (move>0 or steps=2) and stime<='$ttime'";
-$result=mysql_query($sql,$conn);
-if($row=mysql_fetch_array($result)){
-	$lightsleep +=$row['lightsleepcounts']*5;
-}
-//echo $sql;
-//echo "lightsleep".$lightsleep;
-$deepsleep=$totalsleep-$lightsleep;
-
-//echo "deepsleep".$deepsleep;
-$sql="update dailyvalue set totalsleep=$totalsleep, deepsleep=$deepsleep where sensorid=$scode and date='$sdate'";
-//echo $sql;
-$result=mysql_query($sql,$conn);
 echo json_encode(array('status'=>200,'ecode'=>$ecode));
 ?>
