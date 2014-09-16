@@ -54,87 +54,76 @@ function checkValueLib($scode,$date){
 
 $dateList=array();
 for($i=0;$i<count($data);$i++){
-	$tDate=explode(" ", $data[$i] ->stamp);
-	
-	$bdate=date('Y-m-d',strtotime($tDate[0]));
+
+	$bdate=date('Y-m-d',strtotime( $data[$i] ->stamp));
 	array_push($dateList,$bdate);
 }
 
 
 $dateList=array_unique($dateList);
+$sqllist=array();
 
 for($i=0;$i<count($dateList);$i++){
 	checkValueLib($scode,$dateList[$i]);
 	checkDailyValue($scode,$dateList[$i],1,false);
+	
+	array_push($sqllist,array('currentDay'=>$dateList[$i],'valuelist'=>array()));
 }
 
 $statusList=array();
 
-$rndstring=randomkeys(36);
-$mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); 
-$sql="insert into tempupload (sdate,stime,calories,steps,distance,move,sleepmode,angle,maxspeed,minspeed,averagespeed,detectedposition,sensorid,rndstring) values (?,?,?,?,?,?,?,?,?,?,?,?,$scode,'$rndstring')";
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql);
-$datelListStr="";
+function getdateID($bdate){
+	global $dateList;
+	for($i=0;$i<count($dateList);$i++){
+		if($bdate==$dateList[$i]){
+			return $i;
+		}
+	}
+}
+
+//-----------------------按照日期插入数据--------------------
+
 
 for($i=0;$i<count($data);$i++){
-	$ndate=explode(" ", $data[$i] -> stamp);
-	$datestr=str_replace("-","",$ndate[0]);
-	//checkValueLib($datestr);
-	//-------------save time
-	$sourcedate=$data[$i] -> stamp;
-	$sourcedate= $sourcedate. ":00";
-	$ntime=$ndate[1]. ":00";
-	$libname="basedata_" .$datestr;
-	
+	$bdate=date('Y-m-d H:i:s',strtotime( $data[$i] ->stamp));
+	$dataDay=date('Y-m-d',strtotime( $bdate));
+	$stime=date('H:i:s',strtotime( $bdate));
+	$libname="basedata_" . str_replace("-","",$datestr);;
 	$calories= $data[$i] -> calories;
 	$steps= $data[$i] -> steps;
 	$distance= $data[$i] -> distance;
-
 	$temp= $data[$i] -> temp;
 	$move= $data[$i] -> move;
-    $distance=$distance*10;
-        //$move=$move*10;
+    $distance=$distance*10; //距离单位为厘米，转换为毫米
 	$angle= $data[$i] -> angle;
 	$maxspeed= $data[$i] -> maxspeed;
 	$minspeed= $data[$i] -> minspeed;
 	$averagespeed= $data[$i] -> averagespeed;
 	$detectedposition= $data[$i] -> detectedposition;
-
 	$sleepmode= $data[$i] -> sleepmode;
-	
-
-	$stmt->bind_param("ssssssssssss",$datestr,$ntime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition);
-	$stmt->execute();
-
-	
+	array_push($sqllist[getdateID($dataDay)][valuelist],array($stime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition, $scode ));
 }
 
 
-//-------------dedupe-----------------
-for($i=0;$i<count($dateList);$i++){
-	$ldate=$dateList[$i];
-	$sdate=str_replace("-","",$ldate);
-	/*
-	$sql="update uploadstation set umode=1 where sensorid=$scode and udate='" . $dateList[$i][ldate] ."'";
+for($i=0;$i<count($sqllist);$i++){
+	$longDate=$sqllist[$i][currentDay];
+	$libDate=str_replace("-","",$longDate);
+	//$currentValueLong=count($sqllist[$i][valuelist]);
+	if(count($sqllist[$i][valuelist])>0){
+	$sql="insert into basedata_" . $libDate. " (stime, calories, steps, distance, move, sleepmode, angle, maxspeed, minspeed, averagespeed, detectedposition,sensorid) value ";
+	for($j=0;$j<count($sqllist[$i][valuelist]);$j++){
+		$strs="('" .  implode(",",$sqllist[$i][valuelist][$j]) . ")";
+		$strs=str_replace(":00,",":00',",$strs);
+		if($j==0){
+			$sql .=	$strs; 
+		}else{
+			$sql .=	"," . $strs; 
+		}
+	}
 	$result=mysql_query($sql,$conn); 
-	*/
-
-	$sql="delete from basedata_" . $sdate. " where sensorid=$scode and stime in (select stime from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "')";
-	// echo $sql;
-	$result=mysql_query($sql,$conn); 
-	
-
-	$sql="insert into basedata_" . $sdate. " (stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition) select stime, calories, steps, distance, move, sleepmode, actmode, tempmode, wakeup, sleepbelongs, sensorid, angle, maxspeed, minspeed, averagespeed, detectedposition from tempupload where sensorid=$scode and sdate='" .$sdate."' and rndstring='" . $rndstring . "'";
-	//echo $sql;
-	$result=mysql_query($sql,$conn); 
-	
-	//$sql="delete from tempupload where rndstring='" . $rndstring . "'";
-	//$result=mysql_query($sql,$conn); 
-
+	}
 }
 
-$mysqli->close;	
 
 //-------------------refresh sensor station.-----------------------
 

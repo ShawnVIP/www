@@ -45,7 +45,7 @@ function changesleeptime($ldate,$fdate,$ftime,$tdate,$ttime,$scode){
 	
 }
 
-function calcsleeptime($ldate,$fdate,$ftime,$tdate,$ttime,$scode){
+function calcsleeptime($ldate,$scode){
 	global $conn;
 	$ldate=date('Y-m-d',strtotime($ldate));
 	$ydatelong=date('Y-m-d',strtotime($ldate . " -1 day"));
@@ -145,8 +145,18 @@ function calcsleeptime($ldate,$fdate,$ftime,$tdate,$ttime,$scode){
 		$tdate=date("Y-m-d",strtotime($totime));	
 			
 			
-		$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$ldate'";
+		$sql="select * from sleepdata where sid=$scode and sdate='$ldate'";
 		$result=mysql_query($sql,$conn); 
+		
+		if($row=mysql_fetch_array($result)){
+			$sql="update sleepdata set fdate='$fdate', ftime='$ftime', tdate='$tdate', ttime='$ttime' where sid=$scode and sdate='$ldate'";
+
+		}else{
+			$sql="insert into  sleepdata (fdate,ftime,tdate,ttime,sid,sdate) value ('$fdate','$ftime', '$tdate','$ttime',$scode,'$ldate')";
+
+		} 
+		$result=mysql_query($sql,$conn); 
+		
 	}else{
 		$fdate=$row['fdate'];
 		$ftime=$row['ftime'];

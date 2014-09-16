@@ -1,0 +1,22 @@
+2014-09-16 01:19:01,114.98.84.20,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/login.php?
+{"email":"cq@hotmail.com","password":"111111","ndate":"2014-9-16 上午9:18:53","source":"w"}
+2014-09-16 01:26:25,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 09:26:23","ecode":"eXrYe3lgZ9fSu2TB","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","email":"test1@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 01:35:49,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 09:35:47","ecode":"tTvZ4XPOMc83zA7q","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","source":"a","email":"cq@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 01:38:10,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 09:38:04","ecode":"QRnpjDx2foCdIk9U","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","email":"test1@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 01:39:56,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 09:39:55","ecode":"itRcaJ0sNLKKDYJk","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","source":"a","email":"cq@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 02:10:04,114.98.84.20,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"source":"a","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5","password":"123456","email":"test100@eyou.com","cdate":"2014-09-16 10:09:59"}
+2014-09-16 02:29:47,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 10:29:45","ecode":"qgOW29qYRD3hlO0Y","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","email":"test1@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 02:31:37,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 10:31:35","ecode":"Se3Q9XtO0WBRKzp9","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","source":"a","email":"cq@hotmail.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}
+2014-09-16 02:35:03,114.98.84.20,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"source":"a","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5","password":"111111","email":"test100@eyou.com","cdate":"2014-09-16 10:35:03"}
+2014-09-16 02:35:09,114.98.84.20,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"source":"a","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5","password":"123456","email":"test100@eyou.com","cdate":"2014-09-16 10:35:09"}
+2014-09-16 03:29:21,114.98.84.20,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"password":"111111","cdate":"2014-09-16 11:29:19","ecode":"q13Tj0lLJyj7qOe0","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","email":"ch@163.com","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}

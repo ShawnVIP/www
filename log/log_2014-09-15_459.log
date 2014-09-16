@@ -1,0 +1,10 @@
+2014-09-15 01:47:44,114.98.64.39,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"NQMcMUke7jHIi4YZjDEuEEbjfiw9AhQ4iHnD","scode":"459","dates":"2014-9-15","cdate":"2014-9-15 上午9:47:41","ecode":"RKYYCn7edG2WcKMC","source":"w"}
+2014-09-15 01:47:44,114.98.64.39,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"NQMcMUke7jHIi4YZjDEuEEbjfiw9AhQ4iHnD","scode":"459","ecode":"RKYYCn7edG2WcKMC","source":"w","cdate":"2014-9-15 上午9:47:41"}
+2014-09-15 01:48:03,114.98.64.39,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"NQMcMUke7jHIi4YZjDEuEEbjfiw9AhQ4iHnD","scode":"459","ecode":"RKYYCn7edG2WcKMC","source":"w","cdate":"2014-9-15 上午9:48:00"}
+2014-09-15 01:48:03,114.98.64.39,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"NQMcMUke7jHIi4YZjDEuEEbjfiw9AhQ4iHnD","scode":"459","dates":"2014-9-15","cdate":"2014-9-15 上午9:48:00","ecode":"RKYYCn7edG2WcKMC","source":"w"}
+2014-09-15 01:48:09,114.98.64.39,Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.153 Safari/537.36, http://tokyo.sense-u.com/res/getsleep.php?
+{"type":"sleep","ucode":"NQMcMUke7jHIi4YZjDEuEEbjfiw9AhQ4iHnD","scode":"459","dates":"2014-9-15","cdate":"2014-9-15 上午9:48:00","ecode":"RKYYCn7edG2WcKMC","source":"w"}

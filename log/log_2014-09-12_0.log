@@ -34,3 +34,5 @@
 {"email":"guido@ivengi.com","password":"axion1978","ndate":"2014-9-12 11:34:23","source":"w"}
 2014-09-12 09:42:33,93.95.250.72,Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36, http://www.sense-u.com/res/login.php?
 {"email":"guido@ivengi.com","password":"axion1978","ndate":"2014-9-12 11:42:15","source":"w"}
+2014-09-12 15:31:00,223.243.60.154,Clip/2.0.30 CFNetwork/672.0.8 Darwin/14.0.0, http://tokyo.sense-u.com/res/login.php?
+{"source":"a","devicetoken":"a4bd1969 a8d23198 552e08b6 7e71f246 69e7815c f54c8dd6 2a38969b c64a2ed1","password":"111111","email":"bwzhu23@qq.com","cdate":"2014-09-12 23:31:01"}

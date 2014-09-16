@@ -416,15 +416,32 @@ function checkDailyValue($scode,$date,$addnew,$returnmode){
 	}
 	//echo "from: $dob to $now . year:" . $datediff[0];
 	$sql="select * from dailyvalue where sensorid='$scode' and date='$date'";
-	//echo $sql;
-	
 	$newmode=0;
 	$result=mysql_query($sql,$conn); 
 	if(!$row=mysql_fetch_array($result)){
 		$sql="SELECT * FROM dailyvalue where sensorid=$scode and date<'$date' order by date desc limit 0,1 ";	
 		$result=mysql_query($sql,$conn); 
-		$row=mysql_fetch_array($result);
-		$newmode=1;
+		if($row=mysql_fetch_array($result)){
+			$newmode=1;
+		}else{
+			//初次注册	
+			$default_height=176;
+			$default_stepwidth=$default_height*0.415;
+			$default_runningwidth=$default_stepwidth;
+			$default_weight=87;
+			$default_stepgoal=10000;
+			$default_distancegoal=$default_stepgoal*$default_stepwidth/100000;
+			$default_age=30;
+			$default_bmr=66.5+13.75*$default_weight+5.003*$default_height-6.755*$default_age;
+			$default_bmi=$default_weight*10000/($default_height*$default_height);
+			$default_sleepgoal=480;
+			$default_caloriesgial=4000;
+			
+			$sql="insert into dailyvalue (height,weight,step,date,stepgoal,caloriesgoal,stepwidth,distancegoal,runningwidth,bmi,updated,age,bmr,sleepgoal,sensorid) values ($default_height,$default_weight,0,'$date',$default_stepgoal,$default_caloriesgial,$default_stepwidth,$default_distancegoal,$default_runningwidth,$default_bmi,1,$default_age,$default_bmr,$default_sleepgoal, '$scode')";
+			$result=mysql_query($sql,$conn); 
+			$sql="select * from dailyvalue where sensorid='$scode' and date='$date'";
+			$result=mysql_query($sql,$conn); 
+		}
 	}
 	$height=$row['height'];
 	$weight=$row['weight'];

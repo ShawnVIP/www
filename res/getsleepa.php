@@ -6,7 +6,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-6-24","cdate":"2013-6-24 20:35:26","ecode":"XTGRdNDKGmqWrWBL","source":"w","CCID":1}';
 //$json_string='{"type":"act","ucode":"1GeGUBP0eFXchdYFwpOv5Vg0GmuhmHJRkuB7","scode":"39","dates":"2013-9-22","cdate":"2013-9-22 13:35:22","ecode":"SpmcZjeQEcUvf1Bq","source":"w"}';
-$json_string='{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-10","cdate":"2014-9-11 上午9:08:15","ecode":"zQfamcJxXgviG6C7","source":"w"}';
+$json_string='{"type":"sleep","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"1","dates":"2014-9-14","cdate":"2014-9-15 下午10:35:07","ecode":"J27Z19xFfNZYuuF8","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -61,9 +61,9 @@ if($row=mysql_fetch_array($result)){
 	$ttime=$row['ttime'];
 }else{
 	$fdate=date('Y-m-d',strtotime($dates . " -1 day"));
-	$ftime="22:01:00";
-	$tdate=$dates;
-	$ttime="07:01:00";
+	$ftime="22:00:00";
+	$tdate=date('Y-m-d',strtotime($dates));
+	$ttime="07:00:00";
 	
 
 }
@@ -81,22 +81,11 @@ $newmoveList=array();
 
 
 
-/*
-$sql="SELECT detectedposition,move+steps as move,concat('" . $yesterday ." ',stime) as stime FROM basedata_" . $ydatesort . " where sensorid=$scode and (detectedposition=1 or detectedposition=2) and stime>'12:00:00' ";
-$sql .=" union SELECT detectedposition,move+steps as move,concat('" . $ldate ." ',stime) as stime FROM basedata_" . $sdate . " where sensorid=$scode and (detectedposition=1 or detectedposition=2)  and stime<'12:00:00'";
-
-$result=mysql_query($sql,$conn); 
-while($row=mysql_fetch_array($result)){
-
-	array_push($newmoveList,  timeToRealID($row['stime']) ."|" . $row['move']."|".$row['detectedposition']);
-		//array_push($moveList,  timeToRealID($stime)-720 ."|" . $stime ."|". $move);
-}
-
-*/
 
 if($fdate != $tdate){
 	$sql="SELECT move+steps as move,concat('" . $fdate ." ',stime) as stime FROM basedata_" . $fdatesort . " where sensorid=$scode and  stime>'$ftime' order by stime";
 	
+	echo $sql;
 	
 	$result=mysql_query($sql,$conn); 
 	while($row=mysql_fetch_array($result)){
@@ -106,7 +95,7 @@ if($fdate != $tdate){
 	}
 	//echo $sql;
 	$sql="SELECT move+steps as move,concat('" . $tdate ." ',stime) as stime FROM basedata_" . $tdatesort . " where sensorid=$scode and stime<'$ttime' order by stime";
-	
+	echo $sql;
 	$result=mysql_query($sql,$conn); 
 	while($row=mysql_fetch_array($result)){
 		$row['move']==0 ? $sleepmode=2:$sleepmode=1;

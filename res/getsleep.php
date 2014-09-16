@@ -61,9 +61,9 @@ if($row=mysql_fetch_array($result)){
 	$ttime=$row['ttime'];
 }else{
 	$fdate=date('Y-m-d',strtotime($dates . " -1 day"));
-	$ftime="22:01:00";
-	$tdate=$dates;
-	$ttime="07:01:00";
+	$ftime="22:00:00";
+	$tdate=date('Y-m-d',strtotime($dates));
+	$ttime="07:00:00";
 	
 
 }
