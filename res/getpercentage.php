@@ -91,7 +91,9 @@ $sql="SELECT a.friendid, a.relation, b.nickname,a.guardian,a.becare, b.headimage
 
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
-	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'guardmode'=>$row['guardian']+$row['becare']*2,'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
+	$row['guardian']>0 ? $g=1:$g=0;
+	$row['becare']>0 ? $b=1:$b=0;
+	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'guardmode'=>$g+$b*2,'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
  
 

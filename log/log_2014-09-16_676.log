@@ -1,0 +1,42 @@
+2014-09-16 07:01:06,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"krgF7HwwvN2bMZeU","source":"w","cdate":"2014-9-16 下午3:03:32"}
+2014-09-16 07:01:06,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午3:03:32","ecode":"krgF7HwwvN2bMZeU","source":"w"}
+2014-09-16 07:03:25,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"l1fFkFjDpfyveGKo","source":"w","cdate":"2014-9-16 下午3:05:51"}
+2014-09-16 07:03:25,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午3:05:51","ecode":"l1fFkFjDpfyveGKo","source":"w"}
+2014-09-16 07:03:30,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"l1fFkFjDpfyveGKo","source":"w","lang":"cn"}
+2014-09-16 07:03:32,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"l1fFkFjDpfyveGKo","source":"w","lang":"cn"}
+2014-09-16 07:03:32,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"l1fFkFjDpfyveGKo","source":"w","lang":"cn"}
+2014-09-16 07:03:36,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/dealrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"l1fFkFjDpfyveGKo","source":"w","action":"accept","reqcode":"1"}
+2014-09-16 07:03:40,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午3:05:51","ecode":"l1fFkFjDpfyveGKo","source":"w"}
+2014-09-16 08:29:16,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"pAQJL8AHAlz04GiR","source":"w","cdate":"2014-9-16 下午4:31:42"}
+2014-09-16 08:29:16,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getdata.php?
+{"type":"act","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午4:31:42","ecode":"pAQJL8AHAlz04GiR","source":"w"}
+2014-09-16 08:29:19,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"pAQJL8AHAlz04GiR","source":"w","lang":"cn"}
+2014-09-16 08:29:21,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"pAQJL8AHAlz04GiR","source":"w","lang":"cn"}
+2014-09-16 08:29:25,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/dealrequest.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","ecode":"pAQJL8AHAlz04GiR","source":"w","action":"accept","reqcode":"1"}
+2014-09-16 08:32:43,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午4:31:42","ecode":"pAQJL8AHAlz04GiR","source":"w"}
+2014-09-16 08:32:52,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/removefriend.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","ecode":"pAQJL8AHAlz04GiR","fcode":"1","source":"w"}
+2014-09-16 08:32:56,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/getpercentage.php?
+{"type":"family","lang":"cn","ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","dates":"2014-9-16","cdate":"2014-9-16 下午4:31:42","ecode":"pAQJL8AHAlz04GiR","source":"w"}
+2014-09-16 08:33:07,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/searchmembers.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","keyword":"s@sohu.com","ecode":"pAQJL8AHAlz04GiR","source":"w"}
+2014-09-16 08:33:16,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/sendrequest.php?
+{"guardian":1,"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","fid":"1","ecode":"pAQJL8AHAlz04GiR","source":"w","reltome":"1","relforme":"15"}
+2014-09-16 08:39:11,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/searchmembers.php?
+{"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","keyword":"s@sohu.com","ecode":"pAQJL8AHAlz04GiR","source":"w"}
+2014-09-16 08:39:18,61.232.11.197,Mozilla/5.0 (Macintosh; Intel Mac OS X 10.8; rv:32.0) Gecko/20100101 Firefox/32.0, http://tokyo.sense-u.com/res/sendrequest.php?
+{"guardian":1,"ucode":"ZOlK3Isb5CCi8LamXvclyWlJBrFCZyq94WC4","scode":"676","fid":"1","ecode":"pAQJL8AHAlz04GiR","source":"w","reltome":"1","relforme":"15"}

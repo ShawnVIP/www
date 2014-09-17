@@ -4,7 +4,7 @@ include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"alertlist":[{"type":"1","stamp":"2014-09-15 11:47:46"}],"cdate":"2014-09-15 11:47:54","ecode":"Chu9afGVWVoKnlCz","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","scode":"1","devicetoken":"545b63c3 12547994 9b20aa21 d3d9fdaf 08627e09 fbcaac15 e449d79a 41bc7dd7"}';
+$json_string='{"alertlist":[{"type":"129","stamp":"2014-09-16 17:13:51"}],"cdate":"2014-09-16 17:13:53","ecode":"NsRRkEAUZEJBSU6S","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","scode":"675","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -19,7 +19,7 @@ $alertlist=$obj -> alertlist;
 if($lang==""){
 	$lang="cn";
 }
-//checkuser($ucode,$scode,$ecode,$source);
+checkuser($ucode,$scode,$ecode,$source);
 
 
 
@@ -50,12 +50,12 @@ if($row=mysql_fetch_array($result)){
 	exit();
 }
 
-$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian=1) or id=$scode)  and devicetoken <>''";
-//echo $sql;
+$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian>0) or id=$scode)  and devicetoken <>''";
+echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 	$sqla="select b." . $row['language'] . "_name as relation from familylist as a, relation as b where sensorid=" . $row['id']. " and friendid=$scode and b.id=a.relation";
-	echo $sqla;
+	//echo $sqla;
 	$resulta=mysql_query($sqla,$conn); 
 	if($rowa=mysql_fetch_array($resulta)){
 		$relation=$rowa['relation'];
@@ -66,7 +66,7 @@ while($row=mysql_fetch_array($result)){
 	array_push($sendlist,array('receiverid'=> $row['id'],'nickname'=>$row['nickname'],'devicetoken'=>str_replace(" ","",$row['devicetoken']),'language'=>$row['language'],'relation'=>$relation));
 }
 
-//echo json_encode($sendlist);
+echo json_encode($sendlist);
 
 
 for($j=0;$j<count($sendlist);$j++){

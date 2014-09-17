@@ -24,6 +24,7 @@ $sql="select * from familyreqlist where fromscode=$reqcode and toscode=$scode";
 $result=mysql_query($sql, $conn);
 if($row=mysql_fetch_array($result)){
 	$guardian=$row['guardian'];
+	$becare=$row['becare'];
 	$reltome=$row['reltome'];
 	$relforme=$row['relforme'];
 }else{
@@ -31,18 +32,24 @@ if($row=mysql_fetch_array($result)){
 	exit;
 }
 
-$sql="delete from familyreqlist where fromscode=$reqcode and toscode=$scode";
-$result=mysql_query($sql, $conn);
+
 if($accept==2){
 	echo json_encode(array('status'=>'200','message'=>'already decline'));
 	exit;
 }
-
-$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian, becare) values ($reqcode,$scode,'$now','$reltome',$guardian,0)";
+$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian,becare) values ($reqcode,$scode,'$now','$relforme',$guardian,$becare)";
 $result=mysql_query($sql, $conn);
-$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian,becare) values ($scode,$reqcode,'$now','$relforme',0,$guardian)";
+
+$guardian==1 ? $nbecare=1:$nbecare=0;
+
+$becare==1 ? $nguardian=1:$nguardian=0;
+	
+$sql="insert into familylist (sensorid,friendid,sdate,relation,guardian, becare) values ($scode,$reqcode,'$now','$reltome',$nguardian,$nbecare)";
+
 $result=mysql_query($sql, $conn);
 	
+$sql="delete from familyreqlist where fromscode=$reqcode and toscode=$scode";
+$result=mysql_query($sql, $conn);
 
 echo json_encode(array('status'=>200,'ecode'=>$ecode));
 

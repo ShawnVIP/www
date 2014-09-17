@@ -50,7 +50,7 @@ if($row=mysql_fetch_array($result)){
 	exit();
 }
 
-$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian=1) or id=$scode)  and devicetoken <>''";
+$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian>0) or id=$scode)  and devicetoken <>''";
 //echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){

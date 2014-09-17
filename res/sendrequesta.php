@@ -3,7 +3,9 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"reltome":"6","relforme":"5","guardian":"2","cdate":"2014-09-12 10:16:48","ecode":"Jfh7AKzxQiF2ARS1","ucode":"yPRMDctJYWYOxSmR7Dlp4GHhMFbhuatm4IXT","source":"a","scode":"605","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","fid":"640"}';
+
+$json_string='{"reltome":"3","relforme":"14","guardian":"1","cdate":"2014-09-16 18:05:53","ecode":"NsRRkEAUZEJBSU6S","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","scode":"675","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444","fid":"1"}';
+
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -13,12 +15,31 @@ $fid=$obj-> fid;
 $source=$obj -> source;
 $reltome=$obj -> reltome;
 $relforme=$obj -> relforme;
-$guardian=$obj -> guardian;
 
-if($guardian=="" ){
-	$guardian=0;
+$gmode=$obj -> guardian;
+
+if($gmode=="" ){
+	$gmode=0;
 }
-checkuser($ucode,$scode,$ecode,$source);
+switch($gmode){
+		case 0:
+		$guardian=0;
+		$becare=0;
+		break;
+		case 1:
+		$guardian=1;
+		$becare=0;
+		break;
+		case 2:
+		$guardian=0;
+		$becare=1;
+		break;
+		case 3:
+		$guardian=1;
+		$becare=1;
+		break;
+	}
+//checkuser($ucode,$scode,$ecode,$source);
 
 $now=date("Y-m-d H:i:s");
 $mysqli = new mysqli($mysql_server_name,$mysql_username,$mysql_password,$mysql_database); //创建mysqli实例
@@ -75,18 +96,16 @@ $result=mysql_query($sql, $conn);
 if($row=mysql_fetch_array($result)){
 	$relforme=$row['id'];
 }
-$sql = "insert into familyreqlist (fromucode,fromscode,toscode,rdate,reltome,relforme,guardian) values ('$ucode',$scode,$fid,'$now','$reltome','$relforme',$guardian)"; //预处理sql语句
+$sql = "insert into familyreqlist (fromucode,fromscode,toscode,rdate,reltome,relforme,guardian,becare) values ('$ucode',$scode,$fid,'$now','$reltome','$relforme',$guardian, $becare)"; //预处理sql语句
+echo $sql;
 
-$result=mysql_query($sql, $conn);
+if($result=mysql_query($sql, $conn)){
+	echo json_encode(array('status'=>200));	
+}else{
+	echo json_encode(array('status'=>701,'message'=>'save error'));	
+}
 
-/*
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
-$stmt->bind_param("sssssss", $ucode,$scode,$fid,$now,$reltome,$relforme,$guardian);
-$stmt->execute();
 
-$mysqli->close();
-*/
-echo json_encode(array('status'=>200));	
+
 	 
 ?>

@@ -104,7 +104,7 @@ for($i=0;$i<count($data);$i++){
 	array_push($sqllist[getdateID($dataDay)][valuelist],array($stime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition, $scode ));
 }
 
-
+$extmessage="";
 for($i=0;$i<count($sqllist);$i++){
 	$longDate=$sqllist[$i][currentDay];
 	$libDate=str_replace("-","",$longDate);
@@ -120,7 +120,13 @@ for($i=0;$i<count($sqllist);$i++){
 			$sql .=	"," . $strs; 
 		}
 	}
-	$result=mysql_query($sql,$conn); 
+	if($result=mysql_query($sql,$conn)){
+		$extmessage.= $longDate . " be uploaded sucessful."; 
+	} else{
+		$extmessage= $longDate . " be uploaded false."; 
+		echo json_encode(array('status'=>201,'extmessage'=>$extmessage));
+		exit;
+	}
 	}
 }
 
@@ -228,5 +234,5 @@ if ($updated==1){
 mysql_close($conn);  
 
 	
-echo json_encode(array('status'=>200,'updated'=>$updated,'scode'=>$scode,'sdata'=>$sensorinfo,'ecode'=>$ecode));
+echo json_encode(array('status'=>200,'updated'=>$updated,'scode'=>$scode,'sdata'=>$sensorinfo,'ecode'=>$ecode,'extmessage'=>$extmessage));
 ?>

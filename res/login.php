@@ -78,6 +78,12 @@ if(! $row=mysql_fetch_array($result)){
 	$kcode=$row['seedkey'];
 }
 
+if($kcode==""){
+	$bytes = openssl_random_pseudo_bytes(16, $cstrong);
+	$kcode = bin2hex($bytes);
+	$sql="update sensorinfo set seedkey='$kcode' where userid='$ucode' ";
+	$result=mysql_query($sql,$conn);
+}
 saveSession($ucode,$scode,$ecode,$source);
 $now=date("Y-m-d H:i:s");
 if($source=="a" && $devicetoken !=""){  //upload device token

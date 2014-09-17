@@ -3,6 +3,8 @@
 include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
+
+
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -12,11 +14,34 @@ $fid=$obj-> fid;
 $source=$obj -> source;
 $reltome=$obj -> reltome;
 $relforme=$obj -> relforme;
-$guardian=$obj -> guardian;
 
-if($guardian=="" ){
-	$guardian=0;
+$gmode=$obj -> guardian;
+
+if($gmode=="" ){
+	$gmode=0;
 }
+
+
+	// 没有监护关系  1：我监护他  2：他监护我
+	switch($gmode){
+		case 0:
+		$guardian=0;
+		$becare=0;
+		break;
+		case 1:
+		$guardian=1;
+		$becare=0;
+		break;
+		case 2:
+		$guardian=0;
+		$becare=1;
+		break;
+		case 3:
+		$guardian=1;
+		$becare=1;
+		break;
+	}
+
 checkuser($ucode,$scode,$ecode,$source);
 
 $now=date("Y-m-d H:i:s");
@@ -74,18 +99,15 @@ $result=mysql_query($sql, $conn);
 if($row=mysql_fetch_array($result)){
 	$relforme=$row['id'];
 }
-$sql = "insert into familyreqlist (fromucode,fromscode,toscode,rdate,reltome,relforme,guardian) values ('$ucode',$scode,$fid,'$now','$reltome','$relforme',$guardian)"; //预处理sql语句
+$sql = "insert into familyreqlist (fromucode,fromscode,toscode,rdate,reltome,relforme,guardian,becare) values ('$ucode',$scode,$fid,'$now','$reltome','$relforme',$guardian, $becare)"; //预处理sql语句
+//echo $sql;
+if($result=mysql_query($sql, $conn)){
+	echo json_encode(array('status'=>200));	
+}else{
+	echo json_encode(array('status'=>701,'message'=>'save error'));	
+}
 
-$result=mysql_query($sql, $conn);
 
-/*
-$stmt = $mysqli->stmt_init();
-$stmt = $mysqli->prepare($sql); //将sql添加到mysqli进行预处理
-$stmt->bind_param("sssssss", $ucode,$scode,$fid,$now,$reltome,$relforme,$guardian);
-$stmt->execute();
 
-$mysqli->close();
-*/
-echo json_encode(array('status'=>200));	
 	 
 ?>
