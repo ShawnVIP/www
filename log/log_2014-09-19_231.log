@@ -1,0 +1,24 @@
+2014-09-19 02:35:26,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getinfo.php?
+{"ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","ecode":"egaWr8vX3kQk6LTh","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5","cdate":"2014-09-19 10:35:25"}
+2014-09-19 02:35:26,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/upload_data.php?
+{"data":[],"cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:26,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getmessage.php?
+{"readmode":"0","cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:27,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/upload_alert.php?
+{"alertlist":[],"cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:28,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getposition.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5","fcode":"231"}
+2014-09-19 02:35:28,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:31,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:31,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getsleep.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:25","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:31,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata-app.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:30","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:31,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getdata.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:30","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:32,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getsleep.php?
+{"dates":"2014-09-19","cdate":"2014-09-19 10:35:30","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}
+2014-09-19 02:35:36,114.98.72.245,Clip/2.0.30 CFNetwork/672.1.15 Darwin/14.0.0, http://tokyo.sense-u.com/res/getpercentage.php?
+{"dates":"2014-09-19","type":"family","cdate":"2014-09-19 10:35:35","ecode":"egaWr8vX3kQk6LTh","ucode":"BUsWmzCF6wbeuknsxLRw8cr1o1xBq2u5NHpA","source":"a","scode":"231","devicetoken":"1b19ad2e f8b865d2 e5e8a183 64d2d756 34b62a7f 85a960c6 dca0d0de 5965dda5"}

@@ -59,11 +59,11 @@ if ($stmt->fetch()) {
 
 $itemList=array();   
 
-$sql = "select nickname,headimage from sensorinfo where id=$friendid"; 
+$sql = "select nickname,gender,headimage from sensorinfo where id=$friendid"; 
 
 $result=mysql_query($sql,$conn); 
 $row=mysql_fetch_array($result);
-array_push($itemList,array('nickname'=>$row['nickname'],'id'=>$friendid,'headimage'=>$row['headimage']));
+array_push($itemList,array('nickname'=>$row['nickname'],'id'=>$friendid,'headimage'=>$row['headimage'],'gender'=>$row['gender']));
 
 		
 /*

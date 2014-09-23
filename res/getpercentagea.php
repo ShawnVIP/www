@@ -4,7 +4,7 @@ include "dbconnect.php";
 
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
-$json_string='{"type":"family","ucode":"7ZYSquiG2Q0BEibjMXpYJnPnydPgtIdUCq9M","scode":"675","dates":"2014-9-5","ecode":"GkwkYjVklmFFO6jC","source":"w"}';
+$json_string='{"type":"family","lang":"cn","ucode":"hIYtECrYZWgkgkiDvwTvOTkRMfdFtkDDXNjg","scode":"677","dates":"2014-9-17","cdate":"2014-9-17 下午5:27:51","ecode":"30N6RMBuPnwWGG7X","source":"w"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -20,7 +20,7 @@ $lang=strtolower($obj -> lang);
 if($lang==""){$lang="cn";}
 
 
-//checkuser($ucode,$scode,$ecode,$source);
+checkuser($ucode,$scode,$ecode,$source);
 
 $stationList=array();
 
@@ -84,18 +84,16 @@ if($type=="friend"){
 }else{
 	$extInfo=" and a.relation <>17";
 }
+$sql="select a.friendid,a.guardian,a.becare, b." . $lang . "_mname as relname, c.nickname,c.headimage from familylist as a, relation as b, sensorinfo as c where a.sensorid=$scode and b.id=a.relation and c.id=a.friendid" . $extInfo;
 
-//$sql="SELECT a.friendid, a.relation, b.nickname, b.headimage FROM familylist as a, sensorinfo as b WHERE a.sensorid=? and b.id=a.friendid  and a.delmark=0". $extInfo;
-$sql="SELECT a.friendid, a.relation, b.nickname,a.guardian,a.becare, b.headimage, c." . $lang . "_name as relname FROM familylist as a, sensorinfo as b ,relation as c WHERE a.relation=c.id and  a.sensorid=$scode and b.id=a.friendid ". $extInfo;
-echo $sql;
-
+//echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
 	$row['guardian']>0 ? $g=1:$g=0;
 	$row['becare']>0 ? $b=1:$b=0;
 	array_push($memberList,array('scode'=> $row['friendid'],'relation'=>$row['relname'],'guardmode'=>$g+$b*2,'nickname'=>$row['nickname'],'head'=>$row['headimage'],'goalList'=>array(),'alertlist'=>array(),'percentage'=>array(),'sum'=>array(),'station'=>array()));
 }
- 
+//echo json_encode($memberList);
 
 
 //------calc weekly date period.

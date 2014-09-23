@@ -29,7 +29,7 @@ if($mode==1 & $password=="f9146ac536fabd9e06a112f4f8c28d66"){
 		$outstr=" rename " .$filedir.$finalname ." to ". $filedir .$binfilename. ". <br>";
 		rename($filedir.$finalname,$filedir.$binfilename);
 	}
-	$outstr .= " upload ". $filedir .$finalname ." sucessful. <br>";
+	$outstr .= " upload <a href='". $filedir .$finalname ."' target='_blank'>". $filedir .$finalname ."</a> sucessful. <br>";
 	move_uploaded_file($_FILES["binfile"]["tmp_name"], $filedir.$finalname );
 }
 

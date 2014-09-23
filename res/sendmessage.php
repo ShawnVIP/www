@@ -42,8 +42,22 @@ $result=mysql_query($sql, $conn);
 
 
 
-//$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
-$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode ";
+
+//---------get been pinger's language------------
+$language="CN";
+$sql="select language from sensorinfo where id=$fcode";
+$result=mysql_query($sql, $conn);
+if($row=mysql_fetch_array($result)){
+	$language=$row['language'];
+}
+//----------get relation name ----------------------
+$sql="SELECT b." . $language . "_name as relname,b.relation FROM familylist as a, relation as b WHERE a.sensorid=$scode and a.friendid=$fcode and b.id=a.relation";
+$result=mysql_query($sql, $conn);
+$row=mysql_fetch_array($result);
+$relname=$row['relname'];
+
+
+$sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode";
 $result=mysql_query($sql, $conn);
 
 
@@ -55,7 +69,12 @@ if($row=mysql_fetch_array($result)){
 	$devicetoken=$row['devicetoken'];
 	$fromname=$row['fromname'];
 	$devicetoken=str_replace(" ","",$devicetoken);
-	$message="Hi $nickname, your friend $fromname just leave you message :'$message'.";
+	if($language=="CN"){
+		$message="嗨" . $nickname . ", 您的" .$relname .$fromname."刚刚发了您一条消息：'$message'。";
+	}else{
+		$message="Hi $nickname, your $relname $fromname just leave you message:'$message'.";
+	}
+
 	popmessage($devicetoken,$message);
 	echo json_encode(array('status'=>200,'ecode'=>$ecode,'extinfo'=>array('devicetoken'=> $devicetoken, 'message'=> $message,'result'=>$popinfo)));
 	

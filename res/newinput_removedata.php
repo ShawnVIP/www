@@ -19,9 +19,9 @@ $mdate=str_replace("-","",$rdate);
 $conn=mysql_connect($mysql_server_name,$mysql_username,$mysql_password,$mysql_database);
 mysql_select_db($mysql_database,$conn);
 
-$sql="delete from basedata_" . str_replace("-","",$rdate) . " where sensorid=$scode";
+//$sql="delete from basedata_" . str_replace("-","",$rdate) . " where sensorid=$scode";
 //echo $sql;
-$result=mysql_query($sql,$conn); 
+//$result=mysql_query($sql,$conn); 
 
 
 $sql="delete from uploadstation where sensorid=$scode and udate='$rdate'";

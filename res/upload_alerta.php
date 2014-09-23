@@ -4,7 +4,7 @@ include "dbconnect.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 $now=date("Y-m-d H:i:s");
-$json_string='{"alertlist":[{"type":"129","stamp":"2014-09-16 17:13:51"}],"cdate":"2014-09-16 17:13:53","ecode":"NsRRkEAUZEJBSU6S","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","scode":"675","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}';
+$json_string='{"alertlist":[{"type":"1","stamp":"2014-09-16 17:13:51"}],"cdate":"2014-09-18 16:13:53","ecode":"NsRRkEAUZEJBSU6S","ucode":"EQsaWrSnsNxKoxuAnVeWI9I1xLoiJXH8knf6","source":"a","scode":"675","devicetoken":"b4960c98 7be9cfae 47aee3f7 fc58724f 706b9619 239070e5 25bfe0be 1c403444"}';
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -19,7 +19,7 @@ $alertlist=$obj -> alertlist;
 if($lang==""){
 	$lang="cn";
 }
-checkuser($ucode,$scode,$ecode,$source);
+//checkuser($ucode,$scode,$ecode,$source);
 
 
 
@@ -42,32 +42,36 @@ $datalist=array();
 $myname="";
 //--------------------------
 
-$sql="select nickname from sensorinfo where id=$scode";
+$sql="select * from sensorinfo where id=$scode";
 $result=mysql_query($sql,$conn); 
 if($row=mysql_fetch_array($result)){
 	$sendername=$row['nickname'];
+	array_push($sendlist,array('receiverid'=> $row['id'],'nickname'=>$row['nickname'],'devicetoken'=>str_replace(" ","",$row['devicetoken']),'language'=>$row['language'],'relation'=>'ME'));
+
+	
 }else{
+	echo json_encode(array('status'=>201,'message'=>'no sender found'));
 	exit();
 }
+//-----------------------把自己添加到发送列表中--------------------------
 
-$sql="select id,nickname,devicetoken,language from sensorinfo  where (id in (select sensorid from familylist where friendid=$scode and delmark=0 and guardian>0) or id=$scode)  and devicetoken <>''";
-echo $sql;
+
+
+$sql="select a.*,b.language from familylist as a, sensorinfo as b where a.becare=1 and a.sensorid=$scode and b.id=a.friendid";
+//echo $sql;
 $result=mysql_query($sql,$conn); 
 while($row=mysql_fetch_array($result)){
-	$sqla="select b." . $row['language'] . "_name as relation from familylist as a, relation as b where sensorid=" . $row['id']. " and friendid=$scode and b.id=a.relation";
-	//echo $sqla;
+	$sqla="select a.id,a.nickname, a.language, a.devicetoken, b.cn_name, b.en_name from sensorinfo as a, relation as b where a.id=" . $row['friendid'] . " and b.id=". $row['relation'] . " and devicetoken <>''";
+	echo $sqla;
 	$resulta=mysql_query($sqla,$conn); 
 	if($rowa=mysql_fetch_array($resulta)){
-		$relation=$rowa['relation'];
-	}else{
-		$relation="";
-		
+		$row['language']=='CN' ? $relation=$rowa['cn_name']:$relation=$rowa['en_name'];
+		array_push($sendlist,array('receiverid'=> $rowa['id'],'nickname'=>$rowa['nickname'],'devicetoken'=>str_replace(" ","",$rowa['devicetoken']),'language'=>$rowa['language'],'relation'=>$relation));
+
 	}
-	array_push($sendlist,array('receiverid'=> $row['id'],'nickname'=>$row['nickname'],'devicetoken'=>str_replace(" ","",$row['devicetoken']),'language'=>$row['language'],'relation'=>$relation));
 }
 
-echo json_encode($sendlist);
-
+//echo json_encode($sendlist);
 
 for($j=0;$j<count($sendlist);$j++){
 	for($i=0;$i<count($alertlist);$i++){
@@ -78,7 +82,7 @@ for($j=0;$j<count($sendlist);$j++){
 		
 		
 		if($sendlist[$j][language]=="EN"){
-			if($sendlist[$j][relation]==""){
+			if($sendlist[$j][relation]=="ME"){
 				$startmsg=$sendlist[$j][nickname] . ", you";
 			}else{
 				$startmsg=$sendlist[$j][nickname]. ", your ".$sendlist[$j][relation]." " .$sendername;
@@ -90,22 +94,22 @@ for($j=0;$j<count($sendlist);$j++){
 				$message=$startmsg ." fall down at $falltime and then press button to cancel the alert.";
 			}
 		}else{
-			if($sendlist[$j][relation]==""){
+			if($sendlist[$j][relation]=="ME"){
 				$startmsg=$sendlist[$j][nickname]. ",您";
 			}else{
-				$startmsg=$sendlist[$j][nickname]. ",您的 ".$sendlist[$j][relation]." " .$sendername;
+				$startmsg=$sendlist[$j][nickname]. ",您的".$sendlist[$j][relation].$sendername;
 			}
 			if($typeid==1){
-				$message=$startmsg ."在 $falltime 跌倒了.";
+				$message=$startmsg ."在" . $falltime . "跌倒了.";
 			}
 			if($typeid==129){
-				$message=$startmsg."在 $falltime 跌倒了，并随后按键取消了跌倒警告.";
+				$message=$startmsg."在" . $falltime . "跌倒了，并随后按键取消了跌倒警告.";
 			}
 		
 		}
 		//echo $message;
 		if($message !=""){
-			popmessage($sendlist[$j][devicetoken],$message);
+			//popmessage($sendlist[$j][devicetoken],$message);
 			array_push($datalist,array('senderid'=>$scode,'receivername'=>$sendlist[$j][nickname],'receiverid'=>$sendlist[$j][receiverid],'devicetoken'=> $sendlist[$j][devicetoken],'status'=>$pmode, 'extinfo'=>$popinfo, 'message' => $message));
 		}
 	}

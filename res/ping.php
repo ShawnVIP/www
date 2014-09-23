@@ -5,7 +5,7 @@ include "dbconnect.php";
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
 //$json_string='{"scode":"279","fcode":"166","ecode":"aaa","source":"w","message":"I ping you at ' . date("Y-m-d H:i:s") . '!"}';
-//$json_string='{"scode":"201","fcode":"1","ecode":"aaa","source":"w","message":"I ping you !"}';
+//$json_string='{"message":"son ping you!","cdate":"2014-09-17 20:09:22","ecode":"HvnTJLSI9tljrWQH","ucode":"sLpKCe4Viw4fjtrZZ6d4kugtEAVeTsWGhcS4","source":"a","scode":"678","devicetoken":"e68582f8 ec44b2e8 bc70f8c6 0da3036d 8d912c01 b1dde03a 36a4b8ba e87cf8f1","fcode":"677"}';
 
 $obj=json_decode($json_string); 
 
@@ -36,13 +36,23 @@ if(! $stmt->fetch()){
 }
 $datalist=array();
 
-//$sql="SELECT  devicetoken  FROM sensorinfo where id=?";
+//---------get been pinger's language------------
+$language="CN";
+$sql="select language from sensorinfo where id=$fcode";
+$result=mysql_query($sql, $conn);
+if($row=mysql_fetch_array($result)){
+	$language=$row['language'];
+}
+//----------get relation name ----------------------
+$sql="SELECT b." . $language . "_name as relname,b.relation FROM familylist as a, relation as b WHERE a.sensorid=$scode and a.friendid=$fcode and b.id=a.relation";
+$result=mysql_query($sql, $conn);
+$row=mysql_fetch_array($result);
+$relname=$row['relname'];
+
+
 $sql="SELECT a.nickname,a.devicetoken,b.nickname as fromname FROM sensorinfo as a, sensorinfo as b where a.id=$fcode and b.id=$scode";
 $result=mysql_query($sql, $conn);
-
-
 $popinfo='';
-
 $pmode=200;
 if($row=mysql_fetch_array($result)){
 	
@@ -50,7 +60,11 @@ if($row=mysql_fetch_array($result)){
 	$devicetoken=$row['devicetoken'];
 	$fromname=$row['fromname'];
 	$devicetoken=str_replace(" ","",$devicetoken);
-	$message="Hi $nickname, your friend $fromname just ping you at $now and leave message:'$message'.";
+	if($language=="CN"){
+		$message="嗨" . $nickname . ", 您的" .$relname .$fromname."刚刚呼叫了你一下。";
+	}else{
+		$message="Hi $nickname, your $relname $fromname just ping you.";
+	}
 	popmessage($devicetoken,$message);
 	echo json_encode(array('status'=>$pmode,'ecode'=>$ecode,'extinfo'=>array('devicetoken'=> $devicetoken, 'message'=> $message,'result'=>$popinfo)));
 	

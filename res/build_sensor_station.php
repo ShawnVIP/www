@@ -94,15 +94,15 @@ function buildSensorStation($scode,$dateList){
 				
 				switch ($i){
 				case 0:
-				 if($ordList[1][position] ==1){$independ=0;}
+				 if($ordList[1][position] ==1 || $ordList[1][position] ==2){$independ=0;}
 				
 				  break;  
 				case count($ordList)-1:
-				  if($ordList[$i-1][position] ==1){$independ=0;}
+				  if($ordList[$i-1][position] ==1 || $ordList[$i-1][position] ==2){$independ=0;}
 				   
 				  break;
 				default:
-				  if($ordList[$i-1][position] ==1 || $ordList[$i+1][position] ==1){$independ=0;}
+				  if($ordList[$i-1][position] ==1 || $ordList[$i+1][position] ==1 || $ordList[$i-1][position] ==2 || $ordList[$i+1][position] ==2){$independ=0;}
 				 
 				}
 				

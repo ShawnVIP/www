@@ -4,8 +4,6 @@ include "build_sensor_station.php";
 
 $json_string=$GLOBALS['HTTP_RAW_POST_DATA'];
 
-//$json_string='{"ucode":"f2026d8c-d99c-4535-2a7b-7ad18c28c4b5","scode":"1","data":[{"stamp":"2013-05-31 13:02","rawdata":[{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30},{"x":0,"y":100,"z":-30}]}],"type":"raw"}';
-
 $obj=json_decode($json_string); 
 
 $ucode=$obj -> ucode;
@@ -56,18 +54,24 @@ $dateList=array();
 for($i=0;$i<count($data);$i++){
 
 	$bdate=date('Y-m-d',strtotime( $data[$i] ->stamp));
-	array_push($dateList,$bdate);
+	$cont=true;
+	for($j=count($dateList)-1;$j>=0;$j--){
+		if($dateList[$j]==$bdate){$cont=false;$j=-1;}
+	}
+	if($cont){array_push($dateList,$bdate);};
 }
 
 
-$dateList=array_unique($dateList);
+//$dateList=array_unique($dateList);
+
 $sqllist=array();
 
 for($i=0;$i<count($dateList);$i++){
+	//echo $scode. "  ->". $dateList[$i] . "<br>";
 	checkValueLib($scode,$dateList[$i]);
 	checkDailyValue($scode,$dateList[$i],1,false);
 	
-	array_push($sqllist,array('currentDay'=>$dateList[$i],'valuelist'=>array()));
+	array_push($sqllist,array('currentDay'=>$dateList[$i],'valuelist'=>array(),'timelist'=>array()));
 }
 
 $statusList=array();
@@ -101,6 +105,7 @@ for($i=0;$i<count($data);$i++){
 	$averagespeed= $data[$i] -> averagespeed;
 	$detectedposition= $data[$i] -> detectedposition;
 	$sleepmode= $data[$i] -> sleepmode;
+	array_push($sqllist[getdateID($dataDay)][timelist],$stime);
 	array_push($sqllist[getdateID($dataDay)][valuelist],array($stime,$calories,$steps,$distance,$move,$sleepmode,$angle,$maxspeed,$minspeed,$averagespeed,$detectedposition, $scode ));
 }
 
@@ -110,23 +115,29 @@ for($i=0;$i<count($sqllist);$i++){
 	$libDate=str_replace("-","",$longDate);
 	//$currentValueLong=count($sqllist[$i][valuelist]);
 	if(count($sqllist[$i][valuelist])>0){
-	$sql="insert into basedata_" . $libDate. " (stime, calories, steps, distance, move, sleepmode, angle, maxspeed, minspeed, averagespeed, detectedposition,sensorid) value ";
-	for($j=0;$j<count($sqllist[$i][valuelist]);$j++){
-		$strs="('" .  implode(",",$sqllist[$i][valuelist][$j]) . ")";
-		$strs=str_replace(":00,",":00',",$strs);
-		if($j==0){
-			$sql .=	$strs; 
-		}else{
-			$sql .=	"," . $strs; 
+		//------------dedupe-----------------------
+		
+		$timelist=implode(",",$sqllist[$i][timelist]);
+		$timelist="'".str_replace(",","','",$timelist) . "'";
+		$sql="delete from basedata_" . $libDate. " where sensorid=$scode and stime in ( $timelist)";
+		$result=mysql_query($sql,$conn);
+		$sql="insert into basedata_" . $libDate. " (stime, calories, steps, distance, move, sleepmode, angle, maxspeed, minspeed, averagespeed, detectedposition,sensorid) value ";
+		for($j=0;$j<count($sqllist[$i][valuelist]);$j++){
+			$strs="('" .  implode(",",$sqllist[$i][valuelist][$j]) . ")";
+			$strs=str_replace(":00,",":00',",$strs);
+			if($j==0){
+				$sql .=	$strs; 
+			}else{
+				$sql .=	"," . $strs; 
+			}
 		}
-	}
-	if($result=mysql_query($sql,$conn)){
-		$extmessage.= $longDate . " be uploaded sucessful."; 
-	} else{
-		$extmessage= $longDate . " be uploaded false."; 
-		echo json_encode(array('status'=>201,'extmessage'=>$extmessage));
-		exit;
-	}
+		if($result=mysql_query($sql,$conn)){
+			$extmessage.= $longDate . " be uploaded sucessful."; 
+		} else{
+			$extmessage= $longDate . " be uploaded false."; 
+			echo json_encode(array('status'=>201,'extmessage'=>$extmessage));
+			exit;
+		}
 	}
 }
 

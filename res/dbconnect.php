@@ -68,12 +68,13 @@ function writeGetUrlInfo($scode)
 
     global $conn;
 	$ndate=date('Y-m-d');
-	$sql="select * from loginfo where ldate='$ndate' and scode=$scode";
+	$sql="select * from loginfo where ldate='$ndate' and scode='$scode'";
 	$result=mysql_query($sql,$conn); 
 	$filename='log_'.date('Y-m-d').'_' . $scode . '.log';
-	if(!$row=mysql_fetch_array($result)){
-		$sql="select * from loginfo where ldate='$ndate' and scode=$scode";
-		$sql="INSERT INTO loginfo (ldate,scode,lname) value ('$ndate',$scode,'$filename')";
+	$nums=mysql_num_rows($result);
+	if($nums==0){
+		$sql="select * from loginfo where ldate='$ndate' and scode='$scode'";
+		$sql="INSERT INTO loginfo (ldate,scode,lname) value ('$ndate','$scode','$filename')";
 		$result=mysql_query($sql,$conn); 
 	}
 	

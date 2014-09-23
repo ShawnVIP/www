@@ -69,7 +69,7 @@ function calcsleeptime($ldate,$scode){
 	人工保存上床时间和起床时间会写入一个标志位。
 	*/
 	//----------------------------分析睡眠数据，从昨天中午12点到今天中午12点-------------------------
-	$sql="select manual from sleepdata where sid=$scode and sdate='$ldate'";
+	$sql="select * from sleepdata where sid=$scode and sdate='$ldate'";
 	$result=mysql_query($sql,$conn);
 	$row=mysql_fetch_array($result);
 	if($row['manual']==0){
@@ -116,10 +116,11 @@ function calcsleeptime($ldate,$scode){
 		if($row=mysql_fetch_array($result)){
 			$startstation=$row['detectedposition'];
 		}
-		if($startstation ==5 || $startstation ==6 ){
+		if($startstation <1 || $startstation >2 ){
 			//---------------往回查找	
 			
-			$sql="select stime from  basedata_" . $tdatesort . " where sensorid=$scode and (detectedposition<5 or detectedposition>6)  and  stime<='07:00:00' order by stime desc limit 0,1";
+			$sql="select stime from  basedata_" . $tdatesort . " where sensorid=$scode and (detectedposition=1 or detectedposition=2)  and  stime<='07:00:00' order by stime desc limit 0,1";
+			//echo $sql;
 			$result=mysql_query($sql,$conn); 
 			if($row=mysql_fetch_array($result)){
 				$totime=date('Y-m-d H:i:s',strtotime($ldate . " " . $row['stime'] . " 5 minute"));	
@@ -129,7 +130,7 @@ function calcsleeptime($ldate,$scode){
 		if($founddata==0){
 				//---------------往后查-----------
 				
-			$sql="select stime from  basedata_" . $tdatesort . " where sensorid=$scode  and stime>='07:00:00' and  stime<='12:00:00' and (detectedposition=5 or detectedposition=6)  order by stime limit 0,1";	
+			$sql="select stime from  basedata_" . $tdatesort . " where sensorid=$scode  and stime>='07:00:00' and  stime<='12:00:00' and (detectedposition<1 or detectedposition>2)  order by stime limit 0,1";	
 			$result=mysql_query($sql,$conn); 
 			if($row=mysql_fetch_array($result)){
 				$totime=$ldate . " " . $row['stime'];	
